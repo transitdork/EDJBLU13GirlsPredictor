@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDJBA U13 Girls – Match Predictor</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --col-a: #e8412a; --col-b: #1a6fc4; --col-c: #1a7a4a; --col-d: #b06a10;
+    --bg-a: rgba(232,65,42,0.12); --bg-b: rgba(26,111,196,0.12);
+    --bg-c: rgba(26,122,74,0.12); --bg-d: rgba(176,106,16,0.12);
+  }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #060d1a 0%, #0a1628 50%, #060d1a 100%);
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #f1f5f9;
+  }
+
+  header {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 28px 32px 24px;
+    text-align: center;
+  }
+  .badge {
+    display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #f97316; background: rgba(249,115,22,0.12);
+    border: 1px solid rgba(249,115,22,0.3); border-radius: 4px;
+    padding: 4px 12px; margin-bottom: 12px; font-family: system-ui, sans-serif;
+  }
+  h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; color: #f8fafc; }
+  .subtitle { font-size: 13px; color: #64748b; font-family: system-ui, sans-serif; }
+
+  .body { padding: 28px 28px 40px; max-width: 680px; margin: 0 auto; }
+
+  /* SELECTORS */
+  .selectors { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+  .vs-tag { font-size: 20px; font-weight: 800; color: #334155; padding-top: 34px; font-family: system-ui, sans-serif; flex-shrink: 0; }
+  .selector-wrap { position: relative; flex: 1; }
+  .selector-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #64748b; margin-bottom: 8px; text-transform: uppercase; font-family: system-ui, sans-serif; }
+
+  .selector-box {
+    background: rgba(255,255,255,0.03);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 12px 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    min-height: 56px; transition: all 0.2s; user-select: none;
+  }
+  .selector-box:hover { border-color: rgba(255,255,255,0.2); }
+  .selector-box.open { border-color: rgba(255,255,255,0.3); }
+  .selector-placeholder { color: #475569; font-size: 14px; font-family: system-ui, sans-serif; }
+  .selector-arrow { color: #475569; font-size: 18px; transition: transform 0.2s; margin-left: 8px; flex-shrink: 0; }
+  .selector-box.open .selector-arrow { transform: rotate(180deg); }
+
+  .sel-info { flex: 1; min-width: 0; }
+  .sel-badges { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
+  .grade-badge {
+    font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 4px;
+    letter-spacing: 0.08em; color: #fff; font-family: system-ui, sans-serif; white-space: nowrap;
+  }
+  .sel-club { color: #f1f5f9; font-weight: 700; font-size: 15px; }
+  .sel-num { color: #94a3b8; font-size: 14px; }
+  .sel-rating { font-size: 12px; color: #64748b; font-family: system-ui, sans-serif; }
+  .sel-rating span { font-weight: 600; }
+  .pos { color: #34d399; } .neg { color: #f87171; }
+
+  /* DROPDOWN */
+  .dropdown {
+    position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 100;
+    background: #0f172a; border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 10px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    display: none;
+  }
+  .dropdown.open { display: block; }
+  .search-wrap { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .search-input {
+    width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px; padding: 8px 12px; color: #f1f5f9; font-size: 13px; outline: none;
+    font-family: system-ui, sans-serif;
+  }
+  .search-input::placeholder { color: #475569; }
+  .dropdown-list { max-height: 320px; overflow-y: auto; }
+  .grade-header {
+    padding: 6px 14px 4px; font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; font-family: system-ui, sans-serif;
+  }
+  .team-option {
+    padding: 9px 14px; cursor: pointer; display: flex; align-items: center;
+    justify-content: space-between; border-left: 3px solid transparent; transition: background 0.1s;
+  }
+  .team-option:hover, .team-option.selected { background: rgba(255,255,255,0.05); }
+  .team-option.selected { border-left-color: var(--grade-color); }
+  .team-option-name { font-weight: 600; font-size: 14px; color: #f1f5f9; }
+  .team-option-num { color: #64748b; font-size: 13px; margin-left: 6px; }
+  .our-club-tag {
+    margin-left: 6px; font-size: 9px; background: #1e3a5f; color: #7ab3f5;
+    padding: 1px 5px; border-radius: 3px; font-weight: 700; letter-spacing: 0.06em;
+    font-family: system-ui, sans-serif;
+  }
+  .team-option-rating { font-size: 12px; font-weight: 600; font-family: system-ui, sans-serif; }
+
+  /* RESULT CARD */
+  .card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 28px 28px 24px; margin-top: 8px;
+  }
+  .result-big { text-align: center; padding: 24px 0 16px; }
+  .result-label { font-size: 13px; color: #64748b; font-family: system-ui, sans-serif; margin-bottom: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .winner-name { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .winner-num { opacity: 0.7; font-size: 22px; }
+  .margin-big { font-size: 58px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-family: system-ui, sans-serif; color: #f8fafc; }
+  .margin-label { font-size: 13px; color: #64748b; margin-top: 6px; font-family: system-ui, sans-serif; }
+  .conf-badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-top: 12px;
+    font-family: system-ui, sans-serif;
+  }
+
+  /* PROBABILITY BAR */
+  .prob-bar-wrap { margin: 28px 0 24px; }
+  .prob-labels { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; font-weight: 700; font-family: system-ui, sans-serif; }
+  .prob-bar { display: flex; height: 14px; border-radius: 7px; overflow: hidden; gap: 2px; }
+  .prob-seg-a { border-radius: 7px 0 0 7px; transition: width 0.6s cubic-bezier(0.4,0,0.2,1); }
+  .prob-seg-b { border-radius: 0 7px 7px 0; transition: width 0.6s cubic-bezier(0.4,0,0.2,1); }
+
+  /* STATS ROW */
+  .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .stat-box {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px; padding: 14px 12px; text-align: center;
+  }
+  .stat-value { font-size: 20px; font-weight: 700; font-family: system-ui, sans-serif; }
+  .stat-label { font-size: 10px; color: #64748b; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.08em; font-family: system-ui, sans-serif; }
+
+  /* TEAM CARDS */
+  .team-compare-row { display: flex; gap: 12px; margin-top: 20px; }
+  .team-stat-card { flex: 1; border-radius: 10px; padding: 14px 16px; min-width: 0; }
+  .rank-bubble {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%; color: #fff;
+    font-size: 11px; font-weight: 800; margin-bottom: 8px; font-family: system-ui, sans-serif;
+  }
+  .team-card-name { font-weight: 700; font-size: 15px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .team-card-num { color: #94a3b8; font-weight: 400; font-size: 13px; }
+  .r3-row { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; font-size: 11px; font-family: system-ui, sans-serif; }
+  .r3-current { color: #64748b; }
+  .r3-arrow { color: #475569; }
+  .r3-forecast { font-weight: 700; }
+  .r3-up { color: #34d399; } .r3-down { color: #f87171; } .r3-same { color: #64748b; }
+  .stat-line { display: flex; justify-content: space-between; font-size: 12px; font-family: system-ui, sans-serif; margin-bottom: 5px; }
+  .stat-line-label { color: #64748b; }
+  .stat-line-val { font-weight: 700; color: #f1f5f9; }
+
+  /* WARNINGS / NOTES */
+  .cross-grade-warn {
+    margin-top: 16px; padding: 12px 16px; background: rgba(249,115,22,0.08);
+    border: 1px solid rgba(249,115,22,0.2); border-radius: 10px;
+    font-size: 12px; color: #fb923c; line-height: 1.6; font-family: system-ui, sans-serif;
+  }
+  .disclaimer {
+    margin-top: 24px; padding: 14px 18px; background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05); border-radius: 10px;
+    font-size: 12px; color: #475569; line-height: 1.6; font-family: system-ui, sans-serif;
+  }
+  .disclaimer strong { color: #64748b; }
+
+  /* EMPTY STATES */
+  .empty-state { text-align: center; color: #334155; padding: 40px 0; font-size: 15px; font-family: system-ui, sans-serif; }
+
+  /* SCROLLBAR */
+  .dropdown-list::-webkit-scrollbar { width: 4px; }
+  .dropdown-list::-webkit-scrollbar-track { background: transparent; }
+  .dropdown-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+  @media (max-width: 520px) {
+    .body { padding: 16px 14px 32px; }
+    .selectors { flex-direction: column; }
+    .vs-tag { padding-top: 0; align-self: center; }
+    .stats-row { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .stat-value { font-size: 16px; }
+    .margin-big { font-size: 44px; }
+    .winner-name { font-size: 22px; }
+    .team-compare-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">EDJBA Winter 2026 · U13 Girls</div>
+  <h1>Match Predictor</h1>
+  <p class="subtitle">Massey strength-of-schedule ratings · Rounds 1 &amp; 2 · 131 teams · 130 games</p>
+</header>
+
+<div class="body">
+  <div class="selectors">
+    <div class="selector-wrap" id="wrap-a">
+      <div class="selector-label">Team A</div>
+      <div class="selector-box" id="box-a" onclick="toggleDropdown('a')">
+        <div class="sel-info" id="sel-a-info"><span class="selector-placeholder">Select a team…</span></div>
+        <span class="selector-arrow">▾</span>
+      </div>
+      <div class="dropdown" id="drop-a">
+        <div class="search-wrap"><input class="search-input" id="search-a" placeholder="Search teams…" oninput="filterDropdown('a')" autocomplete="off"></div>
+        <div class="dropdown-list" id="list-a"></div>
+      </div>
+    </div>
+    <div class="vs-tag">vs</div>
+    <div class="selector-wrap" id="wrap-b">
+      <div class="selector-label">Team B</div>
+      <div class="selector-box" id="box-b" onclick="toggleDropdown('b')">
+        <div class="sel-info" id="sel-b-info"><span class="selector-placeholder">Select a team…</span></div>
+        <span class="selector-arrow">▾</span>
+      </div>
+      <div class="dropdown" id="drop-b">
+        <div class="search-wrap"><input class="search-input" id="search-b" placeholder="Search teams…" oninput="filterDropdown('b')" autocomplete="off"></div>
+        <div class="dropdown-list" id="list-b"></div>
+      </div>
+    </div>
+  </div>
+  <div id="result-area"><div class="empty-state">Select two teams above to generate a match prediction</div></div>
+</div>
+
+<script>
+const GRADE_COLORS = { A:'#e8412a', B:'#1a6fc4', C:'#1a7a4a', D:'#b06a10' };
+const GRADE_BG = { A:'rgba(232,65,42,0.12)', B:'rgba(26,111,196,0.12)', C:'rgba(26,122,74,0.12)', D:'rgba(176,106,16,0.12)' };
+
+const TEAMS = [{"name":"Balwyn U13 Girls 01","club":"Balwyn","num":"01","grade":"A","r3":"A","rating":13.25},{"name":"Balwyn U13 Girls 02","club":"Balwyn","num":"02","grade":"B","r3":"B","rating":12.75},{"name":"Balwyn U13 Girls 03","club":"Balwyn","num":"03","grade":"B","r3":"B","rating":-4.75},{"name":"Balwyn U13 Girls 04","club":"Balwyn","num":"04","grade":"C","r3":"C","rating":-15.25},{"name":"Balwyn U13 Girls 05","club":"Balwyn","num":"05","grade":"C","r3":"C","rating":0.38},{"name":"Balwyn U13 Girls 06","club":"Balwyn","num":"06","grade":"C","r3":"C","rating":11.1},{"name":"Balwyn U13 Girls 07","club":"Balwyn","num":"07","grade":"D","r3":"D","rating":2.5},{"name":"Balwyn U13 Girls 08","club":"Balwyn","num":"08","grade":"D","r3":"D","rating":0.58},{"name":"Balwyn U13 Girls 09","club":"Balwyn","num":"09","grade":"D","r3":"D","rating":-2.42},{"name":"Banyule U13 Girls 01","club":"Banyule","num":"01","grade":"A","r3":"B","rating":-7.75},{"name":"Banyule U13 Girls 02","club":"Banyule","num":"02","grade":"B","r3":"B","rating":3.75},{"name":"Banyule U13 Girls 03","club":"Banyule","num":"03","grade":"C","r3":"C","rating":-16.63},{"name":"Banyule U13 Girls 04","club":"Banyule","num":"04","grade":"D","r3":"D","rating":2.5},{"name":"Banyule U13 Girls 05","club":"Banyule","num":"05","grade":"C","r3":"C","rating":-18.17},{"name":"Banyule U13 Girls 06","club":"Banyule","num":"06","grade":"C","r3":"C","rating":-30.9},{"name":"Banyule U13 Girls 07","club":"Banyule","num":"07","grade":"D","r3":"D","rating":-11.62},{"name":"Banyule U13 Girls 08","club":"Banyule","num":"08","grade":"D","r3":"D","rating":-1.62},{"name":"Banyule U13 Girls 09","club":"Banyule","num":"09","grade":"D","r3":"D","rating":-11.5},{"name":"Banyule U13 Girls 10","club":"Banyule","num":"10","grade":"D","r3":"D","rating":-9.4},{"name":"Blackburn U13 Girls 01","club":"Blackburn","num":"01","grade":"B","r3":"B","rating":-20.0},{"name":"Blackburn U13 Girls 02","club":"Blackburn","num":"02","grade":"B","r3":"B","rating":-29.75},{"name":"Blackburn U13 Girls 03","club":"Blackburn","num":"03","grade":"D","r3":"D","rating":6.38},{"name":"Blackburn U13 Girls 04","club":"Blackburn","num":"04","grade":"C","r3":"C","rating":13.1},{"name":"Blackburn U13 Girls 05","club":"Blackburn","num":"05","grade":"C","r3":"C","rating":-9.9},{"name":"Blackburn U13 Girls 06","club":"Blackburn","num":"06","grade":"D","r3":"D","rating":-11.42},{"name":"Blackburn U13 Girls 07","club":"Blackburn","num":"07","grade":"D","r3":"D","rating":-32.5},{"name":"Bulleen U13 Girls 01","club":"Bulleen","num":"01","grade":"A","r3":"A","rating":27.0},{"name":"Bulleen U13 Girls 02","club":"Bulleen","num":"02","grade":"B","r3":"B","rating":17.0},{"name":"Bulleen U13 Girls 03","club":"Bulleen","num":"03","grade":"B","r3":"B","rating":25.75},{"name":"Bulleen U13 Girls 04","club":"Bulleen","num":"04","grade":"C","r3":"C","rating":-9.0},{"name":"Bulleen U13 Girls 05","club":"Bulleen","num":"05","grade":"B","r3":"B","rating":8.63},{"name":"Bulleen U13 Girls 06","club":"Bulleen","num":"06","grade":"C","r3":"C","rating":-10.0},{"name":"Bulleen U13 Girls 07","club":"Bulleen","num":"07","grade":"C","r3":"B","rating":65.1},{"name":"Bulleen U13 Girls 08","club":"Bulleen","num":"08","grade":"B","r3":"B","rating":-31.25},{"name":"Bulleen U13 Girls 09","club":"Bulleen","num":"09","grade":"C","r3":"C","rating":10.83},{"name":"Bulleen U13 Girls 10","club":"Bulleen","num":"10","grade":"C","r3":"C","rating":-12.9},{"name":"Bulleen U13 Girls 11","club":"Bulleen","num":"11","grade":"C","r3":"C","rating":-5.75},{"name":"Bulleen U13 Girls 12","club":"Bulleen","num":"12","grade":"C","r3":"C","rating":4.25},{"name":"Bulleen U13 Girls 13","club":"Bulleen","num":"13","grade":"D","r3":"D","rating":10.38},{"name":"Bulleen U13 Girls 14","club":"Bulleen","num":"14","grade":"D","r3":"C","rating":41.58},{"name":"Bulleen U13 Girls 15","club":"Bulleen","num":"15","grade":"D","r3":"D","rating":-8.42},{"name":"Collingwood U13 Girls 01","club":"Collingwood","num":"01","grade":"A","r3":"B","rating":-5.17},{"name":"Collingwood U13 Girls 02","club":"Collingwood","num":"02","grade":"B","r3":"B","rating":-0.37},{"name":"Collingwood U13 Girls 03","club":"Collingwood","num":"03","grade":"B","r3":"B","rating":2.75},{"name":"Collingwood U13 Girls 04","club":"Collingwood","num":"04","grade":"C","r3":"B","rating":27.37},{"name":"Collingwood U13 Girls 05","club":"Collingwood","num":"05","grade":"B","r3":"B","rating":5.0},{"name":"Collingwood U13 Girls 06","club":"Collingwood","num":"06","grade":"C","r3":"C","rating":1.25},{"name":"Collingwood U13 Girls 07","club":"Collingwood","num":"07","grade":"D","r3":"D","rating":1.5},{"name":"Collingwood U13 Girls 08","club":"Collingwood","num":"08","grade":"D","r3":"D","rating":5.58},{"name":"Collingwood U13 Girls 09","club":"Collingwood","num":"09","grade":"D","r3":"D","rating":0.5},{"name":"Collingwood U13 Girls 10","club":"Collingwood","num":"10","grade":"D","r3":"D","rating":-48.42},{"name":"Darebin-Giants U13 Girls 01","club":"Darebin-Giants","num":"01","grade":"B","r3":"B","rating":7.25},{"name":"Darebin-Giants U13 Girls 02","club":"Darebin-Giants","num":"02","grade":"B","r3":"B","rating":12.25},{"name":"Darebin-Giants U13 Girls 03","club":"Darebin-Giants","num":"03","grade":"C","r3":"C","rating":25.1},{"name":"Darebin-Giants U13 Girls 04","club":"Darebin-Giants","num":"04","grade":"C","r3":"C","rating":3.75},{"name":"Darebin-Giants U13 Girls 05","club":"Darebin-Giants","num":"05","grade":"D","r3":"D","rating":16.58},{"name":"Doncaster U13 Girls 01","club":"Doncaster","num":"01","grade":"C","r3":"C","rating":-34.9},{"name":"Doncaster U13 Girls 02","club":"Doncaster","num":"02","grade":"D","r3":"D","rating":-18.5},{"name":"Doncaster U13 Girls 03","club":"Doncaster","num":"03","grade":"D","r3":"D","rating":-63.42},{"name":"Doreen-Cougars U13 Girls 01","club":"Doreen-Cougars","num":"01","grade":"B","r3":"A","rating":49.75},{"name":"Doreen-Cougars U13 Girls 02","club":"Doreen-Cougars","num":"02","grade":"B","r3":"B","rating":-1.0},{"name":"Eltham U13 Girls 01","club":"Eltham","num":"01","grade":"A","r3":"A","rating":8.83},{"name":"Eltham U13 Girls 02","club":"Eltham","num":"02","grade":"B","r3":"B","rating":3.5},{"name":"Eltham U13 Girls 03","club":"Eltham","num":"03","grade":"B","r3":"B","rating":24.63},{"name":"Eltham U13 Girls 04","club":"Eltham","num":"04","grade":"B","r3":"B","rating":15.25},{"name":"Eltham U13 Girls 05","club":"Eltham","num":"05","grade":"B","r3":"B","rating":0.62},{"name":"Eltham U13 Girls 06","club":"Eltham","num":"06","grade":"B","r3":"C","rating":-37.25},{"name":"Eltham U13 Girls 07","club":"Eltham","num":"07","grade":"C","r3":"C","rating":-18.0},{"name":"Eltham U13 Girls 08","club":"Eltham","num":"08","grade":"B","r3":"B","rating":-19.83},{"name":"Eltham U13 Girls 09","club":"Eltham","num":"09","grade":"B","r3":"A","rating":35.17},{"name":"Eltham U13 Girls 10","club":"Eltham","num":"10","grade":"B","r3":"B","rating":5.75},{"name":"Eltham U13 Girls 11","club":"Eltham","num":"11","grade":"C","r3":"C","rating":14.1},{"name":"Eltham U13 Girls 12","club":"Eltham","num":"12","grade":"B","r3":"B","rating":-18.0},{"name":"Eltham U13 Girls 13","club":"Eltham","num":"13","grade":"C","r3":"C","rating":-24.9},{"name":"Eltham U13 Girls 14","club":"Eltham","num":"14","grade":"C","r3":"D","rating":-35.9},{"name":"Eltham U13 Girls 15","club":"Eltham","num":"15","grade":"C","r3":"C","rating":24.37},{"name":"Eltham U13 Girls 16","club":"Eltham","num":"16","grade":"C","r3":"C","rating":7.1},{"name":"Eltham U13 Girls 17","club":"Eltham","num":"17","grade":"C","r3":"C","rating":21.25},{"name":"Eltham U13 Girls 18","club":"Eltham","num":"18","grade":"D","r3":"D","rating":11.58},{"name":"Eltham U13 Girls 19","club":"Eltham","num":"19","grade":"D","r3":"D","rating":-21.42},{"name":"Eltham U13 Girls 20","club":"Eltham","num":"20","grade":"D","r3":"D","rating":-22.5},{"name":"Eltham U13 Girls 21","club":"Eltham","num":"21","grade":"D","r3":"D","rating":-8.42},{"name":"Eltham U13 Girls 22","club":"Eltham","num":"22","grade":"D","r3":"D","rating":-8.42},{"name":"Fairfield-Shooters U13 Girls 01","club":"Fairfield-Shooters","num":"01","grade":"D","r3":"D","rating":-6.4},{"name":"Fairfield-Shooters U13 Girls 02","club":"Fairfield-Shooters","num":"02","grade":"D","r3":"D","rating":7.58},{"name":"Hawthorn U13 Girls 01","club":"Hawthorn","num":"01","grade":"B","r3":"B","rating":5.25},{"name":"Hawthorn U13 Girls 02","club":"Hawthorn","num":"02","grade":"B","r3":"B","rating":-19.37},{"name":"Hawthorn U13 Girls 03","club":"Hawthorn","num":"03","grade":"B","r3":"B","rating":9.75},{"name":"Hawthorn U13 Girls 04","club":"Hawthorn","num":"04","grade":"C","r3":"B","rating":34.1},{"name":"Hawthorn U13 Girls 05","club":"Hawthorn","num":"05","grade":"C","r3":"C","rating":6.25},{"name":"Hawthorn U13 Girls 06","club":"Hawthorn","num":"06","grade":"D","r3":"D","rating":15.58},{"name":"Ivanhoe U13 Girls 01","club":"Ivanhoe","num":"01","grade":"A","r3":"A","rating":20.0},{"name":"Ivanhoe U13 Girls 02","club":"Ivanhoe","num":"02","grade":"B","r3":"B","rating":-15.5},{"name":"Ivanhoe U13 Girls 03","club":"Ivanhoe","num":"03","grade":"B","r3":"B","rating":2.25},{"name":"Ivanhoe U13 Girls 04","club":"Ivanhoe","num":"04","grade":"C","r3":"C","rating":-4.0},{"name":"Ivanhoe U13 Girls 05","club":"Ivanhoe","num":"05","grade":"C","r3":"C","rating":-16.62},{"name":"Ivanhoe U13 Girls 06","club":"Ivanhoe","num":"06","grade":"C","r3":"C","rating":-19.17},{"name":"Ivanhoe U13 Girls 07","club":"Ivanhoe","num":"07","grade":"C","r3":"C","rating":14.1},{"name":"Ivanhoe U13 Girls 08","club":"Ivanhoe","num":"08","grade":"C","r3":"D","rating":-40.9},{"name":"Ivanhoe U13 Girls 09","club":"Ivanhoe","num":"09","grade":"D","r3":"D","rating":-11.4},{"name":"Ivanhoe U13 Girls 10","club":"Ivanhoe","num":"10","grade":"D","r3":"D","rating":-8.62},{"name":"Ivanhoe U13 Girls 11","club":"Ivanhoe","num":"11","grade":"D","r3":"C","rating":23.58},{"name":"Ivanhoe U13 Girls 12","club":"Ivanhoe","num":"12","grade":"D","r3":"C","rating":54.58},{"name":"Ivanhoe U13 Girls 13","club":"Ivanhoe","num":"13","grade":"D","r3":"D","rating":21.58},{"name":"Ivanhoe U13 Girls 14","club":"Ivanhoe","num":"14","grade":"D","r3":"D","rating":1.58},{"name":"Koonung U13 Girls 02","club":"Koonung","num":"02","grade":"A","r3":"A","rating":19.83},{"name":"Koonung U13 Girls 03","club":"Koonung","num":"03","grade":"B","r3":"B","rating":11.62},{"name":"Koonung U13 Girls 04","club":"Koonung","num":"04","grade":"B","r3":"C","rating":-32.0},{"name":"Koonung U13 Girls 05","club":"Koonung","num":"05","grade":"B","r3":"B","rating":12.25},{"name":"Koonung U13 Girls 06","club":"Koonung","num":"06","grade":"B","r3":"B","rating":26.17},{"name":"Koonung U13 Girls 07","club":"Koonung","num":"07","grade":"C","r3":"C","rating":26.83},{"name":"Koonung U13 Girls 08","club":"Koonung","num":"08","grade":"C","r3":"D","rating":-35.9},{"name":"Koonung U13 Girls 09","club":"Koonung","num":"09","grade":"C","r3":"C","rating":8.37},{"name":"Koonung U13 Girls 10","club":"Koonung","num":"10","grade":"D","r3":"D","rating":13.58},{"name":"Koonung U13 Girls 11","club":"Koonung","num":"11","grade":"D","r3":"D","rating":-11.4},{"name":"Mitcham U13 Girls 01","club":"Mitcham","num":"01","grade":"D","r3":"D","rating":-24.42},{"name":"Mitcham U13 Girls 02","club":"Mitcham","num":"02","grade":"D","r3":"D","rating":-10.5},{"name":"Mitcham U13 Girls 03","club":"Mitcham","num":"03","grade":"D","r3":"D","rating":0.58},{"name":"Park-Orchards U13 Girls 01","club":"Park-Orchards","num":"01","grade":"C","r3":"C","rating":4.1},{"name":"Park-Orchards U13 Girls 02","club":"Park-Orchards","num":"02","grade":"B","r3":"C","rating":-32.75},{"name":"Park-Orchards U13 Girls 03","club":"Park-Orchards","num":"03","grade":"D","r3":"D","rating":-12.62},{"name":"Pascoe-Vale-Panthers U13 Girls 01","club":"Pascoe-Vale-Panthers","num":"01","grade":"A","r3":"A","rating":8.83},{"name":"Pascoe-Vale-Panthers U13 Girls 02","club":"Pascoe-Vale-Panthers","num":"02","grade":"B","r3":"B","rating":33.0},{"name":"Pascoe-Vale-Panthers U13 Girls 03","club":"Pascoe-Vale-Panthers","num":"03","grade":"B","r3":"B","rating":31.25},{"name":"Pascoe-Vale-Panthers U13 Girls 04","club":"Pascoe-Vale-Panthers","num":"04","grade":"B","r3":"B","rating":-2.25},{"name":"Warrandyte U13 Girls 01","club":"Warrandyte","num":"01","grade":"B","r3":"B","rating":-26.0},{"name":"Warrandyte U13 Girls 02","club":"Warrandyte","num":"02","grade":"C","r3":"C","rating":-5.9},{"name":"Warrandyte U13 Girls 03","club":"Warrandyte","num":"03","grade":"C","r3":"C","rating":-1.75},{"name":"Warrandyte U13 Girls 04","club":"Warrandyte","num":"04","grade":"D","r3":"D","rating":-12.5},{"name":"Yarra-Eagles U13 Girls 01","club":"Yarra-Eagles","num":"01","grade":"B","r3":"B","rating":20.17},{"name":"Yarra-Eagles U13 Girls 02","club":"Yarra-Eagles","num":"02","grade":"D","r3":"D","rating":-17.42}];
+
+const GRADEORDER = {A:0,B:1,C:2,D:3};
+let selectedA = null, selectedB = null;
+
+function winProb(diff) { return Math.round(100 / (1 + Math.exp(-Math.abs(diff) / 12))); }
+function confLabel(d) {
+  if (d < 5)  return { label:'Coin flip',        color:'#94a3b8' };
+  if (d < 15) return { label:'Slight edge',      color:'#f59e0b' };
+  if (d < 30) return { label:'Clear favourite',  color:'#f97316' };
+  if (d < 50) return { label:'Strong favourite', color:'#ef4444' };
+  return             { label:'Heavy favourite',  color:'#dc2626' };
+}
+function ratingStr(r) { return (r >= 0 ? '+' : '') + r.toFixed(2); }
+function gradeRankInfo(team) {
+  const gTeams = TEAMS.filter(t => t.grade === team.grade).sort((a,b) => b.rating - a.rating);
+  const gRank  = gTeams.findIndex(t => t.name === team.name) + 1;
+  const all    = [...TEAMS].sort((a,b) => (GRADEORDER[a.grade]-GRADEORDER[b.grade]) || (b.rating-a.rating));
+  const oRank  = all.findIndex(t => t.name === team.name) + 1;
+  return { gRank, oRank, gTotal: gTeams.length };
+}
+
+/* ── Dropdown rendering ── */
+function buildList(side) {
+  const exclude = side === 'a' ? selectedB : selectedA;
+  const q = document.getElementById('search-' + side).value.toLowerCase();
+  const list = document.getElementById('list-' + side);
+  const filtered = TEAMS.filter(t => t.name !== (exclude && exclude.name) && t.name.toLowerCase().includes(q));
+  const grouped = {A:[],B:[],C:[],D:[]};
+  filtered.forEach(t => grouped[t.grade].push(t));
+
+  let html = '';
+  ['A','B','C','D'].forEach(g => {
+    if (!grouped[g].length) return;
+    const col = GRADE_COLORS[g], bg = GRADE_BG[g];
+    html += `<div class="grade-header" style="color:${col};background:${bg}">${g} Grade — ${grouped[g].length} teams</div>`;
+    grouped[g].forEach(t => {
+      const isSelected = (side==='a' ? selectedA : selectedB) && (side==='a' ? selectedA : selectedB).name === t.name;
+      const ratCol = t.rating >= 0 ? '#34d399' : '#f87171';
+      const ourClub = t.club === 'Collingwood' ? '<span class="our-club-tag">OUR CLUB</span>' : '';
+      html += `<div class="team-option${isSelected?' selected':''}" style="--grade-color:${col}"
+        onclick="selectTeam('${side}','${t.name}')">
+        <div>
+          <span class="team-option-name">${t.club}</span>
+          <span class="team-option-num">Girls ${t.num}</span>
+          ${ourClub}
+        </div>
+        <span class="team-option-rating" style="color:${ratCol}">${ratingStr(t.rating)}</span>
+      </div>`;
+    });
+  });
+  list.innerHTML = html || '<div style="padding:16px;text-align:center;color:#475569;font-family:system-ui,sans-serif;font-size:13px">No teams found</div>';
+}
+
+function toggleDropdown(side) {
+  const box  = document.getElementById('box-' + side);
+  const drop = document.getElementById('drop-' + side);
+  const other = side === 'a' ? 'b' : 'a';
+  // close other
+  document.getElementById('drop-' + other).classList.remove('open');
+  document.getElementById('box-' + other).classList.remove('open');
+  const isOpen = drop.classList.toggle('open');
+  box.classList.toggle('open', isOpen);
+  if (isOpen) {
+    buildList(side);
+    setTimeout(() => document.getElementById('search-' + side).focus(), 50);
+  }
+}
+
+function filterDropdown(side) { buildList(side); }
+
+function selectTeam(side, name) {
+  const team = TEAMS.find(t => t.name === name);
+  if (side === 'a') selectedA = team; else selectedB = team;
+  document.getElementById('drop-' + side).classList.remove('open');
+  document.getElementById('box-' + side).classList.remove('open');
+  document.getElementById('search-' + side).value = '';
+  renderBox(side);
+  renderResult();
+}
+
+function renderBox(side) {
+  const team = side === 'a' ? selectedA : selectedB;
+  const info = document.getElementById('sel-' + side + '-info');
+  const box  = document.getElementById('box-' + side);
+  if (!team) {
+    info.innerHTML = '<span class="selector-placeholder">Select a team…</span>';
+    box.style.background = 'rgba(255,255,255,0.03)';
+    box.style.borderColor = 'rgba(255,255,255,0.1)';
+    return;
+  }
+  const col = GRADE_COLORS[team.grade];
+  box.style.background = GRADE_BG[team.grade];
+  box.style.borderColor = col;
+  const r3badge = team.r3 !== team.grade
+    ? `<span class="grade-badge" style="background:${GRADE_COLORS[team.r3]};opacity:0.85">R3: ${team.r3} ${team.r3 < team.grade ? '↑' : '↓'}</span>`
+    : '';
+  const ratCol = team.rating >= 0 ? '#34d399' : '#f87171';
+  info.innerHTML = `
+    <div class="sel-badges">
+      <span class="grade-badge" style="background:${col}">R2: ${team.grade}</span>
+      ${r3badge}
+      <span class="sel-club">${team.club}</span>
+      <span class="sel-num">Girls ${team.num}</span>
+    </div>
+    <div class="sel-rating">Massey rating: <span style="color:${ratCol}">${ratingStr(team.rating)}</span></div>`;
+}
+
+function renderResult() {
+  const area = document.getElementById('result-area');
+  if (!selectedA && !selectedB) {
+    area.innerHTML = '<div class="empty-state">Select two teams above to generate a match prediction</div>';
+    return;
+  }
+  if (!selectedA || !selectedB) {
+    area.innerHTML = '<div class="empty-state">Select Team ' + (!selectedA ? 'A' : 'B') + ' to see the prediction</div>';
+    return;
+  }
+
+  const tA = selectedA, tB = selectedB;
+  const diff   = tA.rating - tB.rating;
+  const margin = Math.round(Math.abs(diff));
+  const winner = diff > 0 ? tA : diff < 0 ? tB : null;
+  const conf   = confLabel(Math.abs(diff));
+  const wp     = winProb(diff);
+  const aWinPct = diff > 0 ? wp : 100 - wp;
+  const bWinPct = 100 - aWinPct;
+  const colA   = GRADE_COLORS[tA.grade], colB = GRADE_COLORS[tB.grade];
+  const crossGrade = tA.grade !== tB.grade;
+
+  // result section
+  let resultHTML = '';
+  if (margin === 0) {
+    resultHTML = `<div class="result-big">
+      <div class="result-label">Predicted result</div>
+      <div class="margin-big" style="color:#94a3b8">Draw</div>
+      <div class="margin-label">Ratings are identical — too close to call</div>
+    </div>`;
+  } else {
+    resultHTML = `<div class="result-big">
+      <div class="result-label">Predicted winner</div>
+      <div class="winner-name" style="color:${GRADE_COLORS[winner.grade]}">${winner.club} <span class="winner-num">Girls ${winner.num}</span></div>
+      <div class="margin-big">+${margin}</div>
+      <div class="margin-label">estimated point margin</div>
+      <div><span class="conf-badge" style="color:${conf.color};background:${conf.color}18;border:1px solid ${conf.color}44">${conf.label}</span></div>
+    </div>`;
+  }
+
+  // probability bar
+  const barHTML = margin > 0 ? `
+    <div class="prob-bar-wrap">
+      <div class="prob-labels">
+        <span style="color:${aWinPct > bWinPct ? '#f1f5f9' : '#475569'}">${tA.club} ${aWinPct}%</span>
+        <span style="color:${bWinPct > aWinPct ? '#f1f5f9' : '#475569'}">${bWinPct}% ${tB.club}</span>
+      </div>
+      <div class="prob-bar">
+        <div class="prob-seg-a" style="width:${aWinPct}%;background:linear-gradient(90deg,${colA},${colA}cc)"></div>
+        <div class="prob-seg-b" style="width:${bWinPct}%;background:linear-gradient(90deg,${colB}cc,${colB})"></div>
+      </div>
+    </div>` : '';
+
+  // stats row
+  const statsHTML = `<div class="stats-row">
+    <div class="stat-box"><div class="stat-value" style="color:${diff>0?colA:'#64748b'}">${aWinPct}%</div><div class="stat-label">${tA.club} win prob.</div></div>
+    <div class="stat-box"><div class="stat-value">${margin}</div><div class="stat-label">Predicted margin</div></div>
+    <div class="stat-box"><div class="stat-value" style="color:${diff<0?colB:'#64748b'}">${bWinPct}%</div><div class="stat-label">${tB.club} win prob.</div></div>
+  </div>`;
+
+  // team cards
+  function teamCard(team) {
+    const { gRank, oRank, gTotal } = gradeRankInfo(team);
+    const col = GRADE_COLORS[team.grade];
+    const ratCol = team.rating >= 0 ? '#34d399' : '#f87171';
+    const r3cls  = team.r3 < team.grade ? 'r3-up' : team.r3 > team.grade ? 'r3-down' : 'r3-same';
+    const r3arrow = team.r3 < team.grade ? ' ↑' : team.r3 > team.grade ? ' ↓' : '';
+    return `<div class="team-stat-card" style="background:${GRADE_BG[team.grade]};border:1px solid ${col}44">
+      <div class="rank-bubble" style="background:${col}">${team.grade}</div>
+      <div class="team-card-name">${team.club} <span class="team-card-num">Girls ${team.num}</span></div>
+      <div class="r3-row">
+        <span class="r3-current">R2: ${team.grade}</span>
+        <span class="r3-arrow">→</span>
+        <span class="r3-forecast ${r3cls}">R3 forecast: ${team.r3}${r3arrow}</span>
+      </div>
+      <div class="stat-line"><span class="stat-line-label">Massey rating</span><span class="stat-line-val" style="color:${ratCol}">${ratingStr(team.rating)}</span></div>
+      <div class="stat-line"><span class="stat-line-label">R2 grade rank</span><span class="stat-line-val">${gRank} / ${gTotal}</span></div>
+      <div class="stat-line"><span class="stat-line-label">Overall rank</span><span class="stat-line-val">${oRank} / 131</span></div>
+    </div>`;
+  }
+
+  const crossHTML = crossGrade ? `<div class="cross-grade-warn">⚠️ <strong>Cross-grade matchup</strong> — these teams played in different grades in Round 2 (${tA.grade} vs ${tB.grade}). The Massey system can still estimate a margin, but treat this with more caution than a same-grade prediction.</div>` : '';
+
+  area.innerHTML = `<div class="card">
+    ${resultHTML}
+    ${barHTML}
+    ${statsHTML}
+    <div class="team-compare-row">${teamCard(tA)}${teamCard(tB)}</div>
+    ${crossHTML}
+    <div class="disclaimer"><strong>How this works:</strong> The Massey rating system solves a simultaneous equation across all 130 games in Rounds 1 &amp; 2. It chains results — a win over a team that then beats strong opponents is worth more than a win over a weak team. The predicted margin is the raw rating difference. Win probability uses a logistic curve (±12 pts ≈ 70/30). Based on 2 rounds of data only — confidence improves each week.</div>
+  </div>`;
+}
+
+// Close dropdowns on outside click
+document.addEventListener('click', e => {
+  ['a','b'].forEach(side => {
+    if (!document.getElementById('wrap-' + side).contains(e.target)) {
+      document.getElementById('drop-' + side).classList.remove('open');
+      document.getElementById('box-' + side).classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
