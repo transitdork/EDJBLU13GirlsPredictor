@@ -252,6 +252,9 @@ function renderBox(side){
   const rc=t.rating>=0?'#34d399':'#f87171';
   info.innerHTML='<div class="sel-badges"><span class="gbadge" style="background:'+col+'">R2:'+t.grade+'</span>'+r3b+'<span class="sel-club">'+t.club+'</span><span class="sel-num">Girls '+t.num+'</span></div><div class="sel-rat">Massey: <span style="color:'+rc+';font-weight:700">'+rStr(t.rating)+'</span></div>';
 }
+function handleTeamClick(el){
+  selectTeam(el.dataset.side, el.dataset.name);
+}
 function buildList(side){
   const excl=side==='a'?selB:selA,cur=side==='a'?selA:selB;
   const q=document.getElementById('search-'+side).value.toLowerCase();
@@ -262,9 +265,19 @@ function buildList(side){
     if(!grouped[g].length)return;
     html+='<div class="ghdr" style="color:'+GC[g]+';background:'+GB[g]+'">'+g+' Grade &mdash; '+grouped[g].length+' teams</div>';
     grouped[g].forEach(t=>{
-      const isSel=cur&&cur.name===t.name,rc=t.rating>=0?'#34d399':'#f87171';
+      const isSel=cur&&cur.name===t.name;
+      const rc=t.rating>=0?'#34d399':'#f87171';
       const our=t.club==='Collingwood'?'<span class="our-tag">OUR CLUB</span>':'';
-      html+='<div class="topt'+(isSel?' sel':'')+'" style="'+(isSel?'border-left-color:'+GC[g]:'')+'" onclick="selectTeam(''+side+'',''+t.name.replace(/'/g,"\'")+'')">'+'<div><span class="tn">'+t.club+'</span><span class="tnum">Girls '+t.num+'</span>'+our+'</div><span class="trat" style="color:'+rc+'">'+rStr(t.rating)+'</span></div>';
+      const safeName=t.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+      html+='<div class="topt'+(isSel?' sel':'')+'"'
+           +' style="'+(isSel?'border-left-color:'+GC[g]:'')+'"'
+           +' data-side="'+side+'"'
+           +' data-name="'+safeName+'"'
+           +' onclick="handleTeamClick(this)">'
+           +'<div><span class="tn">'+t.club+'</span>'
+           +'<span class="tnum">Girls '+t.num+'</span>'+our+'</div>'
+           +'<span class="trat" style="color:'+rc+'">'+rStr(t.rating)+'</span>'
+           +'</div>';
     });
   });
   document.getElementById('list-'+side).innerHTML=html||'<div style="padding:16px;text-align:center;color:var(--muted);font-size:13px">No teams found</div>';
@@ -485,33 +498,14 @@ function buildShareText(){
     const ht=e.h1f!=null?' HT:'+e.h1f+'-'+e.h1a:'';
     return'R'+e.r+':'+e.res+' '+sc+ht+' vs '+(e.opp||'?').replace(' U13 Girls ',' G');
   }).join(' | ');}
-  let t='🏀 EDJBA Winter 2026 – U13 Girls
-📊 Match Prediction ('+date+')
-
-';
-  if(margin===0){t+=tA.club+' G'+tA.num+' vs '+tB.club+' G'+tB.num+'
-Prediction: TOO CLOSE TO CALL
-';}
-  else{t+=tA.club+' Girls '+tA.num+' (R2:'+tA.grade+') vs '+tB.club+' Girls '+tB.num+' (R2:'+tB.grade+')
-
-🏆 Winner: '+winner.club+' Girls '+winner.num+'
-📈 Margin: +'+margin+' pts ('+c.label+')
-🎯 Win prob: '+tA.club+' '+aW+'% / '+tB.club+' '+bW+'%
-';}
-  t+='
-📋 Form:
-'+tA.club+' G'+tA.num+': '+(fl(eA)||'No data')+'
-'+tB.club+' G'+tB.num+': '+(fl(eB)||'No data')+'
-';
-  t+='
-⚡ Massey: '+tA.club+' '+rStr(tA.rating)+' | '+tB.club+' '+rStr(tB.rating);
-  if(tA.r3!==tA.grade)t+='
-📌 '+tA.club+' G'+tA.num+' R3→'+tA.r3+' '+(tA.r3<tA.grade?'(Promotion ↑)':'(Relegation ↓)');
-  if(tB.r3!==tB.grade)t+='
-📌 '+tB.club+' G'+tB.num+' R3→'+tB.r3+' '+(tB.r3<tB.grade?'(Promotion ↑)':'(Relegation ↓)');
-  t+='
-
-📲 EDJBA Match Predictor – Collingwood All Stars';
+  let t='\uD83C\uDFC0 EDJBA Winter 2026 – U13 Girls\n\uD83D\uDCCA Match Prediction ('+date+')\n\n';
+  if(margin===0){t+=tA.club+' G'+tA.num+' vs '+tB.club+' G'+tB.num+'\nPrediction: TOO CLOSE TO CALL\n';}
+  else{t+=tA.club+' Girls '+tA.num+' (R2:'+tA.grade+') vs '+tB.club+' Girls '+tB.num+' (R2:'+tB.grade+')\n\n\uD83C\uDFC6 Winner: '+winner.club+' Girls '+winner.num+'\n\uD83D\uDCC8 Margin: +'+margin+' pts ('+c.label+')\n\uD83C\uDFAF Win prob: '+tA.club+' '+aW+'% / '+tB.club+' '+bW+'%\n';}
+  t+='\n\uD83D\uDCCB Form:\n'+tA.club+' G'+tA.num+': '+(fl(eA)||'No data')+'\n'+tB.club+' G'+tB.num+': '+(fl(eB)||'No data')+'\n';
+  t+='\n\u26A1 Massey: '+tA.club+' '+rStr(tA.rating)+' | '+tB.club+' '+rStr(tB.rating);
+  if(tA.r3!==tA.grade)t+='\n\uD83D\uDCCC '+tA.club+' G'+tA.num+' R3→'+tA.r3+' '+(tA.r3<tA.grade?'(Promotion ↑)':'(Relegation ↓)');
+  if(tB.r3!==tB.grade)t+='\n\uD83D\uDCCC '+tB.club+' G'+tB.num+' R3→'+tB.r3+' '+(tB.r3<tB.grade?'(Promotion ↑)':'(Relegation ↓)');
+  t+='\n\n\uD83D\uDCF2 EDJBA Match Predictor – Collingwood All Stars';
   return t;
 }
 /* -- Share modal -- */
@@ -533,18 +527,20 @@ async function openShareModal(){
     const emailSubj=encodeURIComponent('EDJBA Match Prediction: '+selA.club+' vs '+selB.club);
     const emailBody=encodeURIComponent(txt);
     let html='';
-    if(canShare){html+='<button class="sopt native" onclick="nativeShare(''+fn+'')"><span class="sopt-icon">&#128228;</span> Share Image (WhatsApp, iMessage, Email&hellip;)</button>';}
+    if(canShare){html+='<button class="sopt native" data-fn="'+fn+'" onclick="nativeShare(this.dataset.fn)"><span class="sopt-icon">&#128228;</span> Share Image (WhatsApp, iMessage, Email&hellip;)</button>';}
     html+='<div class="sopt-row">';
     html+='<a class="sopt wa" href="https://wa.me/?text='+encodeURIComponent(txt)+'" target="_blank"><span class="sopt-icon">&#128241;</span> WhatsApp</a>';
     html+='<a class="sopt imsg" href="sms:?body='+encodeURIComponent(txt)+'" ><span class="sopt-icon">&#128172;</span> iMessage</a>';
     html+='</div><div class="sopt-row">';
     html+='<a class="sopt email" href="mailto:?subject='+emailSubj+'&body='+emailBody+'"><span class="sopt-icon">&#128231;</span> Email</a>';
-    html+='<button class="sopt dl" onclick="downloadImg(''+fn+'')"><span class="sopt-icon">&#11015;&#65039;</span> Save Image</button>';
+    html+='<button class="sopt dl" data-dlname="'+fn+'" onclick="downloadImgBtn(this)"><span class="sopt-icon">&#11015;&#65039;</span> Save Image</button>';
     html+='</div>';
     html+='<button class="sopt copy" style="width:100%" onclick="copyText()"><span class="sopt-icon">&#128203;</span> Copy summary text</button>';
     opts.innerHTML=html;
   }catch(e){opts.innerHTML='<div style="padding:16px;text-align:center;color:#f87171;font-size:13px">Error: '+e.message+'</div>';}
 }
+
+function downloadImgBtn(el){downloadImg(el.dataset.dlname);}
 async function nativeShare(fn){
   if(!generatedBlob)return;
   try{await navigator.share({files:[new File([generatedBlob],fn,{type:'image/png'})],title:'EDJBA Match Prediction'});}catch(e){if(e.name!=='AbortError')console.error(e);}
