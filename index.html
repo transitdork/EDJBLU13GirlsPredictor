@@ -372,6 +372,132 @@ canvas{display:none;}
 .bl-mark{display:inline-block;margin-left:4px;font-size:10px;font-weight:700;color:var(--amber,#d98a00);background:rgba(217,138,0,.14);border:1px solid rgba(217,138,0,.4);border-radius:4px;padding:0 3px;line-height:1.4;cursor:help;vertical-align:middle}
 .bl-legend{font-size:11px;color:var(--muted);margin-top:6px}
 .bl-legend .bl-mark{margin-left:0;margin-right:4px}
+/* ── Grade C1 tab ── */
+.c1-page{padding:14px 14px 90px;overflow-y:auto;height:100%;}
+.c1-section{margin-bottom:22px;}
+.c1-section h3{font-size:15px;color:var(--sky);margin-bottom:8px;letter-spacing:.02em;}
+.c1-matrix{width:100%;border-collapse:collapse;font-size:10px;}
+.c1-matrix th,.c1-matrix td{border:1px solid var(--border);padding:4px 3px;text-align:center;white-space:nowrap;}
+.c1-matrix thead th{background:var(--navy-light);color:var(--sky);font-weight:600;position:sticky;top:0;}
+.c1-matrix tbody th{background:var(--navy-light);color:var(--text);text-align:left;position:sticky;left:0;}
+.c1-matrix .c1-diag{background:rgba(255,255,255,.04);color:var(--muted);}
+.c1-matrix .c1-home-win{background:rgba(26,122,74,.18);color:#bdf2d4;}
+.c1-matrix .c1-away-win{background:rgba(176,106,16,.14);color:#ffe1b3;}
+.c1-matrix .c1-lowconf{outline:1px dashed #f59e0b;}
+.c1-flag{margin-left:3px;color:#f59e0b;}
+.c1-note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;}
+.c1-matrix-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:10px;}
+.c1-ladder-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:640px){.c1-ladder-grid{grid-template-columns:1fr;}}
+.c1-ladder-col h4{font-size:12px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.c1-ladder-table{width:100%;border-collapse:collapse;font-size:12px;}
+.c1-ladder-table th,.c1-ladder-table td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;}
+.c1-ladder-table th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;}
+.c1-ladder-table tr.c1-us{background:rgba(136,96,200,.18);}
+.c1-ladder-table tr.c1-us td{color:#fff;font-weight:600;}
+.c1-team-select-wrap{margin-bottom:10px;}
+#c1-team-select{width:100%;padding:10px;border-radius:8px;background:var(--navy-light);color:var(--text);border:1px solid var(--border-v);font-size:14px;}
+.c1-dd-header h3{color:var(--white);font-size:17px;margin-bottom:6px;}
+.c1-dd-stats{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text);margin-bottom:10px;}
+.c1-dd-stats b{color:var(--sky);}
+.c1-warning{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4);border-radius:8px;padding:8px 10px;font-size:11px;color:#ffe1b3;margin-bottom:10px;}
+.c1-dd-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px;}
+.c1-dd-table th,.c1-dd-table td{padding:5px 6px;border-bottom:1px solid var(--border);text-align:center;}
+.c1-dd-table td:nth-child(2){text-align:left;}
+.c1-dd-table th{color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;}
+.c1-dd-scout{background:var(--navy-light);border-radius:10px;padding:12px;margin-bottom:14px;}
+.c1-dd-scout h4{font-size:12px;color:var(--sky);margin-bottom:6px;}
+.c1-dd-scout p{font-size:12px;line-height:1.6;color:var(--text);}
+.c1-dd-coach{background:rgba(136,96,200,.14);border:1px solid rgba(136,96,200,.35);border-radius:10px;padding:12px;}
+.c1-dd-coach h4{font-size:12px;color:var(--purple-v);margin-bottom:8px;}
+.c1-dd-coach ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;}
+.c1-dd-coach li{font-size:12px;line-height:1.6;color:var(--text);}
+.c1-dd-coach li b{color:#fff;}
+
+/* ── Top-level page/tab structure ── */
+.top-page-wrap{flex:1;overflow:hidden;position:relative;padding-bottom:calc(var(--tab-h) + var(--sab));}
+.top-page{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none;}
+.top-page.active{display:block;}
+#toppage-grading.active{display:flex;flex-direction:column;overflow:hidden;}
+#toppage-grading .page-wrap{flex:1;overflow:hidden;position:relative;padding-bottom:0;}
+
+/* ── Sub-tab bar (inside U13 Girls Grading) ── */
+.sub-tab-bar{
+  position:relative;display:flex;flex:none;
+  background:rgba(8,30,69,.7);border-bottom:1px solid var(--border-v);
+  height:46px;
+}
+.sub-tab{
+  flex:1;height:100%;display:flex;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;border:none;background:transparent;color:var(--muted);
+  transition:color .2s;padding:0;-webkit-tap-highlight-color:transparent;
+}
+.sub-tab .tab-icon{font-size:15px;}
+.sub-tab .tab-label{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.sub-tab.active{color:var(--sky);}
+.sub-tab-indicator{
+  position:absolute;bottom:0;height:2px;
+  background:linear-gradient(90deg,var(--purple),var(--sky-d));
+  transition:left .3s cubic-bezier(.4,0,.2,1),width .3s;
+}
+
+/* ── Weekly Summary tab (newspaper-bulletin style) ── */
+.summary-page{
+  padding:18px 16px 90px;font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;
+}
+.ws-masthead{display:flex;align-items:center;gap:14px;border-bottom:4px solid var(--white);padding-bottom:14px;margin-bottom:16px;}
+.ws-badge-mark{width:44px;height:44px;flex:none;background:var(--white);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.ws-badge-mark svg{width:24px;height:24px;}
+.ws-title{font-weight:800;font-size:22px;color:var(--white);text-transform:uppercase;line-height:1;}
+.ws-the{display:block;font-size:.4em;font-weight:600;letter-spacing:.18em;color:var(--muted);margin-bottom:2px;}
+.ws-sub{font-size:10px;color:var(--muted);letter-spacing:.03em;margin-top:4px;}
+.ws-divider{
+  display:flex;align-items:center;gap:10px;margin:22px 0 14px;color:var(--muted);
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+.ws-divider::before,.ws-divider::after{content:'';flex:1;height:1px;background:var(--border-v);}
+.ws-callout{
+  background:rgba(136,96,200,.18);border-left:4px solid var(--purple-v);
+  padding:12px 14px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.6;color:var(--text);margin-bottom:18px;
+}
+.ws-callout b{color:#fff;}
+.ws-section-title{font-weight:800;font-size:15px;color:var(--white);text-transform:uppercase;margin-bottom:12px;letter-spacing:.02em;}
+.ws-game{border:1px solid var(--border-v);border-radius:10px;margin-bottom:16px;background:rgba(255,255,255,.02);}
+.ws-game-head{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--border);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+.ws-venue{text-align:right;max-width:60%;}
+.ws-score-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 12px 8px;gap:8px;}
+.ws-team{display:flex;flex-direction:column;}
+.ws-team-away{text-align:right;align-items:flex-end;}
+.ws-team-name{font-weight:700;font-size:14px;text-transform:uppercase;color:var(--text);}
+.ws-team-name.ws-us{color:var(--sky);}
+.ws-team-club{font-size:11px;color:var(--muted);}
+.ws-score{font-weight:800;font-size:30px;color:#fff;}
+.ws-sep{color:var(--muted);font-weight:400;font-size:18px;padding:0 4px;}
+.ws-margin-bar{display:flex;height:8px;margin:0 12px 10px;border-radius:4px;overflow:hidden;background:rgba(255,255,255,.08);}
+.ws-stripe{background:linear-gradient(90deg,var(--purple),var(--sky-d));}
+.ws-stripe-bg{background:transparent;}
+.ws-result-line{display:flex;justify-content:space-between;align-items:center;padding:0 12px 10px;font-size:11px;}
+.ws-badge{font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:5px;background:var(--sky);color:var(--navy);font-size:10px;}
+.ws-margin-label{color:var(--muted);}
+.ws-top-scorers{border-top:1px dashed var(--border-v);padding:10px 12px;display:flex;gap:16px;flex-wrap:wrap;font-size:12px;}
+.ws-ts{display:flex;align-items:baseline;gap:6px;}
+.ws-ts b{font-weight:700;font-size:13px;color:#fff;}
+.ws-ts span{color:var(--muted);font-size:11px;}
+.ws-ladder-table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:12px;}
+.ws-ladder-table th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:2px solid var(--border-v);}
+.ws-ladder-table td{padding:8px;border-bottom:1px solid var(--border);}
+.ws-us-row{background:rgba(155,205,243,.12);}
+.ws-us-row td{font-weight:700;color:#fff;}
+.ws-pts{font-weight:800;color:#fff;}
+.ws-wld{color:var(--muted);font-size:11px;}
+.ws-note-box{border:1px dashed var(--border-v);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:20px;}
+.ws-note-box b{color:var(--text);}
+.ws-honour-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.ws-honour{display:flex;align-items:center;gap:14px;padding:14px;background:rgba(155,205,243,.1);border:1px solid var(--border-v);border-radius:10px;margin-bottom:8px;}
+.ws-honour-num{font-weight:800;font-size:38px;color:var(--sky);line-height:1;}
+.ws-honour-text{font-size:13px;line-height:1.5;color:var(--text);}
+.ws-honour-text b{color:#fff;font-weight:700;}
+.ws-footer{margin-top:24px;padding-top:14px;border-top:1px solid var(--border-v);font-size:10px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
 </style>
 
 <script>
@@ -433,7 +559,26 @@ function applyUpdate() {
   </div>
 </header>
 
-<div class="page-wrap">
+<div class="top-page-wrap">
+
+<!-- TOP PAGE: U13 Girls Grading (contains Predictor / Rankings / R6 Fixtures as sub-tabs) -->
+<div class="top-page active" id="toppage-grading">
+  <nav class="sub-tab-bar" id="sub-tab-bar">
+    <div class="sub-tab-indicator" id="sub-tab-ind"></div>
+    <button class="sub-tab active" id="tab-predict" onclick="switchTab('predict')">
+      <span class="tab-icon">&#127936;</span>
+      <span class="tab-label">Predictor</span>
+    </button>
+    <button class="sub-tab" id="tab-table" onclick="switchTab('table')">
+      <span class="tab-icon">&#128200;</span>
+      <span class="tab-label">Rankings</span>
+    </button>
+    <button class="sub-tab" id="tab-fixtures" onclick="switchTab('fixtures')">
+      <span class="tab-icon">&#128197;</span>
+      <span class="tab-label">R6 Fixtures</span>
+    </button>
+  </nav>
+  <div class="page-wrap">
 
   <!-- PAGE 1: Predictor -->
   <div class="page active" id="page-predict">
@@ -562,22 +707,51 @@ function applyUpdate() {
       </div>
     </div>
   </div>
-</div><!-- /page-wrap -->
+  </div><!-- /page-wrap -->
+</div><!-- /toppage-grading -->
 
-<!-- Tab bar -->
+<!-- TOP PAGE: Grade C1 -->
+<div class="top-page" id="toppage-c1">
+  <div class="c1-page" id="page-c1">
+    <div class="c1-section">
+      <h3>&#11088; C1 Forecast Matrix &mdash; Round 7</h3>
+      <div class="c1-matrix-scroll"><div id="c1-matrix-wrap"></div></div>
+    </div>
+    <div class="c1-section">
+      <h3>Ladder</h3>
+      <div id="c1-ladder-wrap"></div>
+    </div>
+    <div class="c1-section">
+      <h3>Team Deep-Dive</h3>
+      <div class="c1-team-select-wrap">
+        <select id="c1-team-select"></select>
+      </div>
+      <div id="c1-deepdive-content"></div>
+    </div>
+  </div>
+</div><!-- /toppage-c1 -->
+
+<!-- TOP PAGE: Weekly Summary -->
+<div class="top-page" id="toppage-summary">
+  <div class="summary-page" id="summary-content"></div>
+</div><!-- /toppage-summary -->
+
+</div><!-- /top-page-wrap -->
+
+<!-- Top-level Tab bar -->
 <nav class="tab-bar" id="tab-bar">
-  <div class="tab-indicator" id="tab-ind"></div>
-  <button class="tab active" id="tab-predict" onclick="switchTab('predict')">
+  <div class="tab-indicator" id="top-tab-ind"></div>
+  <button class="tab active" id="toptab-grading" onclick="switchTopTab('grading')">
     <span class="tab-icon">&#127936;</span>
-    <span class="tab-label">Predictor</span>
+    <span class="tab-label">U13 Girls Grading</span>
   </button>
-  <button class="tab" id="tab-table" onclick="switchTab('table')">
-    <span class="tab-icon">&#128200;</span>
-    <span class="tab-label">Rankings</span>
+  <button class="tab" id="toptab-c1" onclick="switchTopTab('c1')">
+    <span class="tab-icon">&#11088;</span>
+    <span class="tab-label">Grade C1</span>
   </button>
-  <button class="tab" id="tab-fixtures" onclick="switchTab('fixtures')">
-    <span class="tab-icon">&#128197;</span>
-    <span class="tab-label">R6 Fixtures</span>
+  <button class="tab" id="toptab-summary" onclick="switchTopTab('summary')">
+    <span class="tab-icon">&#128240;</span>
+    <span class="tab-label">Weekly Summary</span>
   </button>
 </nav>
 
@@ -707,16 +881,16 @@ function gradeInfo(t){
   return{gr:gt.findIndex(x=>x.name===t.name)+1,or:all.findIndex(x=>x.name===t.name)+1,gt:gt.length};
 }
 
-/* ── Tab switching ── */
+/* ── Sub-tab switching (inside U13 Girls Grading) ── */
 function switchTab(id){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   document.getElementById('page-'+id).classList.add('active');
   // Move indicator
   const tabs=['predict','table','fixtures'];
   const idx=tabs.indexOf(id);
-  const ind=document.getElementById('tab-ind');
+  const ind=document.getElementById('sub-tab-ind');
   ind.style.left=(idx*33.333)+'%';
   ind.style.width='33.333%';
   // Close dropdowns
@@ -727,10 +901,12 @@ function switchTab(id){
   if(id==='table') renderTable();
   if(id==='fixtures') renderFixtures();
 }
-// Init indicator
+// Init indicators
 window.addEventListener('DOMContentLoaded',()=>{
-  const ind=document.getElementById('tab-ind');
-  ind.style.left='0%';ind.style.width='33.333%';
+  const subInd=document.getElementById('sub-tab-ind');
+  subInd.style.left='0%';subInd.style.width='33.333%';
+  const topInd=document.getElementById('top-tab-ind');
+  topInd.style.left='0%';topInd.style.width='33.333%';
 });
 
 /* ── Predictor selector ── */
@@ -1237,6 +1413,297 @@ document.addEventListener('click',e=>{
     }
   });
 });
+
+/* ───────────────────── GRADE C1 + WEEKLY SUMMARY TABS ───────────────────── */
+const C1_TEAMS = [{"name": "Balwyn U13 Girls 05", "club": "Balwyn", "num": "05", "massey_current": 17.56, "massey_placeholder": false, "ladder_points": 15, "ladder_w": 1, "ladder_l": 0, "ladder_d": 0, "ladder_played": 1, "pct": 142.86, "sf": 20, "sa": 14, "players": [{"num": 10, "fn": "Elsie", "ln": "Meldrum", "grading_total": 33, "r7_pts": 12, "r7_fouls": 0, "total": 45, "rank": 1}, {"num": 8, "fn": "Andriana", "ln": "Mackieson", "grading_total": 26, "r7_pts": 1, "r7_fouls": 5, "total": 27, "rank": 2}, {"num": 14, "fn": "Anita", "ln": "Sahely", "grading_total": 18, "r7_pts": 4, "r7_fouls": 1, "total": 22, "rank": 3}, {"num": 77, "fn": "Tara", "ln": "Madani", "grading_total": 17, "r7_pts": 3, "r7_fouls": 4, "total": 20, "rank": 4}, {"num": 22, "fn": "Scarlett", "ln": "Terziovski", "grading_total": 6, "r7_pts": 0, "r7_fouls": 0, "total": 6, "rank": 5}, {"num": 54, "fn": "Diana", "ln": "Dunn", "grading_total": 2, "r7_pts": 0, "r7_fouls": 3, "total": 2, "rank": 6}, {"num": 6, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 7}, {"num": 11, "fn": "Nina", "ln": "Nathoo", "grading_total": 0, "r7_pts": 0, "r7_fouls": 2, "total": 0, "rank": 8}, {"num": 17, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 9}, {"num": 23, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 10}, {"num": 36, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 11}, {"num": 9, "fn": "Aarza", "ln": "Bhatia", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "total": 0, "rank": 12}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(not itemised in PBP)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 13}]}, {"name": "Yarra-Eagles U13 Girls 01", "club": "Yarra-Eagles", "num": "01", "massey_current": 16.85, "massey_placeholder": false, "ladder_points": 11, "ladder_w": 0, "ladder_l": 1, "ladder_d": 0, "ladder_played": 1, "pct": 56.0, "sf": 14, "sa": 25, "players": [{"num": 12, "fn": "Katia", "ln": "D'Amore", "grading_total": 27, "r7_pts": 7, "r7_fouls": 3, "total": 34, "rank": 1}, {"num": 37, "fn": "Portia", "ln": "Cibrasio", "grading_total": 22, "r7_pts": 2, "r7_fouls": 1, "total": 24, "rank": 2}, {"num": 11, "fn": "Jorja", "ln": "Ibrahim", "grading_total": 19, "r7_pts": 2, "r7_fouls": 2, "total": 21, "rank": 3}, {"num": 44, "fn": "Alessia", "ln": "Cianci", "grading_total": 15, "r7_pts": 3, "r7_fouls": 5, "total": 18, "rank": 4}, {"num": 19, "fn": "Chloe", "ln": "Ling", "grading_total": 8, "r7_pts": null, "r7_fouls": null, "total": 8, "rank": 5}, {"num": 65, "fn": "Chiara", "ln": "Dinneen", "grading_total": 6, "r7_pts": 0, "r7_fouls": 3, "total": 6, "rank": 6}, {"num": 40, "fn": "Amelia", "ln": "Bonanni", "grading_total": 2, "r7_pts": 0, "r7_fouls": 1, "total": 2, "rank": 7}, {"num": 15, "fn": "Private", "ln": "player", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 8}, {"num": 9, "fn": "Fill-in", "ln": "Player", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "total": 0, "rank": 9}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(not itemised)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 10}]}, {"name": "Bulleen U13 Girls 08", "club": "Bulleen", "num": "08", "massey_current": 15.89, "massey_placeholder": false, "ladder_points": 14, "ladder_w": 0, "ladder_l": 1, "ladder_d": 0, "ladder_played": 1, "pct": 61.22, "sf": 30, "sa": 49, "players": [{"num": 39, "fn": "Lily", "ln": "Ibrahim", "grading_total": 27, "r7_pts": 11, "r7_fouls": 1, "total": 38, "rank": 1}, {"num": 33, "fn": "Aida", "ln": "Rodrigues", "grading_total": 29, "r7_pts": 8, "r7_fouls": 0, "total": 37, "rank": 2}, {"num": 24, "fn": "Jessica", "ln": "Warzala", "grading_total": 32, "r7_pts": 0, "r7_fouls": 2, "total": 32, "rank": 3}, {"num": 6, "fn": "Isla", "ln": "Rizk", "grading_total": 8, "r7_pts": 5, "r7_fouls": 3, "total": 13, "rank": 4}, {"num": 42, "fn": "Himanshee", "ln": "Prinja", "grading_total": 10, "r7_pts": null, "r7_fouls": null, "total": 10, "rank": 5}, {"num": 30, "fn": "Emmeline", "ln": "Luce", "grading_total": 1, "r7_pts": 6, "r7_fouls": 1, "total": 7, "rank": 6}, {"num": 43, "fn": "Olivia", "ln": "Chan", "grading_total": 5, "r7_pts": 0, "r7_fouls": 1, "total": 5, "rank": 7}, {"num": 1, "fn": "Kayleigh", "ln": "Walker", "grading_total": 4, "r7_pts": 0, "r7_fouls": 1, "total": 4, "rank": 8}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(opening runs, not itemised)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 9}]}, {"name": "Collingwood U13 Girls 05", "club": "Collingwood", "num": "05", "massey_current": 28.85, "massey_placeholder": false, "ladder_points": 14, "ladder_w": 1, "ladder_l": 0, "ladder_d": 0, "ladder_played": 1, "pct": 163.33, "sf": 49, "sa": 30, "players": [{"num": 37, "fn": "Madeleine", "ln": "Clark", "grading_total": 63, "r7_pts": 21, "r7_fouls": 1, "total": 84, "rank": 1}, {"num": 23, "fn": "Lily", "ln": "Home", "grading_total": 32, "r7_pts": 14, "r7_fouls": 0, "total": 46, "rank": 2}, {"num": 13, "fn": "Ada", "ln": "Miller", "grading_total": 25, "r7_pts": 4, "r7_fouls": 1, "total": 29, "rank": 3}, {"num": 17, "fn": "Isabelle", "ln": "Gardiner", "grading_total": 12, "r7_pts": 5, "r7_fouls": 0, "total": 17, "rank": 4}, {"num": 10, "fn": "Saskia", "ln": "Chatergon-Smith", "grading_total": 12, "r7_pts": 0, "r7_fouls": 0, "total": 12, "rank": 5}, {"num": 33, "fn": "Fill-in", "ln": "Player (#33)", "grading_total": 7, "r7_pts": null, "r7_fouls": null, "total": 7, "rank": 6}, {"num": 15, "fn": "Ivy", "ln": "Corr", "grading_total": 2, "r7_pts": 4, "r7_fouls": 2, "total": 6, "rank": 7}, {"num": 6, "fn": "Harriet", "ln": "Wheatley", "grading_total": 4, "r7_pts": 1, "r7_fouls": 1, "total": 5, "rank": 8}, {"num": 11, "fn": "?", "ln": "(foul R3 only)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 9}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(partial periods not itemised)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 10}]}, {"name": "Eltham U13 Girls 06", "club": "Eltham", "num": "06", "massey_current": 16.4, "massey_placeholder": false, "ladder_points": 16, "ladder_w": 1, "ladder_l": 0, "ladder_d": 0, "ladder_played": 1, "pct": 102.94, "sf": 35, "sa": 34, "players": [{"num": 15, "fn": "Zoe", "ln": "van den Berg", "grading_total": 27, "r7_pts": 9, "r7_fouls": 3, "total": 36, "rank": 1}, {"num": 21, "fn": "Charlotte", "ln": "Taylor", "grading_total": 26, "r7_pts": 2, "r7_fouls": 1, "total": 28, "rank": 2}, {"num": 17, "fn": "Emmeline", "ln": "Radici", "grading_total": 18, "r7_pts": 4, "r7_fouls": 1, "total": 22, "rank": 3}, {"num": 26, "fn": "Sienna", "ln": "Todorov", "grading_total": 15, "r7_pts": 6, "r7_fouls": 0, "total": 21, "rank": 4}, {"num": 54, "fn": "Diya", "ln": "Baligar", "grading_total": 13, "r7_pts": 8, "r7_fouls": 1, "total": 21, "rank": 5}, {"num": 51, "fn": "Pippa", "ln": "Testa", "grading_total": 15, "r7_pts": 4, "r7_fouls": 0, "total": 19, "rank": 6}, {"num": 25, "fn": "Ayvah", "ln": "Elkhishin", "grading_total": 8, "r7_pts": 2, "r7_fouls": 1, "total": 10, "rank": 7}, {"num": 18, "fn": "Zoe", "ln": "Peck", "grading_total": 3, "r7_pts": 0, "r7_fouls": 0, "total": 3, "rank": 8}, {"num": 13, "fn": "Isis", "ln": "Fallon", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 9}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(not itemised in PBP)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "total": 0, "rank": 10}]}, {"name": "Darebin-Giants U13 Girls 04", "club": "Darebin-Giants", "num": "04", "massey_current": 17.71, "massey_placeholder": true, "ladder_points": 12, "ladder_w": 0, "ladder_l": 1, "ladder_d": 0, "ladder_played": 1, "pct": 70.0, "sf": 14, "sa": 20, "players": [{"num": 12, "fn": "Olivia", "ln": "Whitehead", "grading_total": 0, "r7_pts": 10, "r7_fouls": 2, "total": 10, "rank": 1}, {"num": 4, "fn": "Albie", "ln": "Boyd-McCaw", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "total": 2, "rank": 2}, {"num": 37, "fn": "Ava", "ln": "Whitehead", "grading_total": 0, "r7_pts": 2, "r7_fouls": 5, "total": 2, "rank": 3}, {"num": 36, "fn": "Crystal", "ln": "Kostopoulos", "grading_total": 0, "r7_pts": 0, "r7_fouls": 1, "total": 0, "rank": 4}, {"num": 41, "fn": "Jana", "ln": "Didic", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "total": 0, "rank": 5}, {"num": 62, "fn": "Henrietta", "ln": "Lourey", "grading_total": 0, "r7_pts": 0, "r7_fouls": 2, "total": 0, "rank": 6}, {"num": 82, "fn": "Ioanna", "ln": "Mitsinikos", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "total": 0, "rank": 7}, {"num": "\u2014", "fn": "Private", "ln": "player", "grading_total": 0, "r7_pts": 0, "r7_fouls": 3, "total": 0, "rank": 8}]}, {"name": "Eltham U13 Girls 07", "club": "Eltham", "num": "07", "massey_current": 20.59, "massey_placeholder": true, "ladder_points": 16, "ladder_w": 1, "ladder_l": 0, "ladder_d": 0, "ladder_played": 1, "pct": 178.57, "sf": 25, "sa": 14, "players": [{"num": 8, "fn": "Ffion", "ln": "Allen", "grading_total": 0, "r7_pts": 6, "r7_fouls": 3, "total": 6, "rank": 1}, {"num": 10, "fn": "Sunny", "ln": "Jones", "grading_total": 0, "r7_pts": 5, "r7_fouls": 3, "total": 5, "rank": 2}, {"num": 33, "fn": "Sophie", "ln": "Carey", "grading_total": 0, "r7_pts": 4, "r7_fouls": 2, "total": 4, "rank": 3}, {"num": 1, "fn": "Vivian", "ln": "Jones", "grading_total": 0, "r7_pts": 2, "r7_fouls": 2, "total": 2, "rank": 4}, {"num": 2, "fn": "Scarlett", "ln": "Aguilar", "grading_total": 0, "r7_pts": 2, "r7_fouls": 1, "total": 2, "rank": 5}, {"num": 5, "fn": "Emily", "ln": "Roberts", "grading_total": 0, "r7_pts": 2, "r7_fouls": 3, "total": 2, "rank": 6}, {"num": 7, "fn": "Evie", "ln": "Davis", "grading_total": 0, "r7_pts": 2, "r7_fouls": 1, "total": 2, "rank": 7}, {"num": 37, "fn": "Frances", "ln": "Overend", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "total": 2, "rank": 8}]}, {"name": "Koonung U13 Girls 07", "club": "Koonung", "num": "07", "massey_current": 18.39, "massey_placeholder": true, "ladder_points": 13, "ladder_w": 0, "ladder_l": 1, "ladder_d": 0, "ladder_played": 1, "pct": 97.14, "sf": 34, "sa": 35, "players": [{"num": 51, "fn": "Ava", "ln": "Cathie", "grading_total": 0, "r7_pts": 8, "r7_fouls": 1, "total": 8, "rank": 1}, {"num": 0, "fn": "Olivia", "ln": "Ngan", "grading_total": 0, "r7_pts": 7, "r7_fouls": 0, "total": 7, "rank": 2}, {"num": 20, "fn": "Aurora", "ln": "Angus", "grading_total": 0, "r7_pts": 7, "r7_fouls": 0, "total": 7, "rank": 3}, {"num": 1, "fn": "Grace", "ln": "Ager", "grading_total": 0, "r7_pts": 4, "r7_fouls": 0, "total": 4, "rank": 4}, {"num": 21, "fn": "Georgina", "ln": "Asenberger", "grading_total": 0, "r7_pts": 4, "r7_fouls": 3, "total": 4, "rank": 5}, {"num": 34, "fn": "Lucia", "ln": "Hone", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "total": 2, "rank": 6}, {"num": 73, "fn": "Samantha", "ln": "Rossely", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "total": 2, "rank": 7}]}];
+const C1_FIXTURES_R7 = [{"home": "Balwyn U13 Girls 05", "away": "Darebin-Giants U13 Girls 04", "score": "20-14"}, {"home": "Bulleen U13 Girls 08", "away": "Collingwood U13 Girls 05", "score": "30-49"}, {"home": "Yarra-Eagles U13 Girls 01", "away": "Eltham U13 Girls 07", "score": "14-25"}, {"home": "Koonung U13 Girls 07", "away": "Eltham U13 Girls 06", "score": "34-35"}];
+const WEEKLY_SUMMARY = {"edition": "Round 7 Edition", "date": "Saturday 20 June", "round_num": "7", "round_of": "1", "callout": "Regular season is live. <b>Collingwood G05 thump Bulleen G08 49\u201330</b> behind a 21-point haul from Madeleine Clark (#37) \u2014 and the ladder gets its first big shake-up: EDJBA's grading-quality points adjustment has landed, reshuffling everyone before a ball was even bounced this round.", "games": [{"time": "10:10 AM", "venue": "Balwyn High School \u00b7 Court 1", "home_short": "Balwyn", "home_full": "U13 Girls 05", "away_short": "Darebin-Giants", "away_full": "U13 Girls 04", "home_score": 20, "away_score": 14, "top_home": {"name": "Elsie Meldrum", "num": 10, "pts": 12}, "top_away": {"name": "Olivia Whitehead", "num": 12, "pts": 10}}, {"time": "5:40 PM", "venue": "Manningham Templestowe Leisure Centre \u00b7 Court 2", "home_short": "Bulleen", "home_full": "U13 Girls 08", "away_short": "Collingwood", "away_full": "U13 Girls 05", "home_score": 30, "away_score": 49, "top_home": {"name": "Lily Ibrahim", "num": 39, "pts": 11}, "top_away": {"name": "Madeleine Clark", "num": 37, "pts": 21}}, {"time": "1:30 PM", "venue": "Marcellin College \u00b7 Court 2", "home_short": "Yarra-Eagles", "home_full": "U13 Girls 01", "away_short": "Eltham G07", "away_full": "U13 Girls 07", "home_score": 14, "away_score": 25, "top_home": {"name": "Katia D'Amore", "num": 12, "pts": 7}, "top_away": {"name": "Ffion Allen", "num": 8, "pts": 6}}, {"time": "11:50 AM", "venue": "Box Hill Senior Secondary College \u00b7 Court 1", "home_short": "Koonung", "home_full": "U13 Girls 07", "away_short": "Eltham G06", "away_full": "U13 Girls 06", "home_score": 34, "away_score": 35, "top_home": {"name": "Ava Cathie", "num": 51, "pts": 8}, "top_away": {"name": "Zoe van den Berg", "num": 15, "pts": 9}}], "ladder": [{"rank": 1, "name": "Eltham U13 Girls 06", "p": 7, "w": 1, "l": 0, "d": 0, "pct": 102.94, "pts": 16, "us": false}, {"rank": 2, "name": "Eltham U13 Girls 07", "p": 7, "w": 1, "l": 0, "d": 0, "pct": 178.57, "pts": 16, "us": false}, {"rank": 3, "name": "Balwyn U13 Girls 05", "p": 7, "w": 1, "l": 0, "d": 0, "pct": 142.86, "pts": 15, "us": false}, {"rank": 4, "name": "Bulleen U13 Girls 08", "p": 7, "w": 0, "l": 1, "d": 0, "pct": 61.22, "pts": 14, "us": false}, {"rank": 5, "name": "Collingwood U13 Girls 05", "p": 7, "w": 1, "l": 0, "d": 0, "pct": 163.33, "pts": 14, "us": true}, {"rank": 6, "name": "Koonung U13 Girls 07", "p": 7, "w": 0, "l": 1, "d": 0, "pct": 97.14, "pts": 13, "us": false}, {"rank": 7, "name": "Darebin-Giants U13 Girls 04", "p": 7, "w": 0, "l": 1, "d": 0, "pct": 70.0, "pts": 12, "us": false}, {"rank": 8, "name": "Yarra-Eagles U13 Girls 01", "p": 7, "w": 0, "l": 1, "d": 0, "pct": 56.0, "pts": 11, "us": false}], "ladder_note": "<b>Why the ladder looks odd after one win:</b> EDJBA applied a one-off points adjustment at the start of the regular season to correct for strength-of-schedule differences during grading (Balwyn \u22122, Eltham G06 \u22121, Collingwood \u22121, Darebin \u22121, Bulleen +1). From Round 7 on, win % is calculated on C1 results only \u2014 grading season scores no longer count toward it. Cross-checked against the official EDJBA ladder: exact match.", "star": {"name": "Madeleine Clark", "num": 37, "pts": 21, "blurb": "drops a game-high 21 points on 10-for-11 shooting inside the arc, with just 1 foul, as Collingwood put 49 on the board against Bulleen \u2014 the biggest win and the biggest individual scoring effort of the round."}, "watchlist_note": "<b>Eltham G07, Koonung G07 and Darebin G04</b> all played grading season in a different grade. Their Massey ratings are placeholders (set to the C1 network average) until each has played 2+ regular season games \u2014 any forecast involving these three carries a low-confidence flag in the Grade C1 tab."};
+
+function c1Result(diff){
+  const margin = Math.round(diff);
+  const wp = Math.round(100/(1+Math.exp(-Math.abs(diff)/12)));
+  return {margin, wp};
+}
+function pname(p){ return `${p.fn} ${p.ln} (#${p.num})`; }
+
+function renderC1Matrix(){
+  const wrap = document.getElementById('c1-matrix-wrap');
+  let html = '<table class="c1-matrix"><thead><tr><th></th>';
+  C1_TEAMS.forEach(t=>{ html += `<th title="${t.name}">${t.club} ${t.num}</th>`; });
+  html += '</tr></thead><tbody>';
+  C1_TEAMS.forEach(home=>{
+    html += `<tr><th>${home.club} ${home.num}</th>`;
+    C1_TEAMS.forEach(away=>{
+      if(home.name===away.name){
+        html += '<td class="c1-diag">—</td>';
+      } else {
+        const diff = home.massey_current - away.massey_current;
+        const r = c1Result(diff);
+        const winner = diff>=0 ? home : away;
+        const lowConf = home.massey_placeholder || away.massey_placeholder;
+        const cls = diff>=0 ? 'c1-home-win' : 'c1-away-win';
+        html += `<td class="${cls}${lowConf?' c1-lowconf':''}" title="${winner.club} ${winner.num} by ~${Math.abs(r.margin)} (${r.wp}% confidence)${lowConf?' — LOW CONFIDENCE (placeholder rating)':''}">`
+              + `${winner.num!==home.num?'@':''}${winner.club.slice(0,3)} +${Math.abs(r.margin)}`
+              + (lowConf?'<span class="c1-flag">⚠</span>':'')
+              + `</td>`;
+      }
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  html += '<p class="c1-note">⚠ = low-confidence prediction (Eltham G07 / Koonung G07 / Darebin G04 — placeholder rating, &lt;2 regular season games played). Cell shows predicted winner and margin.</p>';
+  wrap.innerHTML = html;
+}
+
+function renderC1Ladder(){
+  const wrap = document.getElementById('c1-ladder-wrap');
+  const sorted = [...C1_TEAMS].sort((a,b)=> b.ladder_points-a.ladder_points || b.pct-a.pct || b.sf-a.sf);
+
+  const R1_PAIRS = [
+    ['Balwyn U13 Girls 05','Darebin-Giants U13 Girls 04'],
+    ['Koonung U13 Girls 07','Eltham U13 Girls 06'],
+    ['Yarra-Eagles U13 Girls 01','Eltham U13 Girls 07'],
+    ['Bulleen U13 Girls 08','Collingwood U13 Girls 05'],
+  ];
+  const byName = {}; C1_TEAMS.forEach(t=>byName[t.name]=t);
+  const r1OpponentOf = {};
+  R1_PAIRS.forEach(([a,b])=>{ r1OpponentOf[a]=b; r1OpponentOf[b]=a; });
+
+  function forecastPoints(team){
+    const others = C1_TEAMS.filter(t=>t.name!==team.name);
+    let pts = team.ladder_points;
+    others.forEach(opp=>{
+      const diff = team.massey_current - opp.massey_current;
+      const wp = 100/(1+Math.exp(-Math.abs(diff)/12))/100;
+      pts += wp*3 + (1-wp)*1;
+    });
+    const r1opp = byName[r1OpponentOf[team.name]];
+    if (r1opp){
+      const diff = team.massey_current - r1opp.massey_current;
+      const wp = 100/(1+Math.exp(-Math.abs(diff)/12))/100;
+      pts += wp*3 + (1-wp)*1;
+    }
+    return pts;
+  }
+
+  const forecast = C1_TEAMS.map(t=>({name:t.name, club:t.club, num:t.num, pts: forecastPoints(t)}))
+                            .sort((a,b)=>b.pts-a.pts);
+
+  let html = '<div class="c1-ladder-grid">';
+  html += '<div class="c1-ladder-col"><h4>Current Ladder (after R7)</h4><table class="c1-ladder-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>D</th><th>PTS</th><th>%</th></tr></thead><tbody>';
+  sorted.forEach((t,i)=>{
+    html += `<tr${t.name==='Collingwood U13 Girls 05'?' class="c1-us"':''}><td>${i+1}</td><td>${t.club} U13 Girls ${t.num}</td><td>${7}</td><td>${t.ladder_w}</td><td>${t.ladder_l}</td><td>${t.ladder_d}</td><td><b>${t.ladder_points}</b></td><td>${t.pct.toFixed(2)}%</td></tr>`;
+  });
+  html += '</tbody></table></div>';
+
+  html += '<div class="c1-ladder-col"><h4>Forecast End-of-Season Ladder</h4><table class="c1-ladder-table"><thead><tr><th>#</th><th>Team</th><th>Proj. PTS</th></tr></thead><tbody>';
+  forecast.forEach((t,i)=>{
+    html += `<tr${t.name==='Collingwood U13 Girls 05'?' class="c1-us"':''}><td>${i+1}</td><td>${t.club} U13 Girls ${t.num}</td><td><b>${t.pts.toFixed(1)}</b></td></tr>`;
+  });
+  html += '</tbody></table></div>';
+  html += '</div>';
+  wrap.innerHTML = html;
+}
+
+function c1ScoutingNotes(team){
+  const top = team.players.slice(0,3).map(pname).join(', ');
+  const foulProne = team.players.filter(p=>(p.r7_fouls||0)>=3).map(pname);
+  let notes = `Primary scoring threats so far: ${top}. `;
+  if (foulProne.length){
+    notes += `Foul-prone in R7: ${foulProne.join(', ')} — worth attacking inside and drawing contact. `;
+  }
+  if (team.ladder_w > team.ladder_l) notes += `Won their R7 fixture (${team.ladder_w}-${team.ladder_l} ladder W-L) — building momentum. `;
+  else if (team.ladder_l > 0) notes += `Lost their R7 fixture — vulnerable, especially if pressured early. `;
+  return notes;
+}
+
+function c1CoachingTips(team){
+  const top = team.players.slice(0,3);
+  const lead = top[0];
+  const second = top[1];
+  const foulProne = team.players.filter(p=>(p.r7_fouls||0)>=3).sort((a,b)=>(b.r7_fouls||0)-(a.r7_fouls||0));
+  const lowFoulHighScore = team.players.filter(p=>(p.r7_fouls||0)<=1 && (p.r7_pts||0)>=4);
+
+  const tips = [];
+
+  tips.push(`<b>Contain ${pname(lead)}.</b> She's the clear focal point of their offence — assign your best on-ball defender, deny the catch on the perimeter, and look to double-team early if she gets a head of steam inside.`);
+
+  if (second){
+    tips.push(`<b>Don't sleep on ${pname(second)}.</b> She's their second scoring option — if you load up on ${lead.fn}, expect the ball to find her instead. Keep a help defender aware of her cuts.`);
+  }
+
+  if (foulProne.length){
+    const names = foulProne.slice(0,2).map(pname).join(' and ');
+    tips.push(`<b>Attack the rim against ${names}.</b> They picked up multiple fouls in R7 — driving hard early can put them in foul trouble and force the bench to rotate sooner.`);
+  }
+
+  if (lowFoulHighScore.length){
+    const names = lowFoulHighScore.slice(0,2).map(pname).join(' and ');
+    tips.push(`<b>Be disciplined defending ${names}.</b> They scored well without picking up fouls — don't reach in; stay on your feet and contest with verticality rather than giving up easy free throws.`);
+  }
+
+  if (team.massey_placeholder){
+    tips.push(`<b>Scout with caution.</b> This team's rating is still a placeholder (they moved grade for the regular season) — treat early scouting as provisional and reassess after their next outing.`);
+  } else if (team.massey_current < 18){
+    tips.push(`<b>Push the pace.</b> Their net rating is below the C1 average — transition opportunities and quick ball movement should create good looks before their defence sets.`);
+  } else {
+    tips.push(`<b>Respect their structure.</b> Rated above the C1 average — expect a well-drilled team. Win the hustle stats (rebounds, loose balls) and avoid live-ball turnovers that fuel their transition game.`);
+  }
+
+  return tips.map(t=>`<li>${t}</li>`).join('');
+}
+
+function renderC1DeepDive(teamName){
+  const team = C1_TEAMS.find(t=>t.name===teamName);
+  const wrap = document.getElementById('c1-deepdive-content');
+  if(!team){ wrap.innerHTML=''; return; }
+
+  let rows = '';
+  team.players.forEach(p=>{
+    const gAvg = p.grading_total ? (p.grading_total/6).toFixed(1) : '0.0';
+    const rAvg = (p.r7_pts!=null) ? p.r7_pts.toFixed(1) : '—';
+    rows += `<tr><td>${p.num}</td><td>${p.fn} ${p.ln}</td><td>${p.grading_total}</td><td>${gAvg}</td>`
+          + `<td>${p.r7_pts!=null?p.r7_pts:'—'}</td><td>${rAvg}</td><td>${p.total}</td><td>#${p.rank}</td>`
+          + `<td>${p.r7_fouls!=null?p.r7_fouls:'—'}</td></tr>`;
+  });
+
+  const placeholderNote = team.massey_placeholder
+    ? `<div class="c1-warning">⚠ This team played grading season in a different grade — Massey rating shown is a C1-network-average placeholder, low confidence until 2+ regular season games are played.</div>`
+    : '';
+
+  wrap.innerHTML = `
+    <div class="c1-dd-header">
+      <h3>${team.name}</h3>
+      <div class="c1-dd-stats">
+        <span>Massey (current): <b>${team.massey_current>=0?'+':''}${team.massey_current}</b></span>
+        <span>Ladder: <b>${team.ladder_points} pts</b> (${team.ladder_w}W-${team.ladder_l}L-${team.ladder_d}D)</span>
+        <span>C1-only %: <b>${team.pct.toFixed(2)}%</b></span>
+      </div>
+      ${placeholderNote}
+    </div>
+    <table class="c1-dd-table">
+      <thead><tr><th>#</th><th>Player</th><th>Grading Pts</th><th>Grading Avg</th><th>R7 Pts</th><th>R7 Avg</th><th>Season Total</th><th>Scoring Rank</th><th>R7 Fouls</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="c1-dd-scout">
+      <h4>Scouting Summary</h4>
+      <p>${c1ScoutingNotes(team)}</p>
+    </div>
+    <div class="c1-dd-coach">
+      <h4>Coaching &amp; Playing Tips — How to Beat Them</h4>
+      <ul>${c1CoachingTips(team)}</ul>
+    </div>
+  `;
+}
+
+function renderC1Tab(){
+  renderC1Matrix();
+  renderC1Ladder();
+  const sel = document.getElementById('c1-team-select');
+  if (sel.options.length===0){
+    C1_TEAMS.forEach(t=>{
+      const o = document.createElement('option');
+      o.value = t.name; o.textContent = `${t.club} U13 Girls ${t.num}`;
+      sel.appendChild(o);
+    });
+    sel.value = 'Collingwood U13 Girls 05';
+    sel.addEventListener('change', ()=>renderC1DeepDive(sel.value));
+  }
+  renderC1DeepDive(sel.value || 'Collingwood U13 Girls 05');
+}
+
+/* ───────────────────── WEEKLY SUMMARY TAB ───────────────────── */
+function renderWeeklySummary(){
+  const wrap = document.getElementById('summary-content');
+  if (wrap.dataset.rendered === '1') return;
+  wrap.dataset.rendered = '1';
+
+  const ws = WEEKLY_SUMMARY;
+  let gamesHtml = '';
+  ws.games.forEach(g=>{
+    const winnerIsHome = g.home_score > g.away_score;
+    const margin = Math.abs(g.home_score - g.away_score);
+    const homeCls = winnerIsHome ? 'win' : '';
+    const awayCls = !winnerIsHome ? 'win' : '';
+    const winnerName = winnerIsHome ? g.home_short : g.away_short;
+    const usFlag = (g.home_short==='Collingwood' || g.away_short==='Collingwood');
+    gamesHtml += `
+      <div class="ws-game">
+        <div class="ws-game-head"><span>${g.time}</span><span class="ws-venue">${g.venue}</span></div>
+        <div class="ws-score-row">
+          <div class="ws-team"><span class="ws-team-name${g.home_short==='Collingwood'?' ws-us':''}">${g.home_short}</span><span class="ws-team-club">${g.home_full}</span></div>
+          <div class="ws-score">${g.home_score}<span class="ws-sep">–</span>${g.away_score}</div>
+          <div class="ws-team ws-team-away"><span class="ws-team-name${g.away_short==='Collingwood'?' ws-us':''}">${g.away_short}</span><span class="ws-team-club">${g.away_full}</span></div>
+        </div>
+        <div class="ws-margin-bar"><div class="ws-stripe" style="flex:${Math.max(margin,0.4)}"></div><div class="ws-stripe-bg" style="flex:1"></div></div>
+        <div class="ws-result-line"><span class="ws-badge">${winnerName} win</span><span class="ws-margin-label">Margin: ${margin} pt${margin===1?'':'s'}${margin===Math.max(...ws.games.map(x=>Math.abs(x.home_score-x.away_score)))?' — biggest of the round':''}${margin===Math.min(...ws.games.map(x=>Math.abs(x.home_score-x.away_score)))?" — round's nail-biter":''}</span></div>
+        <div class="ws-top-scorers">
+          <div class="ws-ts"><b>${g.top_home.name} (#${g.top_home.num})</b><span>${g.home_short} · ${g.top_home.pts} pts</span></div>
+          <div class="ws-ts"><b>${g.top_away.name} (#${g.top_away.num})</b><span>${g.away_short} · ${g.top_away.pts} pts</span></div>
+        </div>
+      </div>`;
+  });
+
+  let ladderHtml = '<table class="ws-ladder-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W–L–D</th><th>%</th><th>Pts</th></tr></thead><tbody>';
+  ws.ladder.forEach(t=>{
+    ladderHtml += `<tr${t.us?' class="ws-us-row"':''}><td>${t.rank}</td><td>${t.name}</td><td>${t.p}</td><td class="ws-wld">${t.w}–${t.l}–${t.d}</td><td class="ws-wld">${t.pct.toFixed(2)}</td><td class="ws-pts">${t.pts}</td></tr>`;
+  });
+  ladderHtml += '</tbody></table>';
+
+  wrap.innerHTML = `
+    <div class="ws-masthead">
+      <div class="ws-badge-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.5l3.09 6.26 6.91 1-5 4.87 1.18 6.87L12 17.27l-6.18 3.23L7 13.63l-5-4.87 6.91-1L12 1.5z" fill="currentColor"/></svg>
+      </div>
+      <div>
+        <div class="ws-title"><span class="ws-the">The</span>All-Star Line</div>
+        <div class="ws-sub">${ws.edition} · EDJBA Winter 2026 · Girls U13 · Grade C1 · ${ws.date}</div>
+      </div>
+    </div>
+
+    <div class="ws-divider">REGULAR SEASON · ROUND ${ws.round_of} OF 8</div>
+
+    <div class="ws-callout">${ws.callout}</div>
+
+    <div class="ws-section-title">Match Results — Round ${ws.round_num}</div>
+    ${gamesHtml}
+
+    <div class="ws-divider">THE LADDER</div>
+    <div class="ws-section-title">Grade C1 Standings — After Round ${ws.round_num}</div>
+    ${ladderHtml}
+    <div class="ws-note-box">${ws.ladder_note}</div>
+
+    <div class="ws-honour-label">Star of the Round</div>
+    <div class="ws-honour">
+      <div class="ws-honour-num">${ws.star.pts}</div>
+      <div class="ws-honour-text"><b>${ws.star.name} (#${ws.star.num})</b> ${ws.star.blurb}</div>
+    </div>
+
+    <div class="ws-divider">WATCHLIST</div>
+    <div class="ws-section-title">Flagged for Round ${parseInt(ws.round_num)+1} — Low-Confidence Ratings</div>
+    <div class="ws-note-box">${ws.watchlist_note}</div>
+
+    <div class="ws-footer"><span>The All-Star Line — Collingwood All Stars Basketball Club</span><span>EDJBA Winter 2026 · Girls U13 · Grade C1 · Round ${ws.round_num}</span></div>
+  `;
+}
+
+/* ── Top-level tab switching (3 tabs, with grading sub-tabs) ── */
+function switchTopTab(id){
+  document.querySelectorAll('.top-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.top-page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('toptab-'+id).classList.add('active');
+  document.getElementById('toppage-'+id).classList.add('active');
+  const tabs=['grading','c1','summary'];
+  const idx=tabs.indexOf(id);
+  const ind=document.getElementById('top-tab-ind');
+  ind.style.left=(idx*33.333)+'%';
+  ind.style.width='33.333%';
+  if(id==='c1') renderC1Tab();
+  if(id==='summary') renderWeeklySummary();
+}
+/* expose for inline onclick wiring of inner grading sub-tabs (predict/table/fixtures) */
+/* ─────────────────── END GRADE C1 + WEEKLY SUMMARY TABS ─────────────────── */
+
 </script>
 
 <!-- Update notification banner -->
