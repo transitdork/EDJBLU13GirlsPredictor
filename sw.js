@@ -8,7 +8,7 @@
 //   The app will detect the change and update automatically on next open.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const CACHE_VERSION = 'v4';   // ← CHANGE THIS each time you push a new version
+const CACHE_VERSION = 'v5';   // ← CHANGE THIS each time you push a new version
 const CACHE_NAME    = `edjba-predictor-${CACHE_VERSION}`;
 
 // Files to cache on install
