@@ -372,148 +372,6 @@ canvas{display:none;}
 .bl-mark{display:inline-block;margin-left:4px;font-size:10px;font-weight:700;color:var(--amber,#d98a00);background:rgba(217,138,0,.14);border:1px solid rgba(217,138,0,.4);border-radius:4px;padding:0 3px;line-height:1.4;cursor:help;vertical-align:middle}
 .bl-legend{font-size:11px;color:var(--muted);margin-top:6px}
 .bl-legend .bl-mark{margin-left:0;margin-right:4px}
-/* ── Grade C1 tab ── */
-.c1-page{padding:14px 14px 90px;overflow-y:auto;height:100%;}
-.c1-section{margin-bottom:22px;}
-.c1-section h3{font-size:15px;color:var(--sky);margin-bottom:8px;letter-spacing:.02em;}
-.c1-matrix{width:100%;border-collapse:collapse;font-size:10px;}
-.c1-matrix th,.c1-matrix td{border:1px solid var(--border);padding:4px 3px;text-align:center;white-space:nowrap;}
-.c1-matrix thead th{background:var(--navy-light);color:var(--sky);font-weight:600;position:sticky;top:0;}
-.c1-matrix tbody th{background:var(--navy-light);color:var(--text);text-align:left;position:sticky;left:0;}
-.c1-matrix .c1-diag{background:rgba(255,255,255,.04);color:var(--muted);}
-.c1-matrix .c1-home-win{background:rgba(26,122,74,.18);color:#bdf2d4;}
-.c1-matrix .c1-away-win{background:rgba(176,106,16,.14);color:#ffe1b3;}
-.c1-matrix .c1-lowconf{outline:1px dashed #f59e0b;}
-.c1-flag{margin-left:3px;color:#f59e0b;}
-.c1-note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;}
-.c1-matrix-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:10px;}
-.c1-ladder-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-@media(max-width:640px){.c1-ladder-grid{grid-template-columns:1fr;}}
-.c1-ladder-col h4{font-size:12px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
-.c1-ladder-table{width:100%;border-collapse:collapse;font-size:12px;}
-.c1-ladder-table th,.c1-ladder-table td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;}
-.c1-ladder-table th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;}
-.c1-ladder-table tr.c1-us{background:rgba(136,96,200,.18);}
-.c1-ladder-table tr.c1-us td{color:#fff;font-weight:600;}
-.c1-team-select-wrap{margin-bottom:10px;}
-#c1-team-select{width:100%;padding:10px;border-radius:8px;background:var(--navy-light);color:var(--text);border:1px solid var(--border-v);font-size:14px;}
-.c1-dd-header h3{color:var(--white);font-size:17px;margin-bottom:6px;}
-.c1-dd-stats{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text);margin-bottom:10px;}
-.c1-dd-stats b{color:var(--sky);}
-.c1-warning{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4);border-radius:8px;padding:8px 10px;font-size:11px;color:#ffe1b3;margin-bottom:10px;}
-.c1-dd-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px;}
-.c1-dd-table th,.c1-dd-table td{padding:5px 6px;border-bottom:1px solid var(--border);text-align:center;}
-.c1-dd-table td:nth-child(2){text-align:left;}
-.c1-dd-table th{color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;}
-.c1-dd-scout{background:var(--navy-light);border-radius:10px;padding:12px;margin-bottom:14px;}
-.c1-dd-scout h4{font-size:12px;color:var(--sky);margin-bottom:6px;}
-.c1-dd-scout p{font-size:12px;line-height:1.6;color:var(--text);}
-.c1-dd-coach{background:rgba(136,96,200,.14);border:1px solid rgba(136,96,200,.35);border-radius:10px;padding:12px;}
-.c1-dd-coach h4{font-size:12px;color:var(--purple-v);margin-bottom:8px;}
-.c1-dd-coach ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;}
-.c1-dd-coach li{font-size:12px;line-height:1.6;color:var(--text);}
-.c1-dd-coach li b{color:#fff;}
-
-/* ── Game Day Performance ── */
-.c1-gdp-section{margin-top:16px;background:rgba(26,111,196,.1);border:1px solid rgba(26,111,196,.3);border-radius:10px;padding:14px;}
-.c1-gdp-section h4{font-size:13px;color:var(--sky);margin-bottom:10px;}
-.gdp-baseline{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.4);border-radius:8px;padding:8px 10px;font-size:11px;color:#ffe1b3;margin-bottom:12px;}
-.gdp-gap{background:rgba(106,133,176,.15);border:1px solid rgba(106,133,176,.4);border-radius:8px;padding:8px 10px;font-size:11px;color:var(--text);margin-bottom:12px;}
-.gdp-sub{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 6px;}
-.gdp-fair{font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);font-size:10px;margin-left:6px;}
-.gdp-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:6px;}
-.gdp-table th{color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;padding:5px 6px;border-bottom:1px solid var(--border-v);text-align:center;}
-.gdp-table th:nth-child(2){text-align:left;}
-.gdp-table td{padding:5px 6px;border-bottom:1px solid var(--border);text-align:center;}
-.gdp-table td:nth-child(2){text-align:left;}
-.gdp-pos{color:#8ce0a8;font-weight:600;}
-.gdp-neg{color:#ff9b9b;font-weight:600;}
-.gdp-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:8px;font-style:italic;}
-
-/* ── Top-level page/tab structure ── */
-.top-page-wrap{flex:1;overflow:hidden;position:relative;padding-bottom:calc(var(--tab-h) + var(--sab));}
-.top-page{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none;}
-.top-page.active{display:block;}
-#toppage-grading.active{display:flex;flex-direction:column;overflow:hidden;}
-#toppage-grading .page-wrap{flex:1;overflow:hidden;position:relative;padding-bottom:0;}
-
-/* ── Sub-tab bar (inside U13 Girls Grading) ── */
-.sub-tab-bar{
-  position:relative;display:flex;flex:none;
-  background:rgba(8,30,69,.7);border-bottom:1px solid var(--border-v);
-  height:46px;
-}
-.sub-tab{
-  flex:1;height:100%;display:flex;align-items:center;justify-content:center;gap:6px;
-  cursor:pointer;border:none;background:transparent;color:var(--muted);
-  transition:color .2s;padding:0;-webkit-tap-highlight-color:transparent;
-}
-.sub-tab .tab-icon{font-size:15px;}
-.sub-tab .tab-label{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
-.sub-tab.active{color:var(--sky);}
-.sub-tab-indicator{
-  position:absolute;bottom:0;height:2px;
-  background:linear-gradient(90deg,var(--purple),var(--sky-d));
-  transition:left .3s cubic-bezier(.4,0,.2,1),width .3s;
-}
-
-/* ── Weekly Summary tab (newspaper-bulletin style) ── */
-.summary-page{
-  padding:18px 16px 90px;font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;
-}
-.ws-masthead{display:flex;align-items:center;gap:14px;border-bottom:4px solid var(--white);padding-bottom:14px;margin-bottom:16px;}
-.ws-badge-mark{width:44px;height:44px;flex:none;background:var(--white);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.ws-badge-mark svg{width:24px;height:24px;}
-.ws-title{font-weight:800;font-size:22px;color:var(--white);text-transform:uppercase;line-height:1;}
-.ws-the{display:block;font-size:.4em;font-weight:600;letter-spacing:.18em;color:var(--muted);margin-bottom:2px;}
-.ws-sub{font-size:10px;color:var(--muted);letter-spacing:.03em;margin-top:4px;}
-.ws-divider{
-  display:flex;align-items:center;gap:10px;margin:22px 0 14px;color:var(--muted);
-  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-}
-.ws-divider::before,.ws-divider::after{content:'';flex:1;height:1px;background:var(--border-v);}
-.ws-callout{
-  background:rgba(136,96,200,.18);border-left:4px solid var(--purple-v);
-  padding:12px 14px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.6;color:var(--text);margin-bottom:18px;
-}
-.ws-callout b{color:#fff;}
-.ws-section-title{font-weight:800;font-size:15px;color:var(--white);text-transform:uppercase;margin-bottom:12px;letter-spacing:.02em;}
-.ws-game{border:1px solid var(--border-v);border-radius:10px;margin-bottom:16px;background:rgba(255,255,255,.02);}
-.ws-game-head{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--border);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
-.ws-venue{text-align:right;max-width:60%;}
-.ws-score-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 12px 8px;gap:8px;}
-.ws-team{display:flex;flex-direction:column;}
-.ws-team-away{text-align:right;align-items:flex-end;}
-.ws-team-name{font-weight:700;font-size:14px;text-transform:uppercase;color:var(--text);}
-.ws-team-name.ws-us{color:var(--sky);}
-.ws-team-club{font-size:11px;color:var(--muted);}
-.ws-score{font-weight:800;font-size:30px;color:#fff;}
-.ws-sep{color:var(--muted);font-weight:400;font-size:18px;padding:0 4px;}
-.ws-margin-bar{display:flex;height:8px;margin:0 12px 10px;border-radius:4px;overflow:hidden;background:rgba(255,255,255,.08);}
-.ws-stripe{background:linear-gradient(90deg,var(--purple),var(--sky-d));}
-.ws-stripe-bg{background:transparent;}
-.ws-result-line{display:flex;justify-content:space-between;align-items:center;padding:0 12px 10px;font-size:11px;}
-.ws-badge{font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:5px;background:var(--sky);color:var(--navy);font-size:10px;}
-.ws-margin-label{color:var(--muted);}
-.ws-top-scorers{border-top:1px dashed var(--border-v);padding:10px 12px;display:flex;gap:16px;flex-wrap:wrap;font-size:12px;}
-.ws-ts{display:flex;align-items:baseline;gap:6px;}
-.ws-ts b{font-weight:700;font-size:13px;color:#fff;}
-.ws-ts span{color:var(--muted);font-size:11px;}
-.ws-ladder-table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:12px;}
-.ws-ladder-table th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:2px solid var(--border-v);}
-.ws-ladder-table td{padding:8px;border-bottom:1px solid var(--border);}
-.ws-us-row{background:rgba(155,205,243,.12);}
-.ws-us-row td{font-weight:700;color:#fff;}
-.ws-pts{font-weight:800;color:#fff;}
-.ws-wld{color:var(--muted);font-size:11px;}
-.ws-note-box{border:1px dashed var(--border-v);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:20px;}
-.ws-note-box b{color:var(--text);}
-.ws-honour-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
-.ws-honour{display:flex;align-items:center;gap:14px;padding:14px;background:rgba(155,205,243,.1);border:1px solid var(--border-v);border-radius:10px;margin-bottom:8px;}
-.ws-honour-num{font-weight:800;font-size:38px;color:var(--sky);line-height:1;}
-.ws-honour-text{font-size:13px;line-height:1.5;color:var(--text);}
-.ws-honour-text b{color:#fff;font-weight:700;}
-.ws-footer{margin-top:24px;padding-top:14px;border-top:1px solid var(--border-v);font-size:10px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
 </style>
 
 <script>
@@ -571,30 +429,11 @@ function applyUpdate() {
   <div class="htxt">
     <div class="heyebrow">EDJBA Winter 2026 &middot; U13 Girls</div>
     <div class="htitle">Match Predictor</div>
-    <div class="hsub">Massey ratings &middot; Rounds 1&ndash;6 (grading complete) &middot; 130 teams &middot; 390 games</div>
+    <div class="hsub">Massey ratings &middot; Grading R1&ndash;6 + C1 regular season R7&ndash;R9 &middot; 130 teams</div>
   </div>
 </header>
 
-<div class="top-page-wrap">
-
-<!-- TOP PAGE: U13 Girls Grading (contains Predictor / Rankings / R6 Fixtures as sub-tabs) -->
-<div class="top-page active" id="toppage-grading">
-  <nav class="sub-tab-bar" id="sub-tab-bar">
-    <div class="sub-tab-indicator" id="sub-tab-ind"></div>
-    <button class="sub-tab active" id="tab-predict" onclick="switchTab('predict')">
-      <span class="tab-icon">&#127936;</span>
-      <span class="tab-label">Predictor</span>
-    </button>
-    <button class="sub-tab" id="tab-table" onclick="switchTab('table')">
-      <span class="tab-icon">&#128200;</span>
-      <span class="tab-label">Rankings</span>
-    </button>
-    <button class="sub-tab" id="tab-fixtures" onclick="switchTab('fixtures')">
-      <span class="tab-icon">&#128197;</span>
-      <span class="tab-label">R6 Fixtures</span>
-    </button>
-  </nav>
-  <div class="page-wrap">
+<div class="page-wrap">
 
   <!-- PAGE 1: Predictor -->
   <div class="page active" id="page-predict">
@@ -723,51 +562,40 @@ function applyUpdate() {
       </div>
     </div>
   </div>
-  </div><!-- /page-wrap -->
-</div><!-- /toppage-grading -->
 
-<!-- TOP PAGE: Grade C1 -->
-<div class="top-page" id="toppage-c1">
-  <div class="c1-page" id="page-c1">
-    <div class="c1-section">
-      <h3>&#11088; C1 Forecast Matrix &mdash; Round 7</h3>
-      <div class="c1-matrix-scroll"><div id="c1-matrix-wrap"></div></div>
-    </div>
-    <div class="c1-section">
-      <h3>Ladder</h3>
-      <div id="c1-ladder-wrap"></div>
-    </div>
-    <div class="c1-section">
-      <h3>Team Deep-Dive</h3>
-      <div class="c1-team-select-wrap">
-        <select id="c1-team-select"></select>
+  <!-- PAGE 4: Grade C1 -->
+  <div class="page" id="page-c1">
+    <div class="table-body">
+      <div class="table-controls" style="gap:10px;">
+        <span class="ctrl-label">Grade C1 &mdash; after R9 &middot; R10&ndash;14 to play</span>
+        <button class="gf-btn active" id="c1v-ladder" onclick="setC1View('ladder')">Ladder</button>
+        <button class="gf-btn" id="c1v-matrix" onclick="setC1View('matrix')">Matrix</button>
+        <button class="gf-btn" id="c1v-fix" onclick="setC1View('fix')">Fixtures</button>
+        <button class="gf-btn" id="c1v-deep" onclick="setC1View('deep')">Deep-Dive</button>
       </div>
-      <div id="c1-deepdive-content"></div>
+      <div class="table-scroll" id="c1-scroll"><div id="c1-content"></div></div>
     </div>
   </div>
-</div><!-- /toppage-c1 -->
+</div><!-- /page-wrap -->
 
-<!-- TOP PAGE: Weekly Summary -->
-<div class="top-page" id="toppage-summary">
-  <div class="summary-page" id="summary-content"></div>
-</div><!-- /toppage-summary -->
-
-</div><!-- /top-page-wrap -->
-
-<!-- Top-level Tab bar -->
+<!-- Tab bar -->
 <nav class="tab-bar" id="tab-bar">
-  <div class="tab-indicator" id="top-tab-ind"></div>
-  <button class="tab active" id="toptab-grading" onclick="switchTopTab('grading')">
+  <div class="tab-indicator" id="tab-ind"></div>
+  <button class="tab active" id="tab-predict" onclick="switchTab('predict')">
     <span class="tab-icon">&#127936;</span>
-    <span class="tab-label">U13 Girls Grading</span>
+    <span class="tab-label">Predictor</span>
   </button>
-  <button class="tab" id="toptab-c1" onclick="switchTopTab('c1')">
-    <span class="tab-icon">&#11088;</span>
+  <button class="tab" id="tab-table" onclick="switchTab('table')">
+    <span class="tab-icon">&#128200;</span>
+    <span class="tab-label">Rankings</span>
+  </button>
+  <button class="tab" id="tab-fixtures" onclick="switchTab('fixtures')">
+    <span class="tab-icon">&#128197;</span>
+    <span class="tab-label">R6 Fixtures</span>
+  </button>
+  <button class="tab" id="tab-c1" onclick="switchTab('c1')">
+    <span class="tab-icon">&#127942;</span>
     <span class="tab-label">Grade C1</span>
-  </button>
-  <button class="tab" id="toptab-summary" onclick="switchTopTab('summary')">
-    <span class="tab-icon">&#128240;</span>
-    <span class="tab-label">Weekly Summary</span>
   </button>
 </nav>
 
@@ -897,18 +725,117 @@ function gradeInfo(t){
   return{gr:gt.findIndex(x=>x.name===t.name)+1,or:all.findIndex(x=>x.name===t.name)+1,gt:gt.length};
 }
 
-/* ── Sub-tab switching (inside U13 Girls Grading) ── */
+/* ── Tab switching ── */
+
+/* ── GRADE C1 TAB ── */
+const C1DATA={"ladder": [{"rank": 1, "team": "Eltham U13 Girls 07", "played": 9, "points": 22, "percentage": 139.39, "won": 6, "lost": 2, "drawn": 1, "for": 92, "against": 66, "adjustment": 0, "short": "Eltham G07", "massey": 7.69, "proj": 34.9, "expRem": 12.9, "remOpps": ["R10 A Darebin G04 (93%)", "R11 H Bulleen G08 (88%)", "R12 H Collingwood G05 (43%)", "R13 H Balwyn G05 (84%)", "R14 A Yarra-Eagles G01 (85%)"]}, {"rank": 2, "team": "Collingwood U13 Girls 05", "played": 9, "points": 20, "percentage": 144.29, "won": 6, "lost": 3, "drawn": 0, "for": 101, "against": 70, "adjustment": -1, "short": "Collingwood G05", "massey": 9.37, "proj": 33.4, "expRem": 13.4, "remOpps": ["R10 H Koonung G07 (89%)", "R11 A Darebin G04 (95%)", "R12 A Eltham G07 (57%)", "R13 H Yarra-Eagles G01 (88%)", "R14 A Bulleen G08 (90%)"]}, {"rank": 3, "team": "Bulleen U13 Girls 08", "played": 9, "points": 20, "percentage": 90.2, "won": 5, "lost": 4, "drawn": 0, "for": 92, "against": 102, "adjustment": 1, "short": "Bulleen G08", "massey": -3.99, "proj": 27.7, "expRem": 7.7, "remOpps": ["R10 H Yarra-Eagles G01 (45%)", "R11 A Eltham G07 (12%)", "R12 A Balwyn G05 (42%)", "R13 H Eltham G06 (23%)", "R14 H Collingwood G05 (10%)"]}, {"rank": 4, "team": "Eltham U13 Girls 06", "played": 9, "points": 18, "percentage": 95.29, "won": 5, "lost": 4, "drawn": 0, "for": 81, "against": 85, "adjustment": -1, "short": "Eltham G06", "massey": 3.23, "proj": 30.7, "expRem": 12.7, "remOpps": ["R10 A Balwyn G05 (71%)", "R11 A Yarra-Eagles G01 (73%)", "R12 H Darebin G04 (87%)", "R13 A Bulleen G08 (77%)", "R14 A Koonung G07 (75%)"]}, {"rank": 5, "team": "Balwyn U13 Girls 05", "played": 9, "points": 17, "percentage": 92.96, "won": 5, "lost": 4, "drawn": 0, "for": 66, "against": 71, "adjustment": -2, "short": "Balwyn G05", "massey": -2.14, "proj": 26.6, "expRem": 9.6, "remOpps": ["R10 H Eltham G06 (29%)", "R11 A Koonung G07 (55%)", "R12 H Bulleen G08 (58%)", "R13 A Eltham G07 (16%)", "R14 H Darebin G04 (73%)"]}, {"rank": 6, "team": "Yarra-Eagles U13 Girls 01", "played": 9, "points": 17, "percentage": 92.21, "won": 4, "lost": 5, "drawn": 0, "for": 71, "against": 77, "adjustment": 0, "short": "Yarra-Eagles G01", "massey": -2.81, "proj": 25.2, "expRem": 8.2, "remOpps": ["R10 A Bulleen G08 (55%)", "R11 H Eltham G06 (27%)", "R12 H Koonung G07 (52%)", "R13 A Collingwood G05 (12%)", "R14 H Eltham G07 (15%)"]}, {"rank": 7, "team": "Koonung U13 Girls 07", "played": 9, "points": 15, "percentage": 84.4, "won": 3, "lost": 6, "drawn": 0, "for": 92, "against": 109, "adjustment": 0, "short": "Koonung G07", "massey": -3.36, "proj": 23.9, "expRem": 8.9, "remOpps": ["R10 A Collingwood G05 (11%)", "R11 H Balwyn G05 (45%)", "R12 A Yarra-Eagles G01 (48%)", "R13 H Darebin G04 (68%)", "R14 H Eltham G06 (25%)"]}, {"rank": 8, "team": "Darebin-Giants U13 Girls 04", "played": 9, "points": 14, "percentage": 80.26, "won": 3, "lost": 6, "drawn": 0, "for": 61, "against": 76, "adjustment": -1, "short": "Darebin G04", "massey": -7.98, "proj": 20.7, "expRem": 6.7, "remOpps": ["R10 H Eltham G07 (7%)", "R11 H Collingwood G05 (5%)", "R12 A Eltham G06 (13%)", "R13 A Koonung G07 (32%)", "R14 A Balwyn G05 (27%)"]}], "fcOrder": ["Eltham G07", "Collingwood G05", "Eltham G06", "Bulleen G08", "Balwyn G05", "Yarra-Eagles G01", "Koonung G07", "Darebin G04"], "order": ["Eltham G07", "Collingwood G05", "Bulleen G08", "Eltham G06", "Balwyn G05", "Yarra-Eagles G01", "Koonung G07", "Darebin G04"], "full": ["Eltham U13 Girls 07", "Collingwood U13 Girls 05", "Bulleen U13 Girls 08", "Eltham U13 Girls 06", "Balwyn U13 Girls 05", "Yarra-Eagles U13 Girls 01", "Koonung U13 Girls 07", "Darebin-Giants U13 Girls 04"], "matrix": [[null, {"t": "fc", "p": 43, "r": 12, "ha": "H"}, {"t": "fc", "p": 88, "r": 11, "ha": "H"}, {"t": "played", "sf": 25, "sa": 24, "r": 8}, {"t": "fc", "p": 84, "r": 13, "ha": "H"}, {"t": "played", "sf": 25, "sa": 14, "r": 7}, {"t": "played", "sf": 42, "sa": 28, "r": 9}, {"t": "fc", "p": 93, "r": 10, "ha": "A"}], [{"t": "fc", "p": 57, "r": 12, "ha": "A"}, null, {"t": "played", "sf": 49, "sa": 30, "r": 7}, {"t": "played", "sf": 26, "sa": 22, "r": 9}, {"t": "played", "sf": 26, "sa": 18, "r": 8}, {"t": "fc", "p": 88, "r": 13, "ha": "H"}, {"t": "fc", "p": 89, "r": 10, "ha": "H"}, {"t": "fc", "p": 95, "r": 11, "ha": "A"}], [{"t": "fc", "p": 12, "r": 11, "ha": "A"}, {"t": "played", "sf": 30, "sa": 49, "r": 7}, null, {"t": "fc", "p": 23, "r": 13, "ha": "H"}, {"t": "fc", "p": 42, "r": 12, "ha": "A"}, {"t": "fc", "p": 45, "r": 10, "ha": "H"}, {"t": "played", "sf": 32, "sa": 30, "r": 8}, {"t": "played", "sf": 30, "sa": 23, "r": 9}], [{"t": "played", "sf": 24, "sa": 25, "r": 8}, {"t": "played", "sf": 22, "sa": 26, "r": 9}, {"t": "fc", "p": 77, "r": 13, "ha": "A"}, null, {"t": "fc", "p": 71, "r": 10, "ha": "A"}, {"t": "fc", "p": 73, "r": 11, "ha": "A"}, {"t": "played", "sf": 35, "sa": 34, "r": 7}, {"t": "fc", "p": 87, "r": 12, "ha": "H"}], [{"t": "fc", "p": 16, "r": 13, "ha": "A"}, {"t": "played", "sf": 18, "sa": 26, "r": 8}, {"t": "fc", "p": 58, "r": 12, "ha": "H"}, {"t": "fc", "p": 29, "r": 10, "ha": "H"}, null, {"t": "played", "sf": 28, "sa": 31, "r": 9}, {"t": "fc", "p": 55, "r": 11, "ha": "A"}, {"t": "played", "sf": 20, "sa": 14, "r": 7}], [{"t": "played", "sf": 14, "sa": 25, "r": 7}, {"t": "fc", "p": 12, "r": 13, "ha": "A"}, {"t": "fc", "p": 55, "r": 10, "ha": "A"}, {"t": "fc", "p": 27, "r": 11, "ha": "H"}, {"t": "played", "sf": 31, "sa": 28, "r": 9}, null, {"t": "fc", "p": 52, "r": 12, "ha": "H"}, {"t": "played", "sf": 26, "sa": 24, "r": 8}], [{"t": "played", "sf": 28, "sa": 42, "r": 9}, {"t": "fc", "p": 11, "r": 10, "ha": "A"}, {"t": "played", "sf": 30, "sa": 32, "r": 8}, {"t": "played", "sf": 34, "sa": 35, "r": 7}, {"t": "fc", "p": 45, "r": 11, "ha": "H"}, {"t": "fc", "p": 48, "r": 12, "ha": "A"}, null, {"t": "fc", "p": 68, "r": 13, "ha": "H"}], [{"t": "fc", "p": 7, "r": 10, "ha": "H"}, {"t": "fc", "p": 5, "r": 11, "ha": "H"}, {"t": "played", "sf": 23, "sa": 30, "r": 9}, {"t": "fc", "p": 13, "r": 12, "ha": "A"}, {"t": "played", "sf": 14, "sa": 20, "r": 7}, {"t": "played", "sf": 24, "sa": 26, "r": 8}, {"t": "fc", "p": 32, "r": 13, "ha": "A"}, null]], "players": {"Collingwood G05": [["37", "Madeleine Clark", 43, 14.3, 4], ["23", "Lily Home", 20, 10.0, 0], ["17", "Isabelle Gardiner", 15, 5.0, 0], ["13", "Ada Miller", 12, 4.0, 3], ["15", "Ivy Corr", 6, 3.0, 4], ["10", "Saskia Chatergon-Smith", 4, 1.3, 0], ["6", "Harriet Wheatley", 1, 0.3, 1]], "Eltham G07": [["5", "Emily Roberts", 22, 7.3, 7], ["24", "Trini Qiu", 14, 7.0, 7], ["10", "Sunny Jones", 14, 4.7, 9], ["33", "Sophie Carey", 12, 4.0, 7], ["8", "Ffion Allen", 10, 3.3, 4], ["2", "Scarlett Aguilar", 5, 1.7, 7], ["1", "Vivian Jones", 5, 1.7, 6], ["7", "Evie Davis", 6, 2.0, 4], ["37", "Frances Overend", 4, 1.3, 0]], "Bulleen G08": [["33", "Aida Rodrigues", 41, 13.7, 2], ["39", "Lily Ibrahim", 20, 6.7, 2], ["30", "Emmeline Luce", 15, 5.0, 3], ["6", "Isla Rizk", 8, 2.7, 6], ["43", "Olivia Chan", 4, 1.3, 4], ["42", "Himanshee Prinja", 4, 2.0, 4], ["1", "Kayleigh Walker", 0, 0.0, 1], ["24", "Jessica Warzala", 0, 0.0, 2]], "Eltham G06": [["15", "Zoe van den Berg", 24, 8.0, 12], ["26", "Sienna Todorov", 23, 7.7, 1], ["17", "Emmeline Radici", 10, 3.3, 3], ["54", "Diya Baligar", 8, 4.0, 3], ["21", "Charlotte Taylor", 5, 1.7, 3], ["25", "Ayvah Elkhishin", 5, 1.7, 7], ["51", "Pippa Testa", 4, 2.0, 3], ["33", "Diya Baligar (#33)", 2, 2.0, 0], ["13", "Isis Fallon", 0, 0.0, 3], ["18", "Zoe Peck", 0, 0.0, 0]], "Balwyn G05": [["10", "Elsie Meldrum", 28, 9.3, 4], ["77", "Tara Madani", 23, 7.7, 8], ["8", "Andriana Mackieson", 9, 3.0, 11], ["14", "Anita Sahely", 4, 1.3, 1], ["54", "Diana Dunn", 2, 0.7, 3], ["11", "Nina Nathoo", 0, 0.0, 3], ["22", "Scarlett Terziovski", 0, 0.0, 3], ["9", "Aarza Bhatia", 0, 0.0, 0]], "Yarra-Eagles G01": [["37", "Portia Cibrasio", 23, 7.7, 4], ["12", "Katia D'Amore", 21, 7.0, 12], ["65", "Chiara Dinneen", 8, 2.7, 7], ["44", "Alessia Cianci", 7, 2.3, 15], ["40", "Amelia Bonanni", 6, 2.0, 3], ["19", "Chloe Ling", 2, 1.0, 3], ["11", "Jorja Ibrahim", 2, 0.7, 7], ["-", "Private player", 2, 2.0, 2], ["9", "Fill-in (#9)", 0, 0.0, 0]], "Koonung G07": [["0", "Olivia Ngan", 30, 10.0, 6], ["51", "Ava Cathie", 22, 7.3, 6], ["21", "Georgina Asenberger", 12, 4.0, 12], ["20", "Aurora Angus", 11, 3.7, 3], ["34", "Lucia Hone", 9, 3.0, 3], ["1", "Grace Ager", 4, 1.3, 1], ["73", "Samantha Rossely", 4, 1.3, 1]], "Darebin G04": [["12", "Olivia Whitehead", 34, 11.3, 9], ["4", "Albie Boyd-McCaw", 16, 5.3, 4], ["37", "Ava Whitehead", 5, 1.7, 11], ["41", "Jana Didic", 6, 2.0, 2], ["36", "Crystal Kostopoulos", 0, 0.0, 4], ["62", "Henrietta Lourey", 0, 0.0, 5], ["-", "Private player", 0, 0.0, 3], ["82", "Ioanna Mitsinikos", 0, 0.0, 0]]}, "scout": {"Collingwood G05": "Best percentage in the grade (144.29). Clark is the engine \u2014 43 of 101 regular-season points. Slow starts are the pattern: 4pts in the R8 first half, then 22 after the break. Beat them by scoring early and forcing someone other than Clark or Home to carry the load.", "Eltham G07": "Ladder leaders and the most balanced roster in C1 \u2014 nine scorers, none averaging above 7.3. No single player to shut down, but they foul heavily (18 in R9). Attack the rim and make them defend without fouling.", "Bulleen G08": "Rodrigues is the whole offence (41 of 92 points, plus 4-of-4 from the line in R8). Percentage of 90.20 is 3rd-worst despite being 3rd on points. Deny Rodrigues touches and the scoring dries up quickly.", "Eltham G06": "van den Berg and Todorov account for 47 of 81. Extremely foul-prone \u2014 16 in R8, 12 in R9, and van den Berg fouled out territory at 5 in R8. Drive at them and live at the free-throw line.", "Balwyn G05": "Meldrum and Madani are 51 of 66 points. Lowest For in the grade. They start well and fade \u2014 outscored in the second half in all three regular season games. Push the tempo late.", "Yarra-Eagles G01": "Improving fast \u2014 lost R7 by 11, then won two straight. Cibrasio erupted for 15 in R9. Discipline is the weakness: 19 team fouls in both R8 and R9. Cianci has 15 fouls in 3 games.", "Koonung G07": "Three straight losses but two were by a single possession (1pt, 2pts). Ngan and Cathie are 52 of 92. Dangerous and better than 7th suggests \u2014 do not treat this as a soft draw.", "Darebin G04": "Bottom of the ladder, lowest For (61). Olivia Whitehead is 34 of their 61 points \u2014 over half. Everything runs through her; contain her and the offence has no second option."}, "games": {"7": [{"home": "Bulleen U13 Girls 08", "home_score": 30, "away": "Collingwood U13 Girls 05", "away_score": 49, "margin": -19, "winner": "Collingwood U13 Girls 05", "venue": "Manningham Templestowe Leisure Centre / Court 2", "datetime": "05:40 PM, Sat 20 Jun 2026", "home_halves": {"h1": 10, "h2": 20}, "away_halves": {"h1": 23, "h2": 26}, "homeS": "Bulleen G08", "awayS": "Collingwood G05"}, {"home": "Balwyn U13 Girls 05", "home_score": 20, "away": "Darebin-Giants U13 Girls 04", "away_score": 14, "margin": 6, "winner": "Balwyn U13 Girls 05", "venue": "Balwyn High School / Court 1", "datetime": "10:10 AM, Sat 20 Jun 2026", "home_halves": {"h1": 8, "h2": 12}, "away_halves": {"h1": 6, "h2": 8}, "homeS": "Balwyn G05", "awayS": "Darebin G04"}, {"home": "Koonung U13 Girls 07", "home_score": 34, "away": "Eltham U13 Girls 06", "away_score": 35, "margin": -1, "winner": "Eltham U13 Girls 06", "venue": "Box Hill Senior Secondary College / Court 1", "datetime": "11:50 AM, Sat 20 Jun 2026", "home_halves": {"h1": 18, "h2": 16}, "away_halves": {"h1": 18, "h2": 17}, "homeS": "Koonung G07", "awayS": "Eltham G06"}, {"home": "Yarra-Eagles U13 Girls 01", "home_score": 14, "away": "Eltham U13 Girls 07", "away_score": 25, "margin": -11, "winner": "Eltham U13 Girls 07", "venue": "Marcellin College / Court 2", "datetime": "01:30 PM, Sat 20 Jun 2026", "home_halves": {"h1": 0, "h2": 14}, "away_halves": {"h1": 7, "h2": 18}, "homeS": "Yarra-Eagles G01", "awayS": "Eltham G07"}], "8": [{"home": "Collingwood U13 Girls 05", "home_score": 26, "away": "Balwyn U13 Girls 05", "away_score": 18, "margin": 8, "winner": "Collingwood U13 Girls 05", "venue": "Bundha Sports Centre / Court 2", "datetime": "12:40 PM, Sat 27 Jun 2026", "home_halves": {"h1": 4, "h2": 22}, "away_halves": {"h1": 10, "h2": 8}, "homeS": "Collingwood G05", "awayS": "Balwyn G05"}, {"home": "Bulleen U13 Girls 08", "home_score": 32, "away": "Koonung U13 Girls 07", "away_score": 30, "margin": 2, "winner": "Bulleen U13 Girls 08", "venue": "", "datetime": "Sat 27 Jun 2026", "home_halves": {"h1": 16, "h2": 16}, "away_halves": {"h1": 20, "h2": 10}, "homeS": "Bulleen G08", "awayS": "Koonung G07"}, {"home": "Darebin-Giants U13 Girls 04", "home_score": 24, "away": "Yarra-Eagles U13 Girls 01", "away_score": 26, "margin": -2, "winner": "Yarra-Eagles U13 Girls 01", "venue": "", "datetime": "Sat 27 Jun 2026", "home_halves": {"h1": 14, "h2": 10}, "away_halves": {"h1": 7, "h2": 19}, "homeS": "Darebin G04", "awayS": "Yarra-Eagles G01"}, {"home": "Eltham U13 Girls 06", "home_score": 24, "away": "Eltham U13 Girls 07", "away_score": 25, "margin": -1, "winner": "Eltham U13 Girls 07", "venue": "", "datetime": "Sat 27 Jun 2026", "home_halves": {"h1": 9, "h2": 15}, "away_halves": {"h1": 12, "h2": 13}, "homeS": "Eltham G06", "awayS": "Eltham G07"}], "9": [{"home": "Balwyn U13 Girls 05", "home_score": 28, "away": "Yarra-Eagles U13 Girls 01", "away_score": 31, "margin": -3, "winner": "Yarra-Eagles U13 Girls 01", "venue": "Balwyn High School / Court 1", "datetime": "10:10 AM, Sat 18 Jul 2026", "home_halves": {"h1": 13, "h2": 15}, "away_halves": {"h1": 9, "h2": 22}, "homeS": "Balwyn G05", "awayS": "Yarra-Eagles G01"}, {"home": "Bulleen U13 Girls 08", "home_score": 30, "away": "Darebin-Giants U13 Girls 04", "away_score": 23, "margin": 7, "winner": "Bulleen U13 Girls 08", "venue": "East Doncaster Secondary College / Court 1", "datetime": "11:00 AM, Sat 18 Jul 2026", "home_halves": {"h1": 12, "h2": 18}, "away_halves": {"h1": 12, "h2": 11}, "homeS": "Bulleen G08", "awayS": "Darebin G04"}, {"home": "Eltham U13 Girls 07", "home_score": 42, "away": "Koonung U13 Girls 07", "away_score": 28, "margin": 14, "winner": "Eltham U13 Girls 07", "venue": "Montmorency Secondary College / Court 3", "datetime": "12:40 PM, Sat 18 Jul 2026", "home_halves": {"h1": 17, "h2": 25}, "away_halves": {"h1": 15, "h2": 13}, "homeS": "Eltham G07", "awayS": "Koonung G07"}, {"home": "Eltham U13 Girls 06", "home_score": 22, "away": "Collingwood U13 Girls 05", "away_score": 26, "margin": -4, "winner": "Collingwood U13 Girls 05", "venue": "Greensborough College / Court 1", "datetime": "01:30 PM, Sat 18 Jul 2026", "home_halves": {"h1": 9, "h2": 13}, "away_halves": {"h1": 14, "h2": 12}, "homeS": "Eltham G06", "awayS": "Collingwood G05"}]}, "massey": {"Collingwood G05": 9.37, "Eltham G07": 7.69, "Eltham G06": 3.23, "Balwyn G05": -2.14, "Yarra-Eagles G01": -2.81, "Koonung G07": -3.36, "Bulleen G08": -3.99, "Darebin G04": -7.98}, "fixtures": {"10": [{"home": "Bulleen U13 Girls 08", "away": "Yarra-Eagles U13 Girls 01", "home_short": "Bulleen G08", "away_short": "Yarra-Eagles G01", "time": "11:00 AM", "venue": "Bulleen Templestowe Basketball Stadium / Blue"}, {"home": "Darebin-Giants U13 Girls 04", "away": "Eltham U13 Girls 07", "home_short": "Darebin G04", "away_short": "Eltham G07", "time": "11:00 AM", "venue": "Darebin Community Sports Stadium / Court 3"}, {"home": "Balwyn U13 Girls 05", "away": "Eltham U13 Girls 06", "home_short": "Balwyn G05", "away_short": "Eltham G06", "time": "11:50 AM", "venue": "Boroondara Park Primary School / Court 1"}, {"home": "Collingwood U13 Girls 05", "away": "Koonung U13 Girls 07", "home_short": "Collingwood G05", "away_short": "Koonung G07", "time": "04:00 PM", "venue": "Bundha Sports Centre / Court 5"}], "11": [{"home": "Eltham U13 Girls 07", "away": "Bulleen U13 Girls 08", "home_short": "Eltham G07", "away_short": "Bulleen G08", "time": "09:20 AM", "venue": "Montmorency Secondary College / Court 2"}, {"home": "Koonung U13 Girls 07", "away": "Balwyn U13 Girls 05", "home_short": "Koonung G07", "away_short": "Balwyn G05", "time": "11:50 AM", "venue": "Kerrimuir Primary School / Court 1"}, {"home": "Darebin-Giants U13 Girls 04", "away": "Collingwood U13 Girls 05", "home_short": "Darebin G04", "away_short": "Collingwood G05", "time": "11:50 AM", "venue": "Darebin Community Sports Stadium / Court 1"}, {"home": "Yarra-Eagles U13 Girls 01", "away": "Eltham U13 Girls 06", "home_short": "Yarra-Eagles G01", "away_short": "Eltham G06", "time": "11:50 AM", "venue": "Marcellin College / Court 1"}], "12": [{"home": "Eltham U13 Girls 06", "away": "Darebin-Giants U13 Girls 04", "home_short": "Eltham G06", "away_short": "Darebin G04", "time": "10:10 AM", "venue": "Montmorency Secondary College / Court 4"}, {"home": "Balwyn U13 Girls 05", "away": "Bulleen U13 Girls 08", "home_short": "Balwyn G05", "away_short": "Bulleen G08", "time": "11:50 AM", "venue": "Balwyn High School / Court 2"}, {"home": "Yarra-Eagles U13 Girls 01", "away": "Koonung U13 Girls 07", "home_short": "Yarra-Eagles G01", "away_short": "Koonung G07", "time": "11:50 AM", "venue": "Marcellin College / Court 1"}, {"home": "Eltham U13 Girls 07", "away": "Collingwood U13 Girls 05", "home_short": "Eltham G07", "away_short": "Collingwood G05", "time": "01:30 PM", "venue": "Eltham Leisure Centre / Court 1"}], "13": [{"home": "Eltham U13 Girls 07", "away": "Balwyn U13 Girls 05", "home_short": "Eltham G07", "away_short": "Balwyn G05", "time": null, "venue": null}, {"home": "Collingwood U13 Girls 05", "away": "Yarra-Eagles U13 Girls 01", "home_short": "Collingwood G05", "away_short": "Yarra-Eagles G01", "time": null, "venue": null}, {"home": "Bulleen U13 Girls 08", "away": "Eltham U13 Girls 06", "home_short": "Bulleen G08", "away_short": "Eltham G06", "time": null, "venue": null}, {"home": "Koonung U13 Girls 07", "away": "Darebin-Giants U13 Girls 04", "home_short": "Koonung G07", "away_short": "Darebin G04", "time": null, "venue": null}], "14": [{"home": "Bulleen U13 Girls 08", "away": "Collingwood U13 Girls 05", "home_short": "Bulleen G08", "away_short": "Collingwood G05", "time": null, "venue": null}, {"home": "Balwyn U13 Girls 05", "away": "Darebin-Giants U13 Girls 04", "home_short": "Balwyn G05", "away_short": "Darebin G04", "time": null, "venue": null}, {"home": "Koonung U13 Girls 07", "away": "Eltham U13 Girls 06", "home_short": "Koonung G07", "away_short": "Eltham G06", "time": null, "venue": null}, {"home": "Yarra-Eagles U13 Girls 01", "away": "Eltham U13 Girls 07", "home_short": "Yarra-Eagles G01", "away_short": "Eltham G07", "time": null, "venue": null}]}, "fxMeta": {"10": {"date": "Saturday, 25 July 2026", "confirmed": true}, "11": {"date": "Saturday, 01 August 2026", "confirmed": true}, "12": {"date": "Saturday, 08 August 2026", "confirmed": true}, "13": {"date": "TBC", "confirmed": false}, "14": {"date": "TBC", "confirmed": false}}, "run": {"Eltham G07": [{"r": 10, "opp": "Darebin G04", "ha": "A", "p": 93}, {"r": 11, "opp": "Bulleen G08", "ha": "H", "p": 88}, {"r": 12, "opp": "Collingwood G05", "ha": "H", "p": 43}, {"r": 13, "opp": "Balwyn G05", "ha": "H", "p": 84}, {"r": 14, "opp": "Yarra-Eagles G01", "ha": "A", "p": 85}], "Collingwood G05": [{"r": 10, "opp": "Koonung G07", "ha": "H", "p": 89}, {"r": 11, "opp": "Darebin G04", "ha": "A", "p": 95}, {"r": 12, "opp": "Eltham G07", "ha": "A", "p": 57}, {"r": 13, "opp": "Yarra-Eagles G01", "ha": "H", "p": 88}, {"r": 14, "opp": "Bulleen G08", "ha": "A", "p": 90}], "Bulleen G08": [{"r": 10, "opp": "Yarra-Eagles G01", "ha": "H", "p": 45}, {"r": 11, "opp": "Eltham G07", "ha": "A", "p": 12}, {"r": 12, "opp": "Balwyn G05", "ha": "A", "p": 42}, {"r": 13, "opp": "Eltham G06", "ha": "H", "p": 23}, {"r": 14, "opp": "Collingwood G05", "ha": "H", "p": 10}], "Eltham G06": [{"r": 10, "opp": "Balwyn G05", "ha": "A", "p": 71}, {"r": 11, "opp": "Yarra-Eagles G01", "ha": "A", "p": 73}, {"r": 12, "opp": "Darebin G04", "ha": "H", "p": 87}, {"r": 13, "opp": "Bulleen G08", "ha": "A", "p": 77}, {"r": 14, "opp": "Koonung G07", "ha": "A", "p": 75}], "Balwyn G05": [{"r": 10, "opp": "Eltham G06", "ha": "H", "p": 29}, {"r": 11, "opp": "Koonung G07", "ha": "A", "p": 55}, {"r": 12, "opp": "Bulleen G08", "ha": "H", "p": 58}, {"r": 13, "opp": "Eltham G07", "ha": "A", "p": 16}, {"r": 14, "opp": "Darebin G04", "ha": "H", "p": 73}], "Yarra-Eagles G01": [{"r": 10, "opp": "Bulleen G08", "ha": "A", "p": 55}, {"r": 11, "opp": "Eltham G06", "ha": "H", "p": 27}, {"r": 12, "opp": "Koonung G07", "ha": "H", "p": 52}, {"r": 13, "opp": "Collingwood G05", "ha": "A", "p": 12}, {"r": 14, "opp": "Eltham G07", "ha": "H", "p": 15}], "Koonung G07": [{"r": 10, "opp": "Collingwood G05", "ha": "A", "p": 11}, {"r": 11, "opp": "Balwyn G05", "ha": "H", "p": 45}, {"r": 12, "opp": "Yarra-Eagles G01", "ha": "A", "p": 48}, {"r": 13, "opp": "Darebin G04", "ha": "H", "p": 68}, {"r": 14, "opp": "Eltham G06", "ha": "H", "p": 25}], "Darebin G04": [{"r": 10, "opp": "Eltham G07", "ha": "H", "p": 7}, {"r": 11, "opp": "Collingwood G05", "ha": "H", "p": 5}, {"r": 12, "opp": "Eltham G06", "ha": "A", "p": 13}, {"r": 13, "opp": "Koonung G07", "ha": "A", "p": 32}, {"r": 14, "opp": "Balwyn G05", "ha": "A", "p": 27}]}};
+let c1view='ladder';
+function setC1View(v){c1view=v;['ladder','matrix','fix','deep'].forEach(x=>{const b=document.getElementById('c1v-'+x);if(b)b.classList.toggle('active',x===v);});renderC1();}
+let c1team=C1DATA.order[0];
+function setC1Team(t){c1team=t;renderC1();}
+function renderC1(){
+  const el=document.getElementById('c1-content');if(!el)return;
+  if(c1view==='ladder')el.innerHTML=c1Ladder();
+  else if(c1view==='matrix')el.innerHTML=c1Matrix();
+  else if(c1view==='fix')el.innerHTML=c1Fix();
+  else el.innerHTML=c1Deep();
+}
+function c1Ladder(){
+  const L=C1DATA.ladder;
+  let h='<div style="display:grid;grid-template-columns:1fr;gap:16px;padding:4px 0 20px">';
+  h+='<div><div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:6px 0 8px">Actual Ladder &mdash; Official EDJBA, after Round 9</div>';
+  h+='<table class="league-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>PTS</th><th>%</th><th>W</th><th>L</th><th>D</th><th>F</th><th>A</th><th>Adj</th></tr></thead><tbody>';
+  L.forEach(t=>{const cw=t.short==='Collingwood G05';
+    h+='<tr style="'+(cw?'background:rgba(26,122,74,.16);font-weight:700':'')+'"><td>'+t.rank+'</td><td>'+t.short+(cw?' &#9733;':'')+'</td><td>'+t.played+'</td><td><b>'+t.points+'</b></td><td>'+t.percentage.toFixed(2)+'</td><td>'+t.won+'</td><td>'+t.lost+'</td><td>'+t.drawn+'</td><td>'+t['for']+'</td><td>'+t.against+'</td><td>'+(t.adjustment||0)+'</td></tr>';});
+  h+='</tbody></table></div>';
+  h+='<div><div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:14px 0 8px">Forecast Ladder &mdash; projected final, Massey-based</div>';
+  h+='<table class="league-table"><thead><tr><th>#</th><th>Team</th><th>Now</th><th>Massey</th><th>Exp. Rem.</th><th>Projected</th><th>Remaining opponents</th></tr></thead><tbody>';
+  const fc=C1DATA.fcOrder.map(s=>L.find(x=>x.short===s));
+  fc.forEach((t,i)=>{const cw=t.short==='Collingwood G05';
+    h+='<tr style="'+(cw?'background:rgba(26,122,74,.16);font-weight:700':'')+'"><td>'+(i+1)+'</td><td>'+t.short+(cw?' &#9733;':'')+'</td><td>'+t.points+'</td><td>'+(t.massey>0?'+':'')+t.massey.toFixed(2)+'</td><td>+'+t.expRem+'</td><td><b>'+t.proj+'</b></td><td style="font-size:10px">'+t.remOpps.join(', ')+'</td></tr>';});
+  h+='</tbody></table>';
+  h+='<div class="bl-legend">Projection = current points + expected points from the 5 remaining fixtures (R10&ndash;R14), using Massey win probability at 3pts win / 1pt loss. R10&ndash;12 confirmed from EDJBA fixtures; R13 derived as the only pairings completing the round-robin; R14 repeats R7.</div></div></div>';
+  return h;
+}
+function c1Matrix(){
+  const O=C1DATA.order;
+  let h='<div style="padding:4px 0 20px"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:6px 0 8px">Forecast Matrix &mdash; row team vs column team</div>';
+  h+='<table class="league-table" style="font-size:10px"><thead><tr><th style="text-align:left">&nbsp;</th>';
+  O.forEach(t=>{h+='<th style="font-size:9px">'+t.replace(/ /g,'<br>')+'</th>';});
+  h+='</tr></thead><tbody>';
+  C1DATA.matrix.forEach((row,i)=>{
+    const cw=O[i]==='Collingwood G05';
+    h+='<tr style="'+(cw?'background:rgba(26,122,74,.10)':'')+'"><td style="text-align:left;font-weight:700;white-space:nowrap">'+O[i]+'</td>';
+    row.forEach(c=>{
+      if(c===null){h+='<td style="background:rgba(255,255,255,.06)">&mdash;</td>';}
+      else if(c.t==='played'){const w=c.sf>c.sa;
+        h+='<td style="background:'+(w?'rgba(26,122,74,.25)':'rgba(232,65,42,.20)')+';font-weight:700">'+c.sf+'&#8211;'+c.sa+'<br><span style="font-size:8px;opacity:.75;font-weight:400">R'+c.r+'</span></td>';}
+      else{const p=c.p;const g=p>=60?'rgba(26,122,74,.22)':p<=40?'rgba(232,65,42,.18)':'rgba(255,255,255,.05)';
+        h+='<td style="background:'+g+'">'+p+'%<br><span style="font-size:8px;opacity:.7">R'+c.r+'</span></td>';}
+    });
+    h+='</tr>';});
+  h+='</tbody></table><div class="bl-legend">Played fixtures show the actual score and round. Remaining fixtures show the row team\'s Massey win probability. Unplayed cells show the round the fixture falls in and the row team\'s win probability. R10&ndash;12 confirmed; R13 derived; R14 repeats R7.</div></div>';
+  return h;
+}
+
+function c1Fix(){
+  let h='<div style="padding:4px 0 20px">';
+  ['10','11','12','13','14'].forEach(r=>{
+    const m=C1DATA.fxMeta[r];
+    h+='<div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:14px 0 6px">Round '+r+' &middot; '+m.date+(m.confirmed?'':' <span style="color:#e0a03a">&middot; derived</span>')+'</div>';
+    h+='<table class="league-table"><thead><tr><th>Time</th><th>Home</th><th style="text-align:center">Forecast</th><th>Away</th><th>Venue</th></tr></thead><tbody>';
+    C1DATA.fixtures[r].forEach(g=>{
+      const cw=g.home_short==='Collingwood G05'||g.away_short==='Collingwood G05';
+      const row=C1DATA.matrix[C1DATA.order.indexOf(g.home_short)][C1DATA.order.indexOf(g.away_short)];
+      const p=row&&row.t==='fc'?row.p:null;
+      h+='<tr style="'+(cw?'background:rgba(26,122,74,.16);font-weight:700':'')+'"><td>'+(g.time||'&mdash;')+'</td><td style="text-align:left">'+g.home_short+'</td><td style="text-align:center">'+(p!==null?p+'% &ndash; '+(100-p)+'%':'&mdash;')+'</td><td style="text-align:left">'+g.away_short+'</td><td style="font-size:10px">'+(g.venue||'TBC')+'</td></tr>';});
+    h+='</tbody></table>';});
+  h+='<div class="bl-legend">Rounds 10&ndash;12 confirmed from EDJBA fixture PDFs. Round 13 derived &mdash; it is the only set of pairings that completes the round-robin. Round 14 repeats the Round 7 pairings. Forecast shows home team win probability from current Massey ratings.</div></div>';
+  return h;
+}
+
+function c1Deep(){
+  let h='<div style="padding:4px 0 20px"><div style="display:flex;gap:5px;flex-wrap:wrap;margin:6px 0 12px">';
+  C1DATA.order.forEach(t=>{h+='<button class="gf-btn'+(t===c1team?' active':'')+'" onclick="setC1Team(\''+t+'\')" style="font-size:10px">'+t+'</button>';});
+  h+='</div>';
+  const L=C1DATA.ladder.find(x=>x.short===c1team);
+  h+='<div style="background:rgba(255,255,255,.05);border:1px solid var(--border-v);border-radius:10px;padding:12px;margin-bottom:14px">';
+  h+='<div style="font-size:15px;font-weight:800;margin-bottom:4px">'+c1team+'</div>';
+  h+='<div style="font-size:11px;color:var(--muted)">Ladder '+L.rank+' &middot; '+L.points+'pts &middot; '+L.won+'W&ndash;'+L.lost+'L'+(L.drawn?'&ndash;'+L.drawn+'D':'')+' &middot; '+L.percentage.toFixed(2)+'% &middot; Massey '+(L.massey>0?'+':'')+L.massey.toFixed(2)+'</div></div>';
+  h+='<div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:10px 0 6px">Player Statistics &mdash; Regular Season R7&ndash;R9</div>';
+  h+='<table class="league-table"><thead><tr><th>#</th><th>Player</th><th>Pts</th><th>PPG</th><th>Fouls</th></tr></thead><tbody>';
+  C1DATA.players[c1team].forEach(p=>{h+='<tr><td>'+p[0]+'</td><td style="text-align:left">'+p[1]+'</td><td><b>'+p[2]+'</b></td><td>'+p[3].toFixed(1)+'</td><td>'+p[4]+'</td></tr>';});
+  h+='</tbody></table>';
+  h+='<div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:16px 0 6px">Game-by-Game</div>';
+  h+='<table class="league-table"><thead><tr><th>Rd</th><th>Opponent</th><th>Result</th><th>H1</th><th>H2</th><th>Venue</th></tr></thead><tbody>';
+  ['7','8','9'].forEach(r=>{C1DATA.games[r].forEach(g=>{
+    let opp,sf,sa,h1,h2;
+    if(g.homeS===c1team){opp=g.awayS+' (H)';sf=g.home_score;sa=g.away_score;h1=g.home_halves.h1;h2=g.home_halves.h2;}
+    else if(g.awayS===c1team){opp=g.homeS+' (A)';sf=g.away_score;sa=g.home_score;h1=g.away_halves.h1;h2=g.away_halves.h2;}
+    else return;
+    const w=sf>sa;
+    h+='<tr><td>R'+r+'</td><td style="text-align:left">'+opp+'</td><td style="color:'+(w?'#3ecf8e':'#ff7a6b')+';font-weight:700">'+(w?'W':'L')+' '+sf+'&#8211;'+sa+'</td><td>'+h1+'</td><td>'+h2+'</td><td style="font-size:10px">'+(g.venue||'&mdash;')+'</td></tr>';});});
+  h+='</tbody></table>';
+  h+='<div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:16px 0 6px">Run Home</div>';
+  h+='<table class="league-table"><thead><tr><th>Rd</th><th>Opponent</th><th>H/A</th><th>Win prob</th></tr></thead><tbody>';
+  (C1DATA.run[c1team]||[]).forEach(x=>{h+='<tr><td>R'+x.r+'</td><td style="text-align:left">'+x.opp+'</td><td>'+x.ha+'</td><td style="font-weight:700;color:'+(x.p>=60?'#3ecf8e':x.p<=40?'#ff7a6b':'inherit')+'">'+x.p+'%</td></tr>';});
+  h+='</tbody></table>';
+  h+='<div style="font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin:16px 0 6px">How to beat '+c1team+'</div>';
+  h+='<div style="background:rgba(26,122,74,.12);border-left:3px solid var(--gc);border-radius:6px;padding:12px;font-size:12px;line-height:1.6">'+C1DATA.scout[c1team]+'</div></div>';
+  return h;
+}
+
 function switchTab(id){
-  document.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   document.getElementById('page-'+id).classList.add('active');
   // Move indicator
-  const tabs=['predict','table','fixtures'];
+  const tabs=['predict','table','fixtures','c1'];
   const idx=tabs.indexOf(id);
-  const ind=document.getElementById('sub-tab-ind');
-  ind.style.left=(idx*33.333)+'%';
-  ind.style.width='33.333%';
+  const ind=document.getElementById('tab-ind');
+  ind.style.left=(idx*25)+'%';
+  ind.style.width='25%';
   // Close dropdowns
   ['a','b'].forEach(s=>{
     document.getElementById('drop-'+s).classList.remove('open');
@@ -916,13 +843,12 @@ function switchTab(id){
   });
   if(id==='table') renderTable();
   if(id==='fixtures') renderFixtures();
+  if(id==='c1') renderC1();
 }
-// Init indicators
+// Init indicator
 window.addEventListener('DOMContentLoaded',()=>{
-  const subInd=document.getElementById('sub-tab-ind');
-  subInd.style.left='0%';subInd.style.width='33.333%';
-  const topInd=document.getElementById('top-tab-ind');
-  topInd.style.left='0%';topInd.style.width='33.333%';
+  const ind=document.getElementById('tab-ind');
+  ind.style.left='0%';ind.style.width='25%';
 });
 
 /* ── Predictor selector ── */
@@ -1429,377 +1355,6 @@ document.addEventListener('click',e=>{
     }
   });
 });
-
-/* ───────────────────── GRADE C1 + WEEKLY SUMMARY TABS ───────────────────── */
-const C1_TEAMS = [{"name": "Balwyn U13 Girls 05", "club": "Balwyn", "num": "05", "massey_current": 18.05, "massey_placeholder": false, "ladder_points": 16, "ladder_w": 1, "ladder_l": 1, "ladder_d": 0, "ladder_played": 2, "pct": 95.0, "sf": 38, "sa": 40, "players": [{"num": 10, "fn": "Elsie", "ln": "Meldrum", "grading_total": 33, "r7_pts": 12, "r7_fouls": 0, "r8_pts": 6, "r8_fouls": 1, "total": 51, "rank": 1}, {"num": 8, "fn": "Andriana", "ln": "Mackieson", "grading_total": 26, "r7_pts": 1, "r7_fouls": 5, "r8_pts": 4, "r8_fouls": 1, "total": 31, "rank": 2}, {"num": 77, "fn": "Tara", "ln": "Madani", "grading_total": 17, "r7_pts": 3, "r7_fouls": 4, "r8_pts": 8, "r8_fouls": 2, "total": 28, "rank": 3}, {"num": 14, "fn": "Anita", "ln": "Sahely", "grading_total": 18, "r7_pts": 4, "r7_fouls": 1, "r8_pts": 0, "r8_fouls": 0, "total": 22, "rank": 4}, {"num": 22, "fn": "Scarlett", "ln": "Terziovski", "grading_total": 6, "r7_pts": 0, "r7_fouls": 0, "r8_pts": 0, "r8_fouls": 2, "total": 6, "rank": 5}, {"num": 54, "fn": "Diana", "ln": "Dunn", "grading_total": 2, "r7_pts": 0, "r7_fouls": 3, "r8_pts": 0, "r8_fouls": 0, "total": 2, "rank": 6}, {"num": 6, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 7}, {"num": 11, "fn": "Nina", "ln": "Nathoo", "grading_total": 0, "r7_pts": 0, "r7_fouls": 2, "r8_pts": 0, "r8_fouls": 0, "total": 0, "rank": 8}, {"num": 17, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 9}, {"num": 23, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 10}, {"num": 36, "fn": "?", "ln": "?", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 11}, {"num": 9, "fn": "Aarza", "ln": "Bhatia", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 12}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(not itemised in PBP)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 13}]}, {"name": "Yarra-Eagles U13 Girls 01", "club": "Yarra-Eagles", "num": "01", "massey_current": 17.28, "massey_placeholder": false, "ladder_points": 14, "ladder_w": 1, "ladder_l": 1, "ladder_d": 0, "ladder_played": 2, "pct": 81.63, "sf": 40, "sa": 49, "players": [{"num": 12, "fn": "Katia", "ln": "D'Amore", "grading_total": 27, "r7_pts": 7, "r7_fouls": 3, "r8_pts": 10, "r8_fouls": 4, "total": 44, "rank": 1}, {"num": 37, "fn": "Portia", "ln": "Cibrasio", "grading_total": 22, "r7_pts": 2, "r7_fouls": 1, "r8_pts": 6, "r8_fouls": 2, "total": 30, "rank": 2}, {"num": 11, "fn": "Jorja", "ln": "Ibrahim", "grading_total": 19, "r7_pts": 2, "r7_fouls": 2, "r8_pts": 0, "r8_fouls": 3, "total": 21, "rank": 3}, {"num": 44, "fn": "Alessia", "ln": "Cianci", "grading_total": 15, "r7_pts": 3, "r7_fouls": 5, "r8_pts": 2, "r8_fouls": 5, "total": 20, "rank": 4}, {"num": 65, "fn": "Chiara", "ln": "Dinneen", "grading_total": 6, "r7_pts": 0, "r7_fouls": 3, "r8_pts": 4, "r8_fouls": 1, "total": 10, "rank": 5}, {"num": 19, "fn": "Chloe", "ln": "Ling", "grading_total": 8, "r7_pts": null, "r7_fouls": null, "r8_pts": 0, "r8_fouls": 2, "total": 8, "rank": 6}, {"num": 40, "fn": "Amelia", "ln": "Bonanni", "grading_total": 2, "r7_pts": 0, "r7_fouls": 1, "r8_pts": 4, "r8_fouls": 2, "total": 6, "rank": 7}, {"num": 15, "fn": "Private", "ln": "player", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 8}, {"num": 9, "fn": "Fill-in", "ln": "Player", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 9}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(not itemised)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 10}]}, {"name": "Bulleen U13 Girls 08", "club": "Bulleen", "num": "08", "massey_current": 16.57, "massey_placeholder": false, "ladder_points": 17, "ladder_w": 1, "ladder_l": 1, "ladder_d": 0, "ladder_played": 2, "pct": 78.48, "sf": 62, "sa": 79, "players": [{"num": 33, "fn": "Aida", "ln": "Rodrigues", "grading_total": 29, "r7_pts": 8, "r7_fouls": 0, "r8_pts": 20, "r8_fouls": 1, "total": 57, "rank": 1}, {"num": 39, "fn": "Lily", "ln": "Ibrahim", "grading_total": 27, "r7_pts": 11, "r7_fouls": 1, "r8_pts": 6, "r8_fouls": 0, "total": 44, "rank": 2}, {"num": 24, "fn": "Jessica", "ln": "Warzala", "grading_total": 32, "r7_pts": 0, "r7_fouls": 2, "r8_pts": null, "r8_fouls": null, "total": 32, "rank": 3}, {"num": 6, "fn": "Isla", "ln": "Rizk", "grading_total": 8, "r7_pts": 5, "r7_fouls": 3, "r8_pts": 2, "r8_fouls": 2, "total": 15, "rank": 4}, {"num": 42, "fn": "Himanshee", "ln": "Prinja", "grading_total": 10, "r7_pts": null, "r7_fouls": null, "r8_pts": 4, "r8_fouls": 1, "total": 14, "rank": 5}, {"num": 30, "fn": "Emmeline", "ln": "Luce", "grading_total": 1, "r7_pts": 6, "r7_fouls": 1, "r8_pts": 0, "r8_fouls": 1, "total": 7, "rank": 6}, {"num": 43, "fn": "Olivia", "ln": "Chan", "grading_total": 5, "r7_pts": 0, "r7_fouls": 1, "r8_pts": 0, "r8_fouls": 1, "total": 5, "rank": 7}, {"num": 1, "fn": "Kayleigh", "ln": "Walker", "grading_total": 4, "r7_pts": 0, "r7_fouls": 1, "r8_pts": null, "r8_fouls": null, "total": 4, "rank": 8}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(opening runs, not itemised)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 9}]}, {"name": "Collingwood U13 Girls 05", "club": "Collingwood", "num": "05", "massey_current": 28.35, "massey_placeholder": false, "ladder_points": 17, "ladder_w": 2, "ladder_l": 0, "ladder_d": 0, "ladder_played": 2, "pct": 156.25, "sf": 75, "sa": 48, "players": [{"num": 37, "fn": "Madeleine", "ln": "Clark", "grading_total": 63, "r7_pts": 21, "r7_fouls": 1, "r8_pts": 10, "r8_fouls": 1, "total": 94, "rank": 1}, {"num": 23, "fn": "Lily", "ln": "Home", "grading_total": 32, "r7_pts": 14, "r7_fouls": 0, "r8_pts": 6, "r8_fouls": 0, "total": 52, "rank": 2}, {"num": 13, "fn": "Ada", "ln": "Miller", "grading_total": 25, "r7_pts": 4, "r7_fouls": 1, "r8_pts": 4, "r8_fouls": 0, "total": 33, "rank": 3}, {"num": 17, "fn": "Isabelle", "ln": "Gardiner", "grading_total": 12, "r7_pts": 5, "r7_fouls": 0, "r8_pts": 4, "r8_fouls": 0, "total": 21, "rank": 4}, {"num": 10, "fn": "Saskia", "ln": "Chatergon-Smith", "grading_total": 12, "r7_pts": 0, "r7_fouls": 0, "r8_pts": 2, "r8_fouls": 0, "total": 14, "rank": 5}, {"num": 33, "fn": "Fill-in", "ln": "Player (#33)", "grading_total": 7, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 7, "rank": 6}, {"num": 15, "fn": "Ivy", "ln": "Corr", "grading_total": 2, "r7_pts": 4, "r7_fouls": 2, "r8_pts": null, "r8_fouls": null, "total": 6, "rank": 7}, {"num": 6, "fn": "Harriet", "ln": "Wheatley", "grading_total": 4, "r7_pts": 1, "r7_fouls": 1, "r8_pts": 0, "r8_fouls": 0, "total": 5, "rank": 8}, {"num": 11, "fn": "?", "ln": "(foul R3 only)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 9}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(partial periods not itemised)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 10}]}, {"name": "Eltham U13 Girls 06", "club": "Eltham", "num": "06", "massey_current": 16.88, "massey_placeholder": false, "ladder_points": 17, "ladder_w": 1, "ladder_l": 1, "ladder_d": 0, "ladder_played": 2, "pct": 100.0, "sf": 59, "sa": 59, "players": [{"num": 15, "fn": "Zoe", "ln": "van den Berg", "grading_total": 27, "r7_pts": 9, "r7_fouls": 3, "r8_pts": 10, "r8_fouls": 5, "total": 46, "rank": 1}, {"num": 21, "fn": "Charlotte", "ln": "Taylor", "grading_total": 26, "r7_pts": 2, "r7_fouls": 1, "r8_pts": 2, "r8_fouls": 1, "total": 30, "rank": 2}, {"num": 26, "fn": "Sienna", "ln": "Todorov", "grading_total": 15, "r7_pts": 6, "r7_fouls": 0, "r8_pts": 7, "r8_fouls": 1, "total": 28, "rank": 3}, {"num": 17, "fn": "Emmeline", "ln": "Radici", "grading_total": 18, "r7_pts": 4, "r7_fouls": 1, "r8_pts": 2, "r8_fouls": 2, "total": 24, "rank": 4}, {"num": 54, "fn": "Diya", "ln": "Baligar", "grading_total": 13, "r7_pts": 8, "r7_fouls": 1, "r8_pts": 0, "r8_fouls": 2, "total": 21, "rank": 5}, {"num": 51, "fn": "Pippa", "ln": "Testa", "grading_total": 15, "r7_pts": 4, "r7_fouls": 0, "r8_pts": 0, "r8_fouls": 3, "total": 19, "rank": 6}, {"num": 25, "fn": "Ayvah", "ln": "Elkhishin", "grading_total": 8, "r7_pts": 2, "r7_fouls": 1, "r8_pts": 3, "r8_fouls": 2, "total": 13, "rank": 7}, {"num": 18, "fn": "Zoe", "ln": "Peck", "grading_total": 3, "r7_pts": 0, "r7_fouls": 0, "r8_pts": 0, "r8_fouls": 0, "total": 3, "rank": 8}, {"num": 13, "fn": "Isis", "ln": "Fallon", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 9}, {"num": "\u2014", "fn": "Unconfirmed", "ln": "(not itemised in PBP)", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 10}]}, {"name": "Darebin-Giants U13 Girls 04", "club": "Darebin-Giants", "num": "04", "massey_current": 17.28, "massey_placeholder": false, "ladder_points": 13, "ladder_w": 0, "ladder_l": 2, "ladder_d": 0, "ladder_played": 2, "pct": 82.61, "sf": 38, "sa": 46, "players": [{"num": 12, "fn": "Olivia", "ln": "Whitehead", "grading_total": 0, "r7_pts": 10, "r7_fouls": 2, "r8_pts": 9, "r8_fouls": 3, "total": 19, "rank": 1}, {"num": 4, "fn": "Albie", "ln": "Boyd-McCaw", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "r8_pts": 9, "r8_fouls": 1, "total": 11, "rank": 2}, {"num": 37, "fn": "Ava", "ln": "Whitehead", "grading_total": 0, "r7_pts": 2, "r7_fouls": 5, "r8_pts": 2, "r8_fouls": 2, "total": 4, "rank": 3}, {"num": 41, "fn": "Jana", "ln": "Didic", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "r8_pts": 4, "r8_fouls": 1, "total": 4, "rank": 4}, {"num": 36, "fn": "Crystal", "ln": "Kostopoulos", "grading_total": 0, "r7_pts": 0, "r7_fouls": 1, "r8_pts": 0, "r8_fouls": 2, "total": 0, "rank": 5}, {"num": 62, "fn": "Henrietta", "ln": "Lourey", "grading_total": 0, "r7_pts": 0, "r7_fouls": 2, "r8_pts": 0, "r8_fouls": 2, "total": 0, "rank": 6}, {"num": 82, "fn": "Ioanna", "ln": "Mitsinikos", "grading_total": 0, "r7_pts": 0, "r7_fouls": 0, "r8_pts": null, "r8_fouls": null, "total": 0, "rank": 7}, {"num": "\u2014", "fn": "Private", "ln": "player", "grading_total": 0, "r7_pts": 0, "r7_fouls": 3, "r8_pts": 0, "r8_fouls": 0, "total": 0, "rank": 8}]}, {"name": "Eltham U13 Girls 07", "club": "Eltham", "num": "07", "massey_current": 20.11, "massey_placeholder": false, "ladder_points": 19, "ladder_w": 2, "ladder_l": 0, "ladder_d": 0, "ladder_played": 2, "pct": 131.58, "sf": 50, "sa": 38, "players": [{"num": 33, "fn": "Sophie", "ln": "Carey", "grading_total": 0, "r7_pts": 4, "r7_fouls": 2, "r8_pts": 6, "r8_fouls": 3, "total": 10, "rank": 1}, {"num": 5, "fn": "Emily", "ln": "Roberts", "grading_total": 0, "r7_pts": 2, "r7_fouls": 3, "r8_pts": 7, "r8_fouls": 3, "total": 9, "rank": 2}, {"num": 8, "fn": "Ffion", "ln": "Allen", "grading_total": 0, "r7_pts": 6, "r7_fouls": 3, "r8_pts": 2, "r8_fouls": 1, "total": 8, "rank": 3}, {"num": 10, "fn": "Sunny", "ln": "Jones", "grading_total": 0, "r7_pts": 5, "r7_fouls": 3, "r8_pts": 3, "r8_fouls": 4, "total": 8, "rank": 4}, {"num": 7, "fn": "Evie", "ln": "Davis", "grading_total": 0, "r7_pts": 2, "r7_fouls": 1, "r8_pts": 2, "r8_fouls": 0, "total": 4, "rank": 5}, {"num": 37, "fn": "Frances", "ln": "Overend", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "r8_pts": 2, "r8_fouls": 0, "total": 4, "rank": 6}, {"num": 1, "fn": "Vivian", "ln": "Jones", "grading_total": 0, "r7_pts": 2, "r7_fouls": 2, "r8_pts": 1, "r8_fouls": 1, "total": 3, "rank": 7}, {"num": 2, "fn": "Scarlett", "ln": "Aguilar", "grading_total": 0, "r7_pts": 2, "r7_fouls": 1, "r8_pts": 0, "r8_fouls": 2, "total": 2, "rank": 8}, {"num": 24, "fn": "Trini", "ln": "Qiu", "grading_total": 0, "r7_pts": null, "r7_fouls": null, "r8_pts": 2, "r8_fouls": 4, "total": 2, "rank": 9}]}, {"name": "Koonung U13 Girls 07", "club": "Koonung", "num": "07", "massey_current": 17.72, "massey_placeholder": false, "ladder_points": 14, "ladder_w": 0, "ladder_l": 2, "ladder_d": 0, "ladder_played": 2, "pct": 95.52, "sf": 64, "sa": 67, "players": [{"num": 0, "fn": "Olivia", "ln": "Ngan", "grading_total": 0, "r7_pts": 7, "r7_fouls": 0, "r8_pts": 14, "r8_fouls": 4, "total": 21, "rank": 1}, {"num": 51, "fn": "Ava", "ln": "Cathie", "grading_total": 0, "r7_pts": 8, "r7_fouls": 1, "r8_pts": 12, "r8_fouls": 0, "total": 20, "rank": 2}, {"num": 20, "fn": "Aurora", "ln": "Angus", "grading_total": 0, "r7_pts": 7, "r7_fouls": 0, "r8_pts": 0, "r8_fouls": 0, "total": 7, "rank": 3}, {"num": 21, "fn": "Georgina", "ln": "Asenberger", "grading_total": 0, "r7_pts": 4, "r7_fouls": 3, "r8_pts": 2, "r8_fouls": 4, "total": 6, "rank": 4}, {"num": 1, "fn": "Grace", "ln": "Ager", "grading_total": 0, "r7_pts": 4, "r7_fouls": 0, "r8_pts": 0, "r8_fouls": 1, "total": 4, "rank": 5}, {"num": 73, "fn": "Samantha", "ln": "Rossely", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "r8_pts": 2, "r8_fouls": 1, "total": 4, "rank": 6}, {"num": 34, "fn": "Lucia", "ln": "Hone", "grading_total": 0, "r7_pts": 2, "r7_fouls": 0, "r8_pts": 0, "r8_fouls": 1, "total": 2, "rank": 7}]}];
-const C1_FIXTURES_R7 = [{"home": "Balwyn U13 Girls 05", "away": "Darebin-Giants U13 Girls 04", "score": "20-14"}, {"home": "Bulleen U13 Girls 08", "away": "Collingwood U13 Girls 05", "score": "30-49"}, {"home": "Yarra-Eagles U13 Girls 01", "away": "Eltham U13 Girls 07", "score": "14-25"}, {"home": "Koonung U13 Girls 07", "away": "Eltham U13 Girls 06", "score": "34-35"}];
-const WEEKLY_SUMMARY = {"edition": "Round 8 Edition", "date": "Saturday 27 June", "round_num": "8", "round_of": "2", "callout": "Collingwood G05 bounce back from a slow start \u2014 down 4\u201310 at the half against Balwyn \u2014 to win going away, 26\u201318, outscoring them 22\u20138 in the second term. Madeleine Clark (#37) led the way again with 10. Elsewhere, three of the four games were decided by 2 points or fewer, and the three grade-mover teams (Eltham G07, Koonung G07, Darebin G04) have now played enough regular season games for their Massey placeholder ratings to be lifted.", "games": [{"time": "10:10 AM", "venue": "Viewbank Primary School \u00b7 Court 1", "home_short": "Eltham G06", "home_full": "U13 Girls 06", "away_short": "Eltham G07", "away_full": "U13 Girls 07", "home_score": 24, "away_score": 25, "top_home": {"name": "Zoe van den Berg", "num": 15, "pts": 10}, "top_away": {"name": "Emily Roberts", "num": 5, "pts": 7}}, {"time": "12:40 PM", "venue": "Bundha Sports Centre \u00b7 Court 2", "home_short": "Collingwood", "home_full": "U13 Girls 05", "away_short": "Balwyn", "away_full": "U13 Girls 05", "home_score": 26, "away_score": 18, "top_home": {"name": "Madeleine Clark", "num": 37, "pts": 10}, "top_away": {"name": "Tara Madani", "num": 77, "pts": 8}}, {"time": "4:00 PM", "venue": "Thornbury High School \u00b7 Court 1", "home_short": "Darebin-Giants", "home_full": "U13 Girls 04", "away_short": "Yarra-Eagles", "away_full": "U13 Girls 01", "home_score": 24, "away_score": 26, "top_home": {"name": "Albie Boyd-McCaw", "num": 4, "pts": 9}, "top_away": {"name": "Katia D'Amore", "num": 12, "pts": 10}}, {"time": "4:00 PM", "venue": "Bulleen Templestowe Basketball Stadium \u00b7 Blue", "home_short": "Bulleen", "home_full": "U13 Girls 08", "away_short": "Koonung", "away_full": "U13 Girls 07", "home_score": 32, "away_score": 30, "top_home": {"name": "Aida Rodrigues", "num": 33, "pts": 20}, "top_away": {"name": "Olivia Ngan", "num": 0, "pts": 14}}], "ladder": [{"rank": 1, "name": "Eltham U13 Girls 07", "p": 8, "w": 2, "l": 0, "d": 0, "pct": 131.58, "pts": 19, "us": false}, {"rank": 2, "name": "Collingwood U13 Girls 05", "p": 8, "w": 2, "l": 0, "d": 0, "pct": 156.25, "pts": 17, "us": true}, {"rank": 3, "name": "Eltham U13 Girls 06", "p": 8, "w": 1, "l": 1, "d": 0, "pct": 100.0, "pts": 17, "us": false}, {"rank": 4, "name": "Bulleen U13 Girls 08", "p": 8, "w": 1, "l": 1, "d": 0, "pct": 78.48, "pts": 17, "us": false}, {"rank": 5, "name": "Balwyn U13 Girls 05", "p": 8, "w": 1, "l": 1, "d": 0, "pct": 95.0, "pts": 16, "us": false}, {"rank": 6, "name": "Koonung U13 Girls 07", "p": 8, "w": 0, "l": 2, "d": 0, "pct": 95.52, "pts": 14, "us": false}, {"rank": 7, "name": "Yarra-Eagles U13 Girls 01", "p": 8, "w": 1, "l": 1, "d": 0, "pct": 81.63, "pts": 14, "us": false}, {"rank": 8, "name": "Darebin-Giants U13 Girls 04", "p": 8, "w": 0, "l": 2, "d": 0, "pct": 82.61, "pts": 13, "us": false}], "ladder_note": "Collingwood move up to 2nd on the ladder after a 2-0 start to the regular season. Ladder %/points methodology unchanged from last week (C1-only % from Round 7 onward, grading-quality adjustment baked into starting points). Cross-checked against the official EDJBA ladder: exact match across points, percentage, and total W-L-D record.", "star": {"name": "Aida Rodrigues", "num": 33, "pts": 20, "blurb": "drops a season-high 20 points on 8-for-12 shooting as Bulleen edge past Koonung 32-30 in a back-and-forth contest \u2014 the biggest individual scoring effort of the round."}, "watchlist_note": "Massey placeholder LIFTED this round for Eltham G07, Koonung G07, and Darebin G04 \u2014 all three have now played 2+ regular season games. Forecast matrix predictions involving these teams no longer carry the low-confidence flag from this round onward."};
-const GAME_DAY_PERFORMANCE = {"team": "Collingwood U13 Girls 05", "rounds": {"7": {"opponent": "Bulleen U13 Girls 08", "result": "W 49-30", "game_length": "42:34", "fair_share": "28:34", "is_baseline": true, "baseline_note": "First Game Day Performance report processed. No prior-round data exists yet, so rotation/lineup trend comparisons start from this game.", "player_summary": [{"num": "23", "nick": "Lily", "fn": "Lily", "ln": "Home", "h1": "16:45", "h2": "17:56", "total": "34:41", "total_sec": 2081, "vs_fair": "+6:07", "fouls": 0, "plus_minus": 19}, {"num": "15", "nick": "Ivy", "fn": "Ivy", "ln": "Corr", "h1": "16:38", "h2": "17:02", "total": "33:40", "total_sec": 2020, "vs_fair": "+5:06", "fouls": 0, "plus_minus": 14}, {"num": "17", "nick": "Izzy", "fn": "Isabelle", "ln": "Gardiner", "h1": "17:10", "h2": "14:26", "total": "31:36", "total_sec": 1896, "vs_fair": "+3:02", "fouls": 0, "plus_minus": 13}, {"num": "13", "nick": "Ada", "fn": "Ada", "ln": "Miller", "h1": "16:38", "h2": "13:42", "total": "30:20", "total_sec": 1820, "vs_fair": "+1:46", "fouls": 0, "plus_minus": 12}, {"num": "37", "nick": "Maddy", "fn": "Madeleine", "ln": "Clark", "h1": "11:39", "h2": "17:04", "total": "28:43", "total_sec": 1723, "vs_fair": "+0:09", "fouls": 0, "plus_minus": 19}, {"num": "6", "nick": "Hattie", "fn": "Harriet", "ln": "Wheatley", "h1": "7:40", "h2": "17:06", "total": "24:46", "total_sec": 1486, "vs_fair": "-3:48", "fouls": 0, "plus_minus": 11}, {"num": "10", "nick": "Saskia", "fn": "Saskia", "ln": "Chatergon-Smith", "h1": "17:10", "h2": "0:00", "total": "17:10", "total_sec": 1030, "vs_fair": "-11:24", "fouls": 0, "plus_minus": 7}], "pair_seconds": {"10,13": 784, "10,15": 784, "10,17": 1030, "10,37": 485, "13,15": 1814, "13,17": 1361, "13,37": 1271, "15,17": 1561, "15,37": 1471, "17,37": 1264, "10,23": 791, "10,6": 246, "17,23": 1622, "17,6": 969, "23,37": 1541, "23,6": 1476, "37,6": 1424, "13,23": 1629, "13,6": 976, "15,23": 1829, "15,6": 1176}, "pair_plusminus": {"10,13": 4, "10,15": 4, "10,17": 7, "10,37": 7, "13,15": 10, "13,17": 6, "13,37": 12, "15,17": 8, "15,37": 14, "17,37": 13, "10,23": 3, "10,6": 3, "17,23": 13, "17,6": 5, "23,37": 19, "23,6": 15, "37,6": 11, "13,23": 12, "13,6": 4, "15,23": 14, "15,6": 6}, "lineup_seconds": {"10,13,15,17,37": 239, "10,17,23,37,6": 246, "13,15,23,37,6": 600, "10,13,15,17,23": 545, "15,17,23,37,6": 347, "13,15,17,37,6": 84, "13,17,23,37,6": 147, "13,15,17,6": 9, "13,15,17,23,6": 136, "13,15,17,23,37": 201}, "lineup_plusminus": {"10,13,15,17,37": 4, "10,17,23,37,6": 3, "13,15,23,37,6": 6, "10,13,15,17,23": 0, "15,17,23,37,6": 4, "13,15,17,37,6": -4, "13,17,23,37,6": 2, "13,15,17,23,6": 0, "13,15,17,23,37": 4}, "data_quality_flag": "H2 lineup segment durations run ~705s long in aggregate vs official H2 playing-time totals (dead-clock/stoppage time included in substitution-log timestamps). Pairwise/lineup CO-OCCURRENCE and scoring attribution are reliable; absolute H2 lineup durations are approximate."}, "8": {"opponent": "Balwyn U13 Girls 05", "result": "W 26-18", "no_squad_manager_data": true, "note": "No Squad Manager substitution/scoring log provided for Round 8. Playing time, lineup combinations, and plus-minus tracking are not available for this round."}}};
-
-function c1Result(diff){
-  const margin = Math.round(diff);
-  const wp = Math.round(100/(1+Math.exp(-Math.abs(diff)/12)));
-  return {margin, wp};
-}
-function pname(p){ return `${p.fn} ${p.ln} (#${p.num})`; }
-
-function renderC1Matrix(){
-  const wrap = document.getElementById('c1-matrix-wrap');
-  let html = '<table class="c1-matrix"><thead><tr><th></th>';
-  C1_TEAMS.forEach(t=>{ html += `<th title="${t.name}">${t.club} ${t.num}</th>`; });
-  html += '</tr></thead><tbody>';
-  C1_TEAMS.forEach(home=>{
-    html += `<tr><th>${home.club} ${home.num}</th>`;
-    C1_TEAMS.forEach(away=>{
-      if(home.name===away.name){
-        html += '<td class="c1-diag">—</td>';
-      } else {
-        const diff = home.massey_current - away.massey_current;
-        const r = c1Result(diff);
-        const winner = diff>=0 ? home : away;
-        const lowConf = home.massey_placeholder || away.massey_placeholder;
-        const cls = diff>=0 ? 'c1-home-win' : 'c1-away-win';
-        html += `<td class="${cls}${lowConf?' c1-lowconf':''}" title="${winner.club} ${winner.num} by ~${Math.abs(r.margin)} (${r.wp}% confidence)${lowConf?' — LOW CONFIDENCE (placeholder rating)':''}">`
-              + `${winner.num!==home.num?'@':''}${winner.club.slice(0,3)} +${Math.abs(r.margin)}`
-              + (lowConf?'<span class="c1-flag">⚠</span>':'')
-              + `</td>`;
-      }
-    });
-    html += '</tr>';
-  });
-  html += '</tbody></table>';
-  html += '<p class="c1-note">⚠ = low-confidence prediction (Eltham G07 / Koonung G07 / Darebin G04 — placeholder rating, &lt;2 regular season games played). Cell shows predicted winner and margin.</p>';
-  wrap.innerHTML = html;
-}
-
-function renderC1Ladder(){
-  const wrap = document.getElementById('c1-ladder-wrap');
-  const sorted = [...C1_TEAMS].sort((a,b)=> b.ladder_points-a.ladder_points || b.pct-a.pct || b.sf-a.sf);
-
-  // RS1 = Round 7 (first regular season round); RS8 = Round 14 (final round) repeats RS1 pairings.
-  // Forecast below = each team's remaining unique opponents (RS2-RS7) + one repeat game vs their RS1 opponent (RS8/Round 14).
-  const RS1_PAIRS = [
-    ['Balwyn U13 Girls 05','Darebin-Giants U13 Girls 04'],
-    ['Koonung U13 Girls 07','Eltham U13 Girls 06'],
-    ['Yarra-Eagles U13 Girls 01','Eltham U13 Girls 07'],
-    ['Bulleen U13 Girls 08','Collingwood U13 Girls 05'],
-  ];
-  const byName = {}; C1_TEAMS.forEach(t=>byName[t.name]=t);
-  const rs1OpponentOf = {};
-  RS1_PAIRS.forEach(([a,b])=>{ rs1OpponentOf[a]=b; rs1OpponentOf[b]=a; });
-
-  function forecastPoints(team){
-    const others = C1_TEAMS.filter(t=>t.name!==team.name);
-    let pts = team.ladder_points;
-    others.forEach(opp=>{
-      const diff = team.massey_current - opp.massey_current;
-      const wp = 100/(1+Math.exp(-Math.abs(diff)/12))/100;
-      pts += wp*3 + (1-wp)*1;
-    });
-    const rs1opp = byName[rs1OpponentOf[team.name]];
-    if (rs1opp){
-      const diff = team.massey_current - rs1opp.massey_current;
-      const wp = 100/(1+Math.exp(-Math.abs(diff)/12))/100;
-      pts += wp*3 + (1-wp)*1;
-    }
-    return pts;
-  }
-
-  const forecast = C1_TEAMS.map(t=>({name:t.name, club:t.club, num:t.num, pts: forecastPoints(t)}))
-                            .sort((a,b)=>b.pts-a.pts);
-
-  let html = '<div class="c1-ladder-grid">';
-  html += '<div class="c1-ladder-col"><h4>Current Ladder (after R7)</h4><table class="c1-ladder-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>D</th><th>PTS</th><th>%</th></tr></thead><tbody>';
-  sorted.forEach((t,i)=>{
-    html += `<tr${t.name==='Collingwood U13 Girls 05'?' class="c1-us"':''}><td>${i+1}</td><td>${t.club} U13 Girls ${t.num}</td><td>${7}</td><td>${t.ladder_w}</td><td>${t.ladder_l}</td><td>${t.ladder_d}</td><td><b>${t.ladder_points}</b></td><td>${t.pct.toFixed(2)}%</td></tr>`;
-  });
-  html += '</tbody></table></div>';
-
-  html += '<div class="c1-ladder-col"><h4>Forecast End-of-Season Ladder</h4><table class="c1-ladder-table"><thead><tr><th>#</th><th>Team</th><th>Proj. PTS</th></tr></thead><tbody>';
-  forecast.forEach((t,i)=>{
-    html += `<tr${t.name==='Collingwood U13 Girls 05'?' class="c1-us"':''}><td>${i+1}</td><td>${t.club} U13 Girls ${t.num}</td><td><b>${t.pts.toFixed(1)}</b></td></tr>`;
-  });
-  html += '</tbody></table></div>';
-  html += '</div>';
-  wrap.innerHTML = html;
-}
-
-function latestRoundStats(p){
-  // returns {pts, fouls, label} from the most recent round this player has data for
-  if (p.r8_pts!=null || p.r8_fouls!=null) return {pts: p.r8_pts||0, fouls: p.r8_fouls||0, label:'R8'};
-  if (p.r7_pts!=null || p.r7_fouls!=null) return {pts: p.r7_pts||0, fouls: p.r7_fouls||0, label:'R7'};
-  return {pts:0, fouls:0, label:null};
-}
-
-function c1ScoutingNotes(team){
-  const top = team.players.slice(0,3).map(pname).join(', ');
-  const foulProne = team.players.filter(p=>latestRoundStats(p).fouls>=3).map(pname);
-  const latestLabel = latestRoundStats(team.players[0]).label || 'their last game';
-  let notes = `Primary scoring threats so far: ${top}. `;
-  if (foulProne.length){
-    notes += `Foul-prone in ${latestLabel}: ${foulProne.join(', ')} — worth attacking inside and drawing contact. `;
-  }
-  if (team.ladder_w > team.ladder_l) notes += `Currently ${team.ladder_w}-${team.ladder_l} in the regular season — building momentum. `;
-  else if (team.ladder_l > team.ladder_w) notes += `Currently ${team.ladder_w}-${team.ladder_l} in the regular season — vulnerable, especially if pressured early. `;
-  return notes;
-}
-
-function c1CoachingTips(team){
-  const top = team.players.slice(0,3);
-  const lead = top[0];
-  const second = top[1];
-  const foulProne = team.players.filter(p=>latestRoundStats(p).fouls>=3).sort((a,b)=>latestRoundStats(b).fouls-latestRoundStats(a).fouls);
-  const lowFoulHighScore = team.players.filter(p=>latestRoundStats(p).fouls<=1 && latestRoundStats(p).pts>=4);
-  const latestLabel = latestRoundStats(team.players[0]).label || 'their last game';
-
-  const tips = [];
-
-  tips.push(`<b>Contain ${pname(lead)}.</b> She's the clear focal point of their offence — assign your best on-ball defender, deny the catch on the perimeter, and look to double-team early if she gets a head of steam inside.`);
-
-  if (second){
-    tips.push(`<b>Don't sleep on ${pname(second)}.</b> She's their second scoring option — if you load up on ${lead.fn}, expect the ball to find her instead. Keep a help defender aware of her cuts.`);
-  }
-
-  if (foulProne.length){
-    const names = foulProne.slice(0,2).map(pname).join(' and ');
-    tips.push(`<b>Attack the rim against ${names}.</b> They picked up multiple fouls in ${latestLabel} — driving hard early can put them in foul trouble and force the bench to rotate sooner.`);
-  }
-
-  if (lowFoulHighScore.length){
-    const names = lowFoulHighScore.slice(0,2).map(pname).join(' and ');
-    tips.push(`<b>Be disciplined defending ${names}.</b> They scored well without picking up fouls — don't reach in; stay on your feet and contest with verticality rather than giving up easy free throws.`);
-  }
-
-  if (team.massey_placeholder){
-    tips.push(`<b>Scout with caution.</b> This team's rating is still a placeholder (they moved grade for the regular season) — treat early scouting as provisional and reassess after their next outing.`);
-  } else if (team.massey_current < 18){
-    tips.push(`<b>Push the pace.</b> Their net rating is below the C1 average — transition opportunities and quick ball movement should create good looks before their defence sets.`);
-  } else {
-    tips.push(`<b>Respect their structure.</b> Rated above the C1 average — expect a well-drilled team. Win the hustle stats (rebounds, loose balls) and avoid live-ball turnovers that fuel their transition game.`);
-  }
-
-  return tips.map(t=>`<li>${t}</li>`).join('');
-}
-
-function renderC1DeepDive(teamName){
-  const team = C1_TEAMS.find(t=>t.name===teamName);
-  const wrap = document.getElementById('c1-deepdive-content');
-  if(!team){ wrap.innerHTML=''; return; }
-
-  let rows = '';
-  team.players.forEach(p=>{
-    const gAvg = p.grading_total ? (p.grading_total/6).toFixed(1) : '0.0';
-    const regGames = (p.r7_pts!=null?1:0) + (p.r8_pts!=null?1:0);
-    const regTotal = (p.r7_pts||0) + (p.r8_pts||0);
-    const regAvg = regGames ? (regTotal/regGames).toFixed(1) : '—';
-    rows += `<tr><td>${p.num}</td><td>${p.fn} ${p.ln}</td><td>${p.grading_total}</td><td>${gAvg}</td>`
-          + `<td>${p.r7_pts!=null?p.r7_pts:'—'}</td><td>${p.r8_pts!=null?p.r8_pts:'—'}</td><td>${regAvg}</td><td>${p.total}</td><td>#${p.rank}</td>`
-          + `<td>${p.r7_fouls!=null?p.r7_fouls:'—'}</td><td>${p.r8_fouls!=null?p.r8_fouls:'—'}</td></tr>`;
-  });
-
-  const placeholderNote = team.massey_placeholder
-    ? `<div class="c1-warning">⚠ This team played grading season in a different grade — Massey rating shown is a C1-network-average placeholder, low confidence until 2+ regular season games are played.</div>`
-    : '';
-
-  const gdpHtml = (team.name === GAME_DAY_PERFORMANCE.team) ? renderGameDayPerformance() : '';
-
-  wrap.innerHTML = `
-    <div class="c1-dd-header">
-      <h3>${team.name}</h3>
-      <div class="c1-dd-stats">
-        <span>Massey (current): <b>${team.massey_current>=0?'+':''}${team.massey_current}</b></span>
-        <span>Ladder: <b>${team.ladder_points} pts</b> (${team.ladder_w}W-${team.ladder_l}L-${team.ladder_d}D)</span>
-        <span>C1-only %: <b>${team.pct.toFixed(2)}%</b></span>
-      </div>
-      ${placeholderNote}
-    </div>
-    <table class="c1-dd-table">
-      <thead><tr><th>#</th><th>Player</th><th>Grading Pts</th><th>Grading Avg</th><th>R7 Pts</th><th>R8 Pts</th><th>Reg Avg</th><th>Season Total</th><th>Scoring Rank</th><th>R7 Fouls</th><th>R8 Fouls</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-    <div class="c1-dd-scout">
-      <h4>Scouting Summary</h4>
-      <p>${c1ScoutingNotes(team)}</p>
-    </div>
-    <div class="c1-dd-coach">
-      <h4>Coaching &amp; Playing Tips — How to Beat Them</h4>
-      <ul>${c1CoachingTips(team)}</ul>
-    </div>
-    ${gdpHtml}
-  `;
-}
-
-function renderGameDayPerformance(){
-  const rounds = Object.keys(GAME_DAY_PERFORMANCE.rounds).map(Number).sort((a,b)=>a-b);
-  const latestRound = rounds[rounds.length-1];
-  const latestRd = GAME_DAY_PERFORMANCE.rounds[String(latestRound)];
-
-  // Gap rounds (no Squad Manager data) are noted but don't replace the last good data-bearing round.
-  const gapNote = latestRd.no_squad_manager_data
-    ? `<div class="gdp-gap">⚠ No Squad Manager log was provided for Round ${latestRound} (${latestRd.result} vs ${latestRd.opponent.replace('U13 Girls ','G')}) — playing time and lineup data below are from the most recent round that has them.</div>`
-    : '';
-
-  const dataRounds = rounds.filter(r => !GAME_DAY_PERFORMANCE.rounds[String(r)].no_squad_manager_data);
-  if (dataRounds.length === 0){
-    return `<div class="c1-gdp-section"><h4>🏀 Game Day Performance</h4>${gapNote}<p style="font-size:12px;color:var(--muted);">No Game Day Performance data has been recorded yet this season.</p></div>`;
-  }
-  const dataRound = dataRounds[dataRounds.length-1];
-  const rd = GAME_DAY_PERFORMANCE.rounds[String(dataRound)];
-
-  const baselineBanner = rd.is_baseline
-    ? `<div class="gdp-baseline">📍 BASELINE REPORT — first Game Day Performance data point. No prior round exists yet for rotation/lineup trend comparisons.</div>`
-    : '';
-
-  let ptRows = '';
-  rd.player_summary.forEach(p=>{
-    ptRows += `<tr><td>${p.num}</td><td>${p.fn} ${p.ln}</td><td>${p.h1}</td><td>${p.h2}</td><td><b>${p.total}</b></td>`
-            + `<td class="${p.vs_fair.startsWith('-')?'gdp-neg':'gdp-pos'}">${p.vs_fair}</td>`
-            + `<td class="${p.plus_minus<0?'gdp-neg':'gdp-pos'}">${p.plus_minus>=0?'+':''}${p.plus_minus}</td></tr>`;
-  });
-
-  const pairs = Object.entries(rd.pair_seconds).sort((a,b)=>b[1]-a[1]).slice(0,8);
-  const nameOf = (num)=>{
-    const p = rd.player_summary.find(x=>String(x.num)===String(num));
-    return p ? `${p.fn} ${p.ln} (#${p.num})` : `#${num}`;
-  };
-  let pairRows = '';
-  pairs.forEach(([key, secs])=>{
-    const [a,b] = key.split(',');
-    const pm = rd.pair_plusminus[key] || 0;
-    const mins = Math.floor(secs/60), s = secs%60;
-    pairRows += `<tr><td>${nameOf(a)}</td><td>${nameOf(b)}</td><td>${mins}:${String(s).padStart(2,'0')}</td>`
-              + `<td class="${pm<0?'gdp-neg':'gdp-pos'}">${pm>=0?'+':''}${pm}</td></tr>`;
-  });
-
-  return `
-    <div class="c1-gdp-section">
-      <h4>🏀 Game Day Performance — Round ${dataRound} (vs ${rd.opponent.replace('U13 Girls ','G')}, ${rd.result})</h4>
-      ${gapNote}
-      ${baselineBanner}
-      <div class="gdp-sub">Playing Time &amp; On-Court Impact <span class="gdp-fair">fair share: ${rd.fair_share}/player · game length ${rd.game_length}</span></div>
-      <table class="gdp-table">
-
-        <thead><tr><th>#</th><th>Player</th><th>H1</th><th>H2</th><th>Total</th><th>vs Fair</th><th>On-Court +/-</th></tr></thead>
-        <tbody>${ptRows}</tbody>
-      </table>
-      <div class="gdp-sub">Top On-Court Pairings (by time together)</div>
-      <table class="gdp-table">
-        <thead><tr><th>Player A</th><th>Player B</th><th>Time Together</th><th>Combined +/-</th></tr></thead>
-        <tbody>${pairRows}</tbody>
-      </table>
-      <div class="gdp-note">${rd.data_quality_flag}</div>
-    </div>
-  `;
-}
-
-function renderC1Tab(){
-  renderC1Matrix();
-  renderC1Ladder();
-  const sel = document.getElementById('c1-team-select');
-  if (sel.options.length===0){
-    C1_TEAMS.forEach(t=>{
-      const o = document.createElement('option');
-      o.value = t.name; o.textContent = `${t.club} U13 Girls ${t.num}`;
-      sel.appendChild(o);
-    });
-    sel.value = 'Collingwood U13 Girls 05';
-    sel.addEventListener('change', ()=>renderC1DeepDive(sel.value));
-  }
-  renderC1DeepDive(sel.value || 'Collingwood U13 Girls 05');
-}
-
-/* ───────────────────── WEEKLY SUMMARY TAB ───────────────────── */
-function renderWeeklySummary(){
-  const wrap = document.getElementById('summary-content');
-  if (wrap.dataset.rendered === '1') return;
-  wrap.dataset.rendered = '1';
-
-  const ws = WEEKLY_SUMMARY;
-  let gamesHtml = '';
-  ws.games.forEach(g=>{
-    const winnerIsHome = g.home_score > g.away_score;
-    const margin = Math.abs(g.home_score - g.away_score);
-    const homeCls = winnerIsHome ? 'win' : '';
-    const awayCls = !winnerIsHome ? 'win' : '';
-    const winnerName = winnerIsHome ? g.home_short : g.away_short;
-    const usFlag = (g.home_short==='Collingwood' || g.away_short==='Collingwood');
-    gamesHtml += `
-      <div class="ws-game">
-        <div class="ws-game-head"><span>${g.time}</span><span class="ws-venue">${g.venue}</span></div>
-        <div class="ws-score-row">
-          <div class="ws-team"><span class="ws-team-name${g.home_short==='Collingwood'?' ws-us':''}">${g.home_short}</span><span class="ws-team-club">${g.home_full}</span></div>
-          <div class="ws-score">${g.home_score}<span class="ws-sep">–</span>${g.away_score}</div>
-          <div class="ws-team ws-team-away"><span class="ws-team-name${g.away_short==='Collingwood'?' ws-us':''}">${g.away_short}</span><span class="ws-team-club">${g.away_full}</span></div>
-        </div>
-        <div class="ws-margin-bar"><div class="ws-stripe" style="flex:${Math.max(margin,0.4)}"></div><div class="ws-stripe-bg" style="flex:1"></div></div>
-        <div class="ws-result-line"><span class="ws-badge">${winnerName} win</span><span class="ws-margin-label">Margin: ${margin} pt${margin===1?'':'s'}${margin===Math.max(...ws.games.map(x=>Math.abs(x.home_score-x.away_score)))?' — biggest of the round':''}${margin===Math.min(...ws.games.map(x=>Math.abs(x.home_score-x.away_score)))?" — round's nail-biter":''}</span></div>
-        <div class="ws-top-scorers">
-          <div class="ws-ts"><b>${g.top_home.name} (#${g.top_home.num})</b><span>${g.home_short} · ${g.top_home.pts} pts</span></div>
-          <div class="ws-ts"><b>${g.top_away.name} (#${g.top_away.num})</b><span>${g.away_short} · ${g.top_away.pts} pts</span></div>
-        </div>
-      </div>`;
-  });
-
-  let ladderHtml = '<table class="ws-ladder-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W–L–D</th><th>%</th><th>Pts</th></tr></thead><tbody>';
-  ws.ladder.forEach(t=>{
-    ladderHtml += `<tr${t.us?' class="ws-us-row"':''}><td>${t.rank}</td><td>${t.name}</td><td>${t.p}</td><td class="ws-wld">${t.w}–${t.l}–${t.d}</td><td class="ws-wld">${t.pct.toFixed(2)}</td><td class="ws-pts">${t.pts}</td></tr>`;
-  });
-  ladderHtml += '</tbody></table>';
-
-  wrap.innerHTML = `
-    <div class="ws-masthead">
-      <div class="ws-badge-mark">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.5l3.09 6.26 6.91 1-5 4.87 1.18 6.87L12 17.27l-6.18 3.23L7 13.63l-5-4.87 6.91-1L12 1.5z" fill="currentColor"/></svg>
-      </div>
-      <div>
-        <div class="ws-title"><span class="ws-the">The</span>All-Star Line</div>
-        <div class="ws-sub">${ws.edition} · EDJBA Winter 2026 · Girls U13 · Grade C1 · ${ws.date}</div>
-      </div>
-    </div>
-
-    <div class="ws-divider">REGULAR SEASON · ROUND ${ws.round_of} OF 8</div>
-
-    <div class="ws-callout">${ws.callout}</div>
-
-    <div class="ws-section-title">Match Results — Round ${ws.round_num}</div>
-    ${gamesHtml}
-
-    <div class="ws-divider">THE LADDER</div>
-    <div class="ws-section-title">Grade C1 Standings — After Round ${ws.round_num}</div>
-    ${ladderHtml}
-    <div class="ws-note-box">${ws.ladder_note}</div>
-
-    <div class="ws-honour-label">Star of the Round</div>
-    <div class="ws-honour">
-      <div class="ws-honour-num">${ws.star.pts}</div>
-      <div class="ws-honour-text"><b>${ws.star.name} (#${ws.star.num})</b> ${ws.star.blurb}</div>
-    </div>
-
-    <div class="ws-divider">WATCHLIST</div>
-    <div class="ws-section-title">Flagged for Round ${parseInt(ws.round_num)+1} — Low-Confidence Ratings</div>
-    <div class="ws-note-box">${ws.watchlist_note}</div>
-
-    <div class="ws-footer"><span>The All-Star Line — Collingwood All Stars Basketball Club</span><span>EDJBA Winter 2026 · Girls U13 · Grade C1 · Round ${ws.round_num}</span></div>
-  `;
-}
-
-/* ── Top-level tab switching (3 tabs, with grading sub-tabs) ── */
-function switchTopTab(id){
-  document.querySelectorAll('.top-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.top-page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('toptab-'+id).classList.add('active');
-  document.getElementById('toppage-'+id).classList.add('active');
-  const tabs=['grading','c1','summary'];
-  const idx=tabs.indexOf(id);
-  const ind=document.getElementById('top-tab-ind');
-  ind.style.left=(idx*33.333)+'%';
-  ind.style.width='33.333%';
-  if(id==='c1') renderC1Tab();
-  if(id==='summary') renderWeeklySummary();
-}
-/* expose for inline onclick wiring of inner grading sub-tabs (predict/table/fixtures) */
-/* ─────────────────── END GRADE C1 + WEEKLY SUMMARY TABS ─────────────────── */
-
 </script>
 
 <!-- Update notification banner -->
